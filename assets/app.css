@@ -296,7 +296,16 @@ small{line-height:1.45}
   letter-spacing:-.055em;
   color:#0f172a;
 }
-.topbar .eyebrow{color:#64748b;margin-bottom:8px}
+.topbar .eyebrow{
+  color:#2563eb;
+  margin-bottom:8px;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-weight:900;
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
 .user-pill{
   display:flex;
   align-items:center;

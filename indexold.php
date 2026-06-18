@@ -88,431 +88,6 @@ function report_rows($u){
                 $scope
                 ORDER BY fr.final_score DESC", $params);
 }
-function report_category($score){
-    $score = (float)$score;
-
-    if($score >= 4.50) return 'Sangat Baik';
-    if($score >= 3.50) return 'Baik';
-    if($score >= 2.50) return 'Cukup';
-    if($score > 0) return 'Perlu Pengembangan';
-
-    return 'Belum Dinilai';
-}
-
-function report_summary($rows){
-    $total = count($rows);
-    $scores = array_map(fn($r) => (float)($r['final_score'] ?? 0), $rows);
-    $validScores = array_filter($scores, fn($s) => $s > 0);
-
-    $avg = count($validScores) ? array_sum($validScores) / count($validScores) : 0;
-    $top = count($validScores) ? max($validScores) : 0;
-    $bottom = count($validScores) ? min($validScores) : 0;
-    $needDev = 0;
-
-    foreach($rows as $r){
-        $score = (float)($r['final_score'] ?? 0);
-        if($score > 0 && $score < 3.50) $needDev++;
-    }
-
-    return [
-        'total' => $total,
-        'avg' => $avg,
-        'top' => $top,
-        'bottom' => $bottom,
-        'need_dev' => $needDev
-    ];
-}
-
-function render_report_print_page($u, $rows){
-    $summary = report_summary($rows);
-    $period = active_period();
-    $generated = date('d-m-Y H:i:s');
-
-    $scopeTitle = 'Laporan Evaluasi Organisasi';
-    if($u['role_name'] === 'staff') $scopeTitle = 'Laporan Evaluasi Pribadi';
-    if($u['role_name'] === 'atasan') $scopeTitle = 'Laporan Evaluasi Tim';
-?>
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <title>SIPAKAR 360 - Laporan Evaluasi AKHLAK</title>
-
-    <style>
-        @page {
-            size: A4 landscape;
-            margin: 12mm;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            color: #111827;
-            background: #f3f4f6;
-            font-size: 12px;
-        }
-
-        .report-page {
-            width: 100%;
-            min-height: 100vh;
-            background: #ffffff;
-            padding: 24px;
-        }
-
-        .report-header {
-            display: flex;
-            justify-content: space-between;
-            gap: 24px;
-            padding: 22px 24px;
-            border-radius: 14px;
-            color: #ffffff;
-            background: linear-gradient(135deg, #111827, #1d4ed8);
-            margin-bottom: 18px;
-        }
-
-        .brand h1 {
-            margin: 0;
-            font-size: 24px;
-            letter-spacing: 0.5px;
-        }
-
-        .brand p {
-            margin: 6px 0 0;
-            color: #dbeafe;
-            font-size: 12px;
-        }
-
-        .meta {
-            text-align: right;
-            font-size: 11px;
-            line-height: 1.6;
-            color: #e5e7eb;
-        }
-
-        .meta b {
-            color: #ffffff;
-        }
-
-        .section-title {
-            margin: 18px 0 10px;
-            font-size: 15px;
-            font-weight: 700;
-            color: #111827;
-            border-left: 4px solid #2563eb;
-            padding-left: 10px;
-        }
-
-        .summary-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin-bottom: 18px;
-        }
-
-        .summary-card {
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 14px;
-            background: #f9fafb;
-        }
-
-        .summary-card span {
-            display: block;
-            color: #6b7280;
-            font-size: 11px;
-            margin-bottom: 8px;
-        }
-
-        .summary-card b {
-            font-size: 22px;
-            color: #111827;
-        }
-
-        .info-box {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 18px;
-            padding: 14px;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            background: #ffffff;
-        }
-
-        .info-item span {
-            display: block;
-            color: #6b7280;
-            font-size: 10px;
-            margin-bottom: 4px;
-        }
-
-        .info-item b {
-            font-size: 12px;
-            color: #111827;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            table-layout: fixed;
-            background: #ffffff;
-            border: 1px solid #d1d5db;
-        }
-
-        thead {
-            display: table-header-group;
-        }
-
-        th {
-            background: #111827;
-            color: #ffffff;
-            padding: 9px 7px;
-            border: 1px solid #374151;
-            font-size: 10px;
-            text-align: left;
-            vertical-align: middle;
-        }
-
-        td {
-            padding: 8px 7px;
-            border: 1px solid #e5e7eb;
-            font-size: 10px;
-            vertical-align: top;
-            word-wrap: break-word;
-            line-height: 1.35;
-        }
-
-        tbody tr:nth-child(even) {
-            background: #f9fafb;
-        }
-
-        tr {
-            page-break-inside: avoid;
-        }
-
-        .col-no { width: 32px; text-align: center; }
-        .col-nik { width: 75px; }
-        .col-name { width: 135px; }
-        .col-dept { width: 95px; }
-        .col-score { width: 55px; text-align: center; }
-        .col-category { width: 90px; }
-        .col-gap { width: 260px; }
-
-        .score {
-            font-weight: 700;
-            color: #047857;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: 999px;
-            font-size: 9px;
-            font-weight: 700;
-            background: #e0f2fe;
-            color: #075985;
-        }
-
-        .footer-note {
-            margin-top: 16px;
-            padding-top: 10px;
-            border-top: 1px solid #e5e7eb;
-            color: #6b7280;
-            font-size: 10px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .toolbar {
-            position: sticky;
-            top: 0;
-            z-index: 99;
-            display: flex;
-            justify-content: flex-end;
-            gap: 10px;
-            padding: 12px 24px;
-            background: #111827;
-        }
-
-        .toolbar button,
-        .toolbar a {
-            border: 0;
-            border-radius: 10px;
-            padding: 10px 14px;
-            font-weight: 700;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 12px;
-        }
-
-        .toolbar button {
-            background: #2563eb;
-            color: #ffffff;
-        }
-
-        .toolbar a {
-            background: #ffffff;
-            color: #111827;
-        }
-
-        @media print {
-            body {
-                background: #ffffff;
-            }
-
-            .toolbar {
-                display: none;
-            }
-
-            .report-page {
-                padding: 0;
-            }
-
-            .report-header {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            th {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            .summary-card,
-            .info-box,
-            tbody tr:nth-child(even) {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-        }
-    </style>
-</head>
-
-<body>
-    <div class="toolbar">
-        <a href="?page=reports">Kembali</a>
-        <button onclick="window.print()">Save as PDF</button>
-    </div>
-
-    <main class="report-page">
-        <header class="report-header">
-            <div class="brand">
-                <h1>SIPAKAR 360</h1>
-                <p>Laporan Evaluasi AKHLAK & Individual Development Plan</p>
-                <p>PT Energi Nusantara</p>
-            </div>
-
-            <div class="meta">
-                <div><b><?= h($scopeTitle) ?></b></div>
-                <div>Generated: <?= h($generated) ?></div>
-                <div>Dicetak oleh: <?= h($u['employee_name'] ?? $u['username']) ?></div>
-                <div>Role: <?= h(role_label($u['role_name'])) ?></div>
-            </div>
-        </header>
-
-        <section class="info-box">
-            <div class="info-item">
-                <span>Periode Evaluasi</span>
-                <b><?= h($period['period_name'] ?? 'Semua Periode') ?></b>
-            </div>
-            <div class="info-item">
-                <span>Status Periode</span>
-                <b><?= h($period['period_status'] ?? '-') ?></b>
-            </div>
-            <div class="info-item">
-                <span>Tanggal Periode</span>
-                <b><?= h(($period['start_date'] ?? '-') . ' s.d. ' . ($period['end_date'] ?? '-')) ?></b>
-            </div>
-        </section>
-
-        <h2 class="section-title">Ringkasan Evaluasi</h2>
-
-        <section class="summary-grid">
-            <div class="summary-card">
-                <span>Total Data Evaluasi</span>
-                <b><?= h($summary['total']) ?></b>
-            </div>
-            <div class="summary-card">
-                <span>Rata-rata Final Score</span>
-                <b><?= number_format($summary['avg'], 2) ?></b>
-            </div>
-            <div class="summary-card">
-                <span>Skor Tertinggi</span>
-                <b><?= number_format($summary['top'], 2) ?></b>
-            </div>
-            <div class="summary-card">
-                <span>Need Development</span>
-                <b><?= h($summary['need_dev']) ?></b>
-            </div>
-        </section>
-
-        <h2 class="section-title">Rekap Hasil Evaluasi</h2>
-
-        <table>
-            <thead>
-                <tr>
-                    <th class="col-no">No</th>
-                    <th class="col-nik">NIK</th>
-                    <th class="col-name">Nama Karyawan</th>
-                    <th class="col-dept">Departemen</th>
-                    <th class="col-score">Self</th>
-                    <th class="col-score">Peer</th>
-                    <th class="col-score">Bawahan</th>
-                    <th class="col-score">Atasan</th>
-                    <th class="col-score">Final</th>
-                    <th class="col-category">Kategori</th>
-                    <th class="col-gap">Gap Analysis / IDP</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <?php if(!$rows): ?>
-                    <tr>
-                        <td colspan="11" style="text-align:center; padding: 24px;">
-                            Belum ada data final result yang dapat ditampilkan.
-                        </td>
-                    </tr>
-                <?php endif; ?>
-
-                <?php foreach($rows as $i => $r): ?>
-                    <tr>
-                        <td class="col-no"><?= $i + 1 ?></td>
-                        <td><?= h($r['employee_nik']) ?></td>
-                        <td><b><?= h($r['employee_name']) ?></b></td>
-                        <td><?= h($r['department_name']) ?></td>
-                        <td class="col-score"><?= score_fmt($r['self_score']) ?></td>
-                        <td class="col-score"><?= score_fmt($r['peer_score']) ?></td>
-                        <td class="col-score"><?= score_fmt($r['subordinate_score']) ?></td>
-                        <td class="col-score"><?= score_fmt($r['supervisor_score']) ?></td>
-                        <td class="col-score score"><?= score_fmt($r['final_score']) ?></td>
-                        <td><span class="badge"><?= h(report_category($r['final_score'])) ?></span></td>
-                        <td><?= h($r['gap_analysis']) ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-
-        <div class="footer-note">
-            <span>SIPAKAR 360 - Laporan Evaluasi AKHLAK</span>
-            <span>Dokumen ini dihasilkan otomatis oleh sistem.</span>
-        </div>
-    </main>
-
-    <script>
-        window.addEventListener('load', function () {
-            setTimeout(function () {
-                window.print();
-            }, 600);
-        });
-    </script>
-</body>
-</html>
-<?php
-}
 function akhlak_scores($employee_id=null,$period_id=null){
     $where="WHERE a.assessment_status='submitted'"; $params=[];
     if($employee_id){ $where.=" AND a.evaluatee_id=?"; $params[]=$employee_id; }
@@ -584,177 +159,25 @@ function assessment_targets($u,$period){
     }
     return $targets;
 }
-function pdf_escape_text($text){
-    $text = trim(preg_replace('/\s+/', ' ', str_replace(["\r","\n","\t"], ' ', (string)$text)));
-    if(function_exists('iconv')){
-        $converted = @iconv('UTF-8', 'Windows-1252//TRANSLIT//IGNORE', $text);
-        if($converted !== false) $text = $converted;
-    }
-    return str_replace(['\\','(',')'], ['\\\\','\\(','\\)'], $text);
-}
-function pdf_text(&$content,$x,$y,$text,$size=9,$font='F1',$color='0 0 0'){
-    $content .= "BT $color rg /$font $size Tf 1 0 0 1 ".round($x,2)." ".round($y,2)." Tm (".pdf_escape_text($text).") Tj ET\n";
-}
-function pdf_rect(&$content,$x,$y,$w,$h,$fill=null,$stroke='0.82 0.86 0.90'){
-    if($fill !== null){
-        $content .= "$fill rg $stroke RG $x $y $w $h re B\n";
-    } else {
-        $content .= "$stroke RG $x $y $w $h re S\n";
-    }
-}
-function pdf_line(&$content,$x1,$y1,$x2,$y2,$stroke='0.82 0.86 0.90'){
-    $content .= "$stroke RG $x1 $y1 m $x2 $y2 l S\n";
-}
-function pdf_wrap($text,$maxChars){
-    $text = trim(preg_replace('/\s+/', ' ', (string)$text));
-    if($text === '') return ['-'];
-    $wrapped = wordwrap($text, max(8,(int)$maxChars), "\n", true);
-    return explode("\n", $wrapped);
-}
-function pdf_score($value){
-    return ($value !== null && $value !== '') ? number_format((float)$value, 2) : '-';
-}
 function render_simple_pdf($rows){
-    $pageW = 595; $pageH = 842; $margin = 36;
-    $pages = [];
-    $generated = date('Y-m-d H:i:s');
-    $totalRows = count($rows);
-    $avgScore = $totalRows ? array_sum(array_map(fn($r)=>(float)$r['final_score'], $rows)) / $totalRows : 0;
-    $topScore = $totalRows ? max(array_map(fn($r)=>(float)$r['final_score'], $rows)) : 0;
-
-    $columns = [
-        ['label'=>'No','x'=>36,'w'=>24],
-        ['label'=>'Nama','x'=>64,'w'=>108],
-        ['label'=>'Departemen','x'=>176,'w'=>72],
-        ['label'=>'Jabatan','x'=>252,'w'=>72],
-        ['label'=>'Periode','x'=>328,'w'=>62],
-        ['label'=>'Final','x'=>394,'w'=>38],
-        ['label'=>'Gap Analysis / IDP','x'=>436,'w'=>123],
-    ];
-
-    $draw_header = function(&$content,$pageNo,$withSummary=true) use ($pageW,$pageH,$margin,$generated,$totalRows,$avgScore,$topScore,$columns){
-        // Header utama
-        pdf_rect($content,0,792,$pageW,50,'0.06 0.09 0.16','0.06 0.09 0.16');
-        pdf_text($content,36,817,'SIPAKAR 360',18,'F2','1 1 1');
-        pdf_text($content,36,802,'Laporan Evaluasi AKHLAK - PT Energi Nusantara',9,'F1','0.88 0.92 0.98');
-        pdf_text($content,430,817,'Generated',7,'F1','0.75 0.82 0.92');
-        pdf_text($content,430,804,$generated,8,'F2','1 1 1');
-
-        $y = 764;
-        pdf_text($content,36,$y,'Report & Individual Development Plan',12,'F2','0.07 0.10 0.16');
-        pdf_text($content,36,$y-14,'Dokumen ini menampilkan rekap hasil penilaian, final score, gap analysis, dan rekomendasi IDP.',8,'F1','0.37 0.42 0.50');
-
-        if($withSummary){
-            $cardY = 695; $cardW = 164; $gap = 13;
-            $cards = [
-                ['Total Karyawan', (string)$totalRows],
-                ['Rata-rata Final', number_format($avgScore,2)],
-                ['Top Score', number_format($topScore,2)],
-            ];
-            foreach($cards as $idx=>$card){
-                $x = 36 + ($cardW+$gap)*$idx;
-                pdf_rect($content,$x,$cardY,$cardW,50,'0.96 0.98 1.00','0.82 0.86 0.90');
-                pdf_text($content,$x+12,$cardY+30,$card[0],8,'F1','0.37 0.42 0.50');
-                pdf_text($content,$x+12,$cardY+12,$card[1],18,'F2','0.06 0.09 0.16');
-            }
-            $tableY = 650;
-        } else {
-            $tableY = 705;
-        }
-
-        // Header tabel
-        pdf_rect($content,36,$tableY,523,24,'0.09 0.16 0.30','0.09 0.16 0.30');
-        foreach($columns as $c){
-            pdf_text($content,$c['x']+4,$tableY+8,$c['label'],7,'F2','1 1 1');
-        }
-        return $tableY - 4;
-    };
-
-    $new_page = function($withSummary=true) use (&$pages,$draw_header){
-        $content = "q\n";
-        $content .= "1 1 1 rg 0 0 595 842 re f\n";
-        $y = $draw_header($content, count($pages)+1, $withSummary);
-        return [$content,$y];
-    };
-
-    [$content,$y] = $new_page(true);
-
-    if(!$rows){
-        pdf_rect($content,36,$y-44,523,40,'0.99 0.99 0.99','0.82 0.86 0.90');
-        pdf_text($content,52,$y-22,'Belum ada data final result yang dapat ditampilkan.',9,'F1','0.37 0.42 0.50');
+    $lines=['SIPAKAR - Laporan Evaluasi AKHLAK','PT Energi Nusantara','Generated: '.date('Y-m-d H:i:s'),''];
+    foreach($rows as $i=>$r){
+        $lines[] = ($i+1).'. '.$r['employee_name'].' | '.$r['department_name'].' | Final: '.$r['final_score'].' | Top/IDP: '.substr($r['gap_analysis'],0,110);
     }
-
-    foreach($rows as $idx=>$r){
-        $gapLines = pdf_wrap($r['gap_analysis'] ?? '-', 42);
-        $nameLines = pdf_wrap($r['employee_name'] ?? '-', 22);
-        $deptLines = pdf_wrap($r['department_name'] ?? '-', 14);
-        $posLines = pdf_wrap($r['position_name'] ?? '-', 14);
-        $periodLines = pdf_wrap($r['period_name'] ?? '-', 12);
-        $maxLines = max(count($gapLines), count($nameLines), count($deptLines), count($posLines), count($periodLines));
-        $rowH = max(30, 12*$maxLines + 10);
-
-        if($y - $rowH < 58){
-            $content .= "Q\n";
-            $pages[] = $content;
-            [$content,$y] = $new_page(false);
-        }
-
-        $rowY = $y - $rowH;
-        $fill = ($idx % 2 === 0) ? '1 1 1' : '0.98 0.99 1.00';
-        pdf_rect($content,36,$rowY,523,$rowH,$fill,'0.86 0.89 0.93');
-        foreach($columns as $c){ pdf_line($content,$c['x'],$rowY,$c['x'],$rowY+$rowH,'0.88 0.91 0.94'); }
-        pdf_line($content,559,$rowY,559,$rowY+$rowH,'0.88 0.91 0.94');
-
-        $textY = $rowY + $rowH - 13;
-        pdf_text($content,40,$textY,(string)($idx+1),7,'F1','0.12 0.16 0.23');
-        foreach(array_slice($nameLines,0,3) as $i=>$line) pdf_text($content,68,$textY-($i*10),$line,7, $i===0?'F2':'F1','0.12 0.16 0.23');
-        foreach(array_slice($deptLines,0,3) as $i=>$line) pdf_text($content,180,$textY-($i*10),$line,7,'F1','0.12 0.16 0.23');
-        foreach(array_slice($posLines,0,3) as $i=>$line) pdf_text($content,256,$textY-($i*10),$line,7,'F1','0.12 0.16 0.23');
-        foreach(array_slice($periodLines,0,3) as $i=>$line) pdf_text($content,332,$textY-($i*10),$line,7,'F1','0.12 0.16 0.23');
-        pdf_text($content,400,$textY,pdf_score($r['final_score']),8,'F2','0.02 0.47 0.34');
-        foreach(array_slice($gapLines,0,6) as $i=>$line) pdf_text($content,440,$textY-($i*10),$line,6.4,'F1','0.12 0.16 0.23');
-
-        $y = $rowY;
-    }
-
-    $content .= "Q\n";
-    $pages[] = $content;
-
-    // Footer setelah total halaman diketahui
-    $totalPages = count($pages);
-    foreach($pages as $i=>$p){
-        $footer = "q\n";
-        pdf_line($footer,36,38,559,38,'0.82 0.86 0.90');
-        pdf_text($footer,36,24,'SIPAKAR 360 - Confidential Report',7,'F1','0.37 0.42 0.50');
-        pdf_text($footer,512,24,'Page '.($i+1).' of '.$totalPages,7,'F1','0.37 0.42 0.50');
-        $footer .= "Q\n";
-        $pages[$i] = $p.$footer;
-    }
-
-    // Susun objek PDF
+    $content="BT /F1 10 Tf 40 790 Td 14 TL ";
+    foreach($lines as $line){ $content.='('.str_replace(['\\','(',')'],['\\\\','\\(','\\)'],$line).') Tj T* '; }
+    $content.='ET';
     $objs=[];
-    $kids=[];
-    $objs[1]="1 0 obj << /Type /Catalog /Pages 2 0 R >> endobj\n";
-    $objs[3]="3 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> endobj\n";
-    $objs[4]="4 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >> endobj\n";
-    $objId=5;
-    foreach($pages as $p){
-        $pageObj=$objId++; $contentObj=$objId++;
-        $kids[]=$pageObj.' 0 R';
-        $objs[$pageObj]="$pageObj 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 $pageW $pageH] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents $contentObj 0 R >> endobj\n";
-        $objs[$contentObj]="$contentObj 0 obj << /Length ".strlen($p)." >> stream\n$p\nendstream endobj\n";
-    }
-    $objs[2]="2 0 obj << /Type /Pages /Kids [".implode(' ',$kids)."] /Count ".count($pages)." >> endobj\n";
-    ksort($objs);
-
+    $objs[]="1 0 obj << /Type /Catalog /Pages 2 0 R >> endobj\n";
+    $objs[]="2 0 obj << /Type /Pages /Kids [3 0 R] /Count 1 >> endobj\n";
+    $objs[]="3 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >> endobj\n";
+    $objs[]="4 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> endobj\n";
+    $objs[]="5 0 obj << /Length ".strlen($content)." >> stream\n$content\nendstream endobj\n";
     $pdf="%PDF-1.4\n"; $offsets=[0];
-    foreach($objs as $id=>$o){ $offsets[$id]=strlen($pdf); $pdf.=$o; }
-    $xref=strlen($pdf); $max=max(array_keys($objs));
-    $pdf.="xref\n0 ".($max+1)."\n0000000000 65535 f \n";
-    for($i=1;$i<=$max;$i++){
-        $pdf.=isset($offsets[$i]) ? sprintf('%010d 00000 n ', $offsets[$i])."\n" : "0000000000 65535 f \n";
-    }
-    $pdf.="trailer << /Size ".($max+1)." /Root 1 0 R >>\nstartxref\n$xref\n%%EOF";
+    foreach($objs as $o){ $offsets[]=strlen($pdf); $pdf.=$o; }
+    $xref=strlen($pdf); $pdf.="xref\n0 ".(count($objs)+1)."\n0000000000 65535 f \n";
+    for($i=1;$i<=count($objs);$i++) $pdf.=sprintf('%010d 00000 n ', $offsets[$i])."\n";
+    $pdf.="trailer << /Size ".(count($objs)+1)." /Root 1 0 R >>\nstartxref\n$xref\n%%EOF";
     return $pdf;
 }
 
@@ -775,8 +198,8 @@ if(isset($_GET['download'])){
         echo '</table>'; exit;
     }
     if($fmt==='pdf'){
-    header('Location: ?page=report_print');
-    exit;
+        header('Content-Type: application/pdf'); header('Content-Disposition: attachment; filename="sipakar_report.pdf"');
+        echo render_simple_pdf($rows); exit;
     }
 }
 
@@ -785,11 +208,6 @@ $public=['login'];
 if(!in_array($page,$public) && !current_user()) redirect_to('login');
 $u=current_user();
 
-if($page === 'report_print' && can_report($u)){
-    $rows = report_rows($u);
-    render_report_print_page($u, $rows);
-    exit;
-}
 /* Login/logout */
 if($page==='login' && $_SERVER['REQUEST_METHOD']==='POST'){
     $username=trim($_POST['username'] ?? ''); $password=trim($_POST['password'] ?? '');
@@ -1006,7 +424,7 @@ if($_SERVER['REQUEST_METHOD']==='POST' && $u){
             q("UPDATE assessments SET assessment_date=CURDATE(), assessment_status='submitted' WHERE assessment_id=?", [$assessment_id]);
             recalc_final_result($target,$period['period_id']);
             create_notification(null,'Assessment Submitted',$u['employee_name'].' telah mengirim '.type_label($type).' untuk '.val('SELECT employee_name FROM employees WHERE employee_id=?',[$target]).'.','assessment');
-            flash('Penilaian berhasil disimpan.'); add_audit('Submit assessment '.type_label($type)); redirect_to('assessment');
+            flash('Penilaian berhasil disimpan ke ASSESSMENTS dan ASSESSMENT_DETAILS.'); add_audit('Submit assessment '.type_label($type)); redirect_to('assessment');
         }
     } catch(Exception $e){ flash($e->getMessage(),'error'); redirect_to($page); }
 }
@@ -1041,9 +459,9 @@ function layout_end(){ echo '</main></div><script src="assets/app.js"></script><
 
 if($page==='login'){
     $flash=get_flash();
-    echo '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Login SIPAKAR</title><link rel="stylesheet" href="assets/app.css"></head><body class="auth-body"><div class="auth-card"><section class="auth-hero"><div class="brand-mark">S</div><p class="eyebrow">PT Energi Nusantara</p><h1>SIPAKAR 360</h1><p>Sistem Penilaian AKHLAK Karyawan berbasis role, assessment 360 derajat, dashboard analitik, IDP, talent mapping, dan audit trail.</p><div class="auth-chips"><span>Admin HR</span><span>Karyawan</span><span>Atasan</span><span>Manajemen</span></div></section><section class="auth-form"><h2>Login SSO Sipakar</h2>';
+    echo '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Login SIPAKAR</title><link rel="stylesheet" href="assets/app.css"></head><body class="auth-body"><div class="auth-card"><section class="auth-hero"><div class="brand-mark">S</div><p class="eyebrow">PT Energi Nusantara</p><h1>SIPAKAR 360</h1><p>Sistem Penilaian AKHLAK Karyawan berbasis role, assessment 360 derajat, dashboard analitik, IDP, talent mapping, dan audit trail.</p><div class="auth-chips"><span>Admin HR</span><span>Karyawan</span><span>Atasan</span><span>Manajemen</span></div></section><section class="auth-form"><h2>Login SSO Prototype</h2>';
     if($flash) echo '<div class="toast '.($flash['type']==='error'?'error':'').'">'.h($flash['message']).'</div>';
-    echo '<form method="post"><label>Username</label><input name="username" placeholder="Masukkan Username" required><label>Password</label><input name="password" type="password" placeholder="Masukkan Password" required><button class="btn primary" type="submit">Masuk Sistem</button></form><div class="demo-box"><b>Data Login:</b><br>admin(gifary/123123)</br><br>manajemen(anggit/123123)</br><br>atasan(rama/123123)</br><br>karyawan(daffa/123123)<br><br><b>Catatan:</b> ini simulasi SSO lokal untuk praktikum.</div></section></div></body></html>'; exit;
+    echo '<form method="post"><label>Username</label><input name="username" placeholder="admin_hr / daffa / atasan / manajemen" required><label>Password</label><input name="password" type="password" placeholder="admin123 / staff123 / atasan123" required><button class="btn primary" type="submit">Masuk Sistem</button></form><div class="demo-box"><b>Akun dummy:</b><br>admin_hr/admin123 · daffa/staff123 · atasan/atasan123 · manajemen/manajemen123<br><br><b>Catatan:</b> ini simulasi SSO lokal untuk praktikum.</div></section></div></body></html>'; exit;
 }
 
 if(!$u) redirect_to('login');
@@ -1068,7 +486,7 @@ if($page==='dashboard'){
         $submitted=val("SELECT COUNT(*) FROM assessments WHERE period_id=? AND assessment_status='submitted'", [$pid]);
         $avg=val("SELECT AVG(final_score) FROM final_results WHERE period_id=?", [$pid]);
         $top=one("SELECT e.employee_name, fr.final_score FROM final_results fr JOIN employees e ON e.employee_id=fr.employee_id WHERE fr.period_id=? ORDER BY fr.final_score DESC LIMIT 1", [$pid]);
-        echo '<div class="metric-grid"><div class="metric"><span>Total Karyawan Aktif</span><b>'.$totalEmp.'</b></div><div class="metric"><span>Assessment Submitted</span><b>'.$submitted.'</b></div><div class="metric"><span>Rata-rata Organisasi</span><b>'.score_fmt($avg).'</b></div><div class="metric"><span>Top Talent</span><b>'.score_fmt($top['final_score'] ?? 0).'</b><small>'.h($top['employee_name'] ?? '-').'</small></div></div>';
+        echo '<div class="metric-grid"><div class="metric"><span>Total Karyawan Aktif</span><b>'.$totalEmp.'</b><small>Data dari EMPLOYEES</small></div><div class="metric"><span>Assessment Submitted</span><b>'.$submitted.'</b><small>Jawaban tersimpan di DB</small></div><div class="metric"><span>Rata-rata Organisasi</span><b>'.score_fmt($avg).'</b><small>Final result periode aktif</small></div><div class="metric"><span>Top Talent</span><b>'.score_fmt($top['final_score'] ?? 0).'</b><small>'.h($top['employee_name'] ?? '-').'</small></div></div>';
         echo '<div class="grid-2"><div class="panel"><h2>Top Score AKHLAK Organisasi</h2>'; render_akhlak_bars(akhlak_scores(null,$pid)); echo '</div><div class="panel"><h2>Distribusi Departemen</h2>'; render_department_scores($pid); echo '</div></div>';
     }
     echo '<div class="panel"><h2>Notifikasi Terbaru</h2>'; render_notifications_list(visible_notifications($u)); echo '</div>';
@@ -1089,7 +507,7 @@ function render_department_scores($pid){
 }
 function render_notifications_list($rows){
     if(!$rows){ echo '<p class="muted">Belum ada notifikasi.</p>'; return; }
-    echo '<div class="timeline">'; foreach($rows as $n){ echo '<div><b>'.h($n['title']).'</b> '.badge($n['is_read']?'read':'').'<p>'.h($n['message']).'</p><small>'.h($n['notification_type']).' · '.h($n['created_at']).'</small></div>'; } echo '</div>';
+    echo '<div class="timeline">'; foreach($rows as $n){ echo '<div><b>'.h($n['title']).'</b> '.badge($n['is_read']?'read':'unread').'<p>'.h($n['message']).'</p><small>'.h($n['notification_type']).' · '.h($n['created_at']).'</small></div>'; } echo '</div>';
 }
 
 if($page==='employees' && can_admin($u)){
@@ -1102,7 +520,7 @@ if($page==='employees' && can_admin($u)){
     if($edit_id){
         $edit_data=one("SELECT e.*, u.role_id, u.username FROM employees e LEFT JOIN users u ON u.employee_id=e.employee_id WHERE e.employee_id=?", [(int)$edit_id]);
     }
-    echo '<div class="panel"><h2>'.($edit_data ? 'Edit Karyawan & Akun User' : 'Tambah Karyawan & Akun User').'</h2><p class="muted">Jika data karyawan disimpan, sistem otomatis membuat atau memperbarui akun pada DB USERS.</p><form method="post" class="form-grid"><input type="hidden" name="action" value="save_employee"><input type="hidden" name="employee_id" value="'.($edit_data?(int)$edit_data['employee_id']:'').'"><input value="'.($edit_data?'ID Karyawan: '.(int)$edit_data['employee_id']:'ID karyawan otomatis saat disimpan').'" readonly><input name="employee_nik" placeholder="NIK" required value="'.($edit_data?h($edit_data['employee_nik']):'').'"><input name="employee_name" placeholder="Nama" required value="'.($edit_data?h($edit_data['employee_name']):'').'"><input name="employee_email" placeholder="Email" required value="'.($edit_data?h($edit_data['employee_email']):'').'"><input name="employee_phone" placeholder="Telepon" value="'.($edit_data?h($edit_data['employee_phone']):'').'"><input type="date" name="hire_date" value="'.($edit_data?$edit_data['hire_date']:date('Y-m-d')).'"><select name="employee_status"><option value="active" '.($edit_data && $edit_data['employee_status']==='active' ? 'selected' : '').'>active</option><option value="inactive" '.($edit_data && $edit_data['employee_status']==='inactive' ? 'selected' : '').'>inactive</option></select><select name="department_id">';
+    echo '<div class="panel"><h2>'.($edit_data ? 'Edit Karyawan & Akun User' : 'Tambah Karyawan & Akun User').'</h2><p class="muted">Jika data karyawan disimpan, sistem otomatis membuat atau memperbarui akun pada tabel USERS.</p><form method="post" class="form-grid"><input type="hidden" name="action" value="save_employee"><input type="hidden" name="employee_id" value="'.($edit_data?(int)$edit_data['employee_id']:'').'"><input value="'.($edit_data?'ID Karyawan: '.(int)$edit_data['employee_id']:'ID karyawan otomatis saat disimpan').'" readonly><input name="employee_nik" placeholder="NIK" required value="'.($edit_data?h($edit_data['employee_nik']):'').'"><input name="employee_name" placeholder="Nama" required value="'.($edit_data?h($edit_data['employee_name']):'').'"><input name="employee_email" placeholder="Email" required value="'.($edit_data?h($edit_data['employee_email']):'').'"><input name="employee_phone" placeholder="Telepon" value="'.($edit_data?h($edit_data['employee_phone']):'').'"><input type="date" name="hire_date" value="'.($edit_data?$edit_data['hire_date']:date('Y-m-d')).'"><select name="employee_status"><option value="active" '.($edit_data && $edit_data['employee_status']==='active' ? 'selected' : '').'>active</option><option value="inactive" '.($edit_data && $edit_data['employee_status']==='inactive' ? 'selected' : '').'>inactive</option></select><select name="department_id">';
     foreach($departments as $d) echo '<option value="'.$d['department_id'].'" '.($edit_data && $edit_data['department_id']==$d['department_id'] ? 'selected' : '').'>'.h($d['department_name']).'</option>'; echo '</select><select name="position_id">';
     foreach($positions as $p) echo '<option value="'.$p['position_id'].'" '.($edit_data && $edit_data['position_id']==$p['position_id'] ? 'selected' : '').'>'.h($p['position_name']).' - '.h($p['position_level']).'</option>'; echo '</select><select name="supervisor_id"><option value="" '.($edit_data && !$edit_data['supervisor_id'] ? 'selected' : '').'>Tanpa atasan</option>'; foreach($emps as $e) echo '<option value="'.$e['employee_id'].'" '.($edit_data && $edit_data['supervisor_id']==$e['employee_id'] ? 'selected' : '').'>'.h($e['employee_name']).'</option>'; echo '</select><select name="role_id">'; foreach($roles as $r) echo '<option value="'.$r['role_id'].'" '.($edit_data && $edit_data['role_id']==$r['role_id'] ? 'selected' : '').'>'.role_label($r['role_name']).'</option>'; echo '</select><input name="username" placeholder="Username akun, kosongkan = dari email" value="'.($edit_data?h($edit_data['username']):'').'"><input name="password" placeholder="Password akun, kosongkan = jika edit, tidak ubah password"><button class="btn primary full">'.($edit_data ? 'Perbarui Karyawan' : 'Tambah Karyawan').'</button>'.($edit_data?'<a class="btn ghost full" href="?page=employees">Batal Edit</a>':'').'</form></div>';
     echo '<div class="panel"><h2>Daftar Karyawan</h2><div class="table-wrap"><table><tr><th>ID</th><th>NIK</th><th>Nama</th><th>Departemen</th><th>Jabatan/Role</th><th>Atasan</th><th>Email</th><th>Status</th><th>Aksi</th></tr>';
@@ -1168,20 +586,20 @@ if($page==='assignments' && role_allows($u,['admin_hr','atasan'])){
 
 if($page==='assessment'){
     layout_start($u,'Isi Assessment 360°'); $period=active_period(); $questions=all("SELECT q.*, av.akhlak_name FROM questions q JOIN akhlak_values av ON av.akhlak_id=q.akhlak_id WHERE q.question_status='active' ORDER BY q.question_id"); $targets=assessment_targets($u,$period);
-    echo '<div class="panel"><h2>Target Penilaian Periode Aktif</h2><p class="muted"></p><div class="cards">';
+    echo '<div class="panel"><h2>Target Penilaian Periode Aktif</h2><p class="muted">Target ditentukan dari self-assessment, peer assignment yang approved, supervisor_id, dan hubungan bawahan-atasan.</p><div class="cards">';
     foreach($targets as $i=>$t) echo '<a class="mini-card" href="?page=assessment&target='.$t['evaluatee_id'].'&type='.$t['type'].'"><span>'.h(type_label($t['type'])).'</span><b>'.h($t['name']).'</b><p>'.h($t['reason']).'</p></a>'; echo '</div></div>';
     $target=$_GET['target'] ?? ($targets[0]['evaluatee_id'] ?? null); $type=$_GET['type'] ?? ($targets[0]['type'] ?? 'self');
     if($target){
         echo '<div class="panel"><h2>Form '.h(type_label($type)).' untuk '.h(val('SELECT employee_name FROM employees WHERE employee_id=?',[$target])).'</h2><form method="post"><input type="hidden" name="action" value="submit_assessment"><input type="hidden" name="evaluatee_id" value="'.h($target).'"><input type="hidden" name="assessment_type" value="'.h($type).'">';
         foreach($questions as $qrow){ echo '<div class="question"><span>'.h($qrow['akhlak_name']).'</span><p><b>'.h($qrow['question_text']).'</b></p><div class="likert"><span>Skor</span><div>'; for($i=1;$i<=5;$i++) echo '<label><input type="radio" name="score['.$qrow['question_id'].']" value="'.$i.'" '.($i==4?'checked':'').'><em>'.$i.'</em></label>'; echo '</div></div><textarea name="comment['.$qrow['question_id'].']" placeholder="Komentar opsional"></textarea></div>'; }
-        echo '<button class="btn primary full" type="submit">Submit Assessment</button></form></div>';
+        echo '<button class="btn primary full" type="submit">Submit Assessment ke Database</button></form></div>';
     }
     layout_end(); exit;
 }
 
 if($page==='reports' && can_report($u)){
     layout_start($u,'Report & IDP'); $rows=report_rows($u);
-    echo '<div class="panel"><h2>Export Laporan</h2><p class="muted"></p><div class="actions"><a class="btn primary" href="?page=report_print" target="_blank">Download PDF</a><a class="btn ghost" href="?download=excel">Download Excel</a><a class="btn ghost" href="?download=csv">Download CSV</a></div></div>';
+    echo '<div class="panel"><h2>Export Laporan</h2><p class="muted">Karyawan hanya melihat report dirinya sendiri. Atasan melihat bawahannya. Admin HR dan Manajemen melihat seluruh data.</p><div class="actions"><a class="btn primary" href="?download=pdf">Download PDF</a><a class="btn ghost" href="?download=excel">Download Excel</a><a class="btn ghost" href="?download=csv">Download CSV</a></div></div>';
     echo '<div class="panel"><h2>Hasil Evaluasi dan IDP</h2><div class="table-wrap"><table><tr><th>NIK</th><th>Nama</th><th>Departemen</th><th>Self</th><th>Peer</th><th>Bawahan</th><th>Atasan</th><th>Final</th><th>Gap Analysis / IDP</th></tr>';
     foreach($rows as $r) echo '<tr><td>'.h($r['employee_nik']).'</td><td><b>'.h($r['employee_name']).'</b></td><td>'.h($r['department_name']).'</td><td>'.score_fmt($r['self_score']).'</td><td>'.score_fmt($r['peer_score']).'</td><td>'.score_fmt($r['subordinate_score']).'</td><td>'.score_fmt($r['supervisor_score']).'</td><td><b>'.score_fmt($r['final_score']).'</b></td><td>'.h($r['gap_analysis']).'</td></tr>';
     echo '</table></div></div>'; layout_end(); exit;
