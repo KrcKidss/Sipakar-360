@@ -59,7 +59,8 @@ function add_audit($activity){
     q("INSERT INTO audit_logs(user_id,activity,activity_time,ip_address) VALUES(?,?,NOW(),?)", [$_SESSION['user_id'],$activity,$_SERVER['REMOTE_ADDR'] ?? '127.0.0.1']);
 }
 function active_period(){
-    return one("SELECT * FROM evaluation_periods WHERE period_status='active' ORDER BY period_id DESC LIMIT 1");
+    $p=one("SELECT * FROM evaluation_periods WHERE period_status='active' ORDER BY period_id DESC LIMIT 1");
+    return $p ?: one("SELECT * FROM evaluation_periods ORDER BY period_id DESC LIMIT 1");
 }
 function idp_recommendation($score){
     if($score >= 4.50) return 'Talent pool: kandidat potensial untuk mentoring, project leadership, dan penugasan strategis.';
@@ -570,85 +571,18 @@ function ensure_assessment($evaluator_id,$evaluatee_id,$period_id,$type){
 }
 function assessment_targets($u,$period){
     $targets=[];
-    if(!$period || ($period['period_status'] ?? '') !== 'active') return $targets;
-
-    $pid=(int)$period['period_id'];
-    $eid=(int)$u['employee_id'];
-    $role=$u['role_name'] ?? '';
-
-    // Self assessment selalu tersedia untuk user aktif pada periode aktif.
-    $targets[]=[
-        'evaluatee_id'=>$eid,
-        'name'=>$u['employee_name'],
-        'type'=>'self',
-        'reason'=>'Penilaian diri sendiri'
-    ];
-
-    // Peer assessment hanya muncul jika assignment approved pada periode aktif.
-    $peers=all("SELECT pa.*, e.employee_name
-                FROM peer_assignments pa
-                JOIN employees e ON e.employee_id=pa.employee_id
-                JOIN evaluation_periods ep ON ep.period_id=pa.period_id
-                WHERE pa.peer_employee_id=?
-                AND pa.period_id=?
-                AND pa.approval_status='approved'
-                AND ep.period_status='active'
-                AND e.employee_status='active'", [$eid,$pid]);
-    foreach($peers as $p){
-        $targets[]=[
-            'evaluatee_id'=>$p['employee_id'],
-            'name'=>$p['employee_name'],
-            'type'=>'peer',
-            'reason'=>'Penilaian rekan sejawat'
-        ];
+    if(!$period) return $targets;
+    $pid=$period['period_id']; $eid=$u['employee_id'];
+    $targets[]=['evaluatee_id'=>$eid,'name'=>$u['employee_name'],'type'=>'self','reason'=>'Penilaian diri sendiri'];
+    $peers=all("SELECT pa.*, e.employee_name FROM peer_assignments pa JOIN employees e ON e.employee_id=pa.employee_id WHERE pa.peer_employee_id=? AND pa.period_id=? AND pa.approval_status='approved'", [$eid,$pid]);
+    foreach($peers as $p) $targets[]=['evaluatee_id'=>$p['employee_id'],'name'=>$p['employee_name'],'type'=>'peer','reason'=>'Penilaian rekan sejawat'];
+    $subs=all("SELECT employee_id, employee_name FROM employees WHERE supervisor_id=? AND employee_status='active'", [$eid]);
+    foreach($subs as $s) $targets[]=['evaluatee_id'=>$s['employee_id'],'name'=>$s['employee_name'],'type'=>'supervisor','reason'=>'Atasan menilai bawahan'];
+    if(!empty($u['supervisor_id'])){
+        $sp=one("SELECT employee_id, employee_name FROM employees WHERE employee_id=?", [$u['supervisor_id']]);
+        if($sp) $targets[]=['evaluatee_id'=>$sp['employee_id'],'name'=>$sp['employee_name'],'type'=>'subordinate','reason'=>'Bawahan menilai atasan'];
     }
-
-    // Penilaian Atasan hanya untuk role atasan/manajemen.
-    // Admin HR tidak otomatis mendapat target bawahan dari struktur supervisor_id,
-    // supaya menu Isi Assessment admin tidak menampilkan bawahan saat belum ada assignment periode aktif.
-    if(in_array($role, ['atasan','manajemen'], true)){
-        $subs=all("SELECT employee_id, employee_name
-                   FROM employees
-                   WHERE supervisor_id=?
-                   AND employee_status='active'
-                   ORDER BY employee_name", [$eid]);
-        foreach($subs as $sub){
-            $targets[]=[
-                'evaluatee_id'=>$sub['employee_id'],
-                'name'=>$sub['employee_name'],
-                'type'=>'supervisor',
-                'reason'=>'Atasan menilai bawahan'
-            ];
-        }
-    }
-
-    // Penilaian bawahan kepada atasan hanya untuk staff/atasan/manajemen.
-    // Admin HR tidak otomatis diarahkan menilai supervisor dari data master.
-    if(in_array($role, ['staff','atasan','manajemen'], true) && !empty($u['supervisor_id'])){
-        $sp=one("SELECT employee_id, employee_name
-                 FROM employees
-                 WHERE employee_id=?
-                 AND employee_status='active'", [$u['supervisor_id']]);
-        if($sp){
-            $targets[]=[
-                'evaluatee_id'=>$sp['employee_id'],
-                'name'=>$sp['employee_name'],
-                'type'=>'subordinate',
-                'reason'=>'Bawahan menilai atasan'
-            ];
-        }
-    }
-
-    // Hapus target duplikat jika kombinasi evaluatee + type sama.
-    $unique=[];
-    $clean=[];
-    foreach($targets as $t){
-        $key=$t['evaluatee_id'].'-'.$t['type'];
-        if(isset($unique[$key])) continue;
-        $unique[$key]=true;
-        $clean[]=$t;
-    }
-    return $clean;
+    return $targets;
 }
 function pdf_escape_text($text){
     $text = trim(preg_replace('/\s+/', ' ', str_replace(["\r","\n","\t"], ' ', (string)$text)));
@@ -1033,8 +967,6 @@ if($_SERVER['REQUEST_METHOD']==='POST' && $u){
             if($peer_id<=0 || !(int)val("SELECT COUNT(*) FROM employees WHERE employee_id=?", [$peer_id])) throw new Exception('Peer penilai tidak valid.');
             if($emp_id===$peer_id) throw new Exception('Karyawan yang dinilai dan peer penilai tidak boleh orang yang sama.');
             if($period_id<=0 || !(int)val("SELECT COUNT(*) FROM evaluation_periods WHERE period_id=?", [$period_id])) throw new Exception('Periode evaluasi tidak valid.');
-            $period_check=one("SELECT period_id FROM evaluation_periods WHERE period_id=? AND period_status='active'", [$period_id]);
-            if(!$period_check) throw new Exception('Peer assignment hanya bisa dibuat atau diperbarui untuk periode yang sedang aktif.');
             if(!in_array($approval_status,$allowed_status,true)) throw new Exception('Status approval tidak valid.');
 
             if($aid){
@@ -1048,17 +980,7 @@ if($_SERVER['REQUEST_METHOD']==='POST' && $u){
             redirect_to('assignments');
         }
         if($action==='validate_assignment' && role_allows($u,['atasan','admin_hr'])){
-            $assignment_id=(int)($_POST['peer_assignment_id'] ?? 0);
-            $approval_status=$_POST['approval_status'] ?? 'pending';
-            $allowed_status=['pending','approved','rejected','cancelled'];
-            if(!in_array($approval_status,$allowed_status,true)) throw new Exception('Status approval tidak valid.');
-            $assignment=one("SELECT pa.*, ep.period_status
-                             FROM peer_assignments pa
-                             JOIN evaluation_periods ep ON ep.period_id=pa.period_id
-                             WHERE pa.peer_assignment_id=?", [$assignment_id]);
-            if(!$assignment) throw new Exception('Peer assignment tidak ditemukan.');
-            if($assignment['period_status'] !== 'active') throw new Exception('Assignment pada periode yang sudah ditutup tidak bisa divalidasi lagi.');
-            q("UPDATE peer_assignments SET approval_status=?, approved_by=? WHERE peer_assignment_id=?", [$approval_status,$u['employee_name'],$assignment_id]);
+            q("UPDATE peer_assignments SET approval_status=?, approved_by=? WHERE peer_assignment_id=?", [$_POST['approval_status'],$u['employee_name'],$_POST['peer_assignment_id']]);
             flash('Status peer assignment diperbarui.'); add_audit('Validasi peer assignment'); redirect_to('assignments');
         }
         if($action==='send_notification' && can_admin($u)){
@@ -1074,7 +996,7 @@ if($_SERVER['REQUEST_METHOD']==='POST' && $u){
             $period=active_period(); if(!$period) throw new Exception('Belum ada periode aktif.');
             $target=(int)$_POST['evaluatee_id']; $type=$_POST['assessment_type'];
             $allowed=false; foreach(assessment_targets($u,$period) as $t){ if((int)$t['evaluatee_id']===$target && $t['type']===$type) $allowed=true; }
-            if(!$allowed) throw new Exception('Target penilaian tidak sesuai assignment atau hierarki pada periode aktif.');
+            if(!$allowed && !can_admin($u)) throw new Exception('Target penilaian tidak sesuai assignment atau hierarki.');
             $assessment_id=ensure_assessment($u['employee_id'],$target,$period['period_id'],$type);
             q("DELETE FROM assessment_details WHERE assessment_id=?", [$assessment_id]);
             foreach($_POST['score'] ?? [] as $qid=>$score){
@@ -1218,33 +1140,19 @@ if($page==='questions' && can_admin($u)){
 
 if($page==='assignments' && role_allows($u,['admin_hr','atasan'])){
     layout_start($u,'Peer Assignment dan Validasi'); $period=active_period();
-    $emps=all("SELECT employee_id, employee_name FROM employees WHERE employee_status='active' ORDER BY employee_name");
-    $periods=all("SELECT * FROM evaluation_periods WHERE period_status='active' ORDER BY period_id DESC");
+    $emps=all("SELECT employee_id, employee_name FROM employees WHERE employee_status='active' ORDER BY employee_name"); $periods=all('SELECT * FROM evaluation_periods ORDER BY period_id DESC');
     $edit_id=$_GET['edit_id'] ?? null;
     $edit_data=null;
     if($edit_id && can_admin($u)){
         $edit_data=one("SELECT * FROM peer_assignments WHERE peer_assignment_id=?", [(int)$edit_id]);
-        if($edit_data){
-            $edit_period=one("SELECT period_status FROM evaluation_periods WHERE period_id=?", [$edit_data['period_id']]);
-            if(!$edit_period || $edit_period['period_status'] !== 'active'){
-                flash('Assignment periode tertutup tidak bisa diedit. Buat assignment baru pada periode aktif.','error');
-                redirect_to('assignments');
-            }
-        }
     }
-    if(can_admin($u) && !$period){
-        echo '<div class="panel"><h2>Tidak Ada Periode Aktif</h2><p class="muted">Tambah peer assignment dinonaktifkan karena tidak ada periode evaluasi yang sedang aktif. Aktifkan periode terlebih dahulu melalui menu Periode.</p></div>';
-    }
-    if(can_admin($u) && $period){
+    if(can_admin($u)){
         echo '<div class="panel"><h2>'.($edit_data ? 'Edit Peer Assignment' : 'Tambah Peer Assignment').'</h2><form class="form-grid" method="post"><input type="hidden" name="action" value="save_assignment"><input type="hidden" name="peer_assignment_id" value="'.($edit_data?(int)$edit_data['peer_assignment_id']:'').'"><input value="'.($edit_data?'ID Assignment: '.(int)$edit_data['peer_assignment_id']:'ID assignment otomatis saat disimpan').'" readonly><select name="employee_id" '.($edit_data ? 'disabled' : '').'required>'; foreach($emps as $e) echo '<option value="'.$e['employee_id'].'" '.($edit_data && $edit_data['employee_id']==$e['employee_id'] ? 'selected' : '').'>Dinilai: '.h($e['employee_name']).'</option>'; echo '</select><input type="hidden" name="employee_id_hidden" value="'.($edit_data?(int)$edit_data['employee_id']:'').'"><select name="peer_employee_id" required>'; foreach($emps as $e) echo '<option value="'.$e['employee_id'].'" '.($edit_data && $edit_data['peer_employee_id']==$e['employee_id'] ? 'selected' : '').'>Peer: '.h($e['employee_name']).'</option>'; echo '</select><select name="period_id" required>'; foreach($periods as $p) echo '<option value="'.$p['period_id'].'" '.($edit_data && $edit_data['period_id']==$p['period_id'] ? 'selected' : '').'>'.h($p['period_name']).'</option>'; echo '</select><select name="approval_status"><option value="pending" '.(!$edit_data || $edit_data['approval_status']==='pending' ? 'selected' : '').'>pending</option><option value="approved" '.($edit_data && $edit_data['approval_status']==='approved' ? 'selected' : '').'>approved</option><option value="rejected" '.($edit_data && $edit_data['approval_status']==='rejected' ? 'selected' : '').'>rejected</option><option value="cancelled" '.($edit_data && $edit_data['approval_status']==='cancelled' ? 'selected' : '').'>cancelled</option></select><input name="approved_by" placeholder="Approved by, opsional" value="'.($edit_data?h($edit_data['approved_by']):'').'"><button class="btn primary full">'.($edit_data ? 'Perbarui Assignment' : 'Tambah Assignment').'</button>'.($edit_data?'<a class="btn ghost full" href="?page=assignments">Batal Edit</a>':'').'</form></div>';
     }
     $where=''; $params=[]; if($u['role_name']==='atasan'){ $where='WHERE e.supervisor_id=?'; $params[]=$u['employee_id']; }
-    $rows=all("SELECT pa.*, e.employee_name employee_name, pe.employee_name peer_name, ep.period_name, ep.period_status FROM peer_assignments pa JOIN employees e ON e.employee_id=pa.employee_id JOIN employees pe ON pe.employee_id=pa.peer_employee_id JOIN evaluation_periods ep ON ep.period_id=pa.period_id $where ORDER BY pa.peer_assignment_id DESC", $params);
-    echo '<div class="panel"><h2>Daftar Assignment</h2><div class="table-wrap"><table><tr><th>No</th><th>Dinilai</th><th>Peer</th><th>Periode</th><th>Status</th><th>Approved By</th><th>Aksi</th></tr>';
-
-    $no = 1;
-    foreach($rows as $r){ 
-       echo '<tr><td>'.$no++.'</td><td>'.h($r['employee_name']).'</td><td>'.h($r['peer_name']).'</td><td>'.h($r['period_name']).'</td><td>'.badge($r['approval_status']).'</td><td>'.h($r['approved_by'] ?? '-').'</td><td>';
+    $rows=all("SELECT pa.*, e.employee_name employee_name, pe.employee_name peer_name, ep.period_name FROM peer_assignments pa JOIN employees e ON e.employee_id=pa.employee_id JOIN employees pe ON pe.employee_id=pa.peer_employee_id JOIN evaluation_periods ep ON ep.period_id=pa.period_id $where ORDER BY pa.peer_assignment_id DESC", $params);
+    echo '<div class="panel"><h2>Daftar Assignment</h2><div class="table-wrap"><table><tr><th>ID</th><th>Dinilai</th><th>Peer</th><th>Periode</th><th>Status</th><th>Approved By</th><th>Aksi</th></tr>';
+    foreach($rows as $r){ echo '<tr><td>'.$r['peer_assignment_id'].'</td><td>'.h($r['employee_name']).'</td><td>'.h($r['peer_name']).'</td><td>'.h($r['period_name']).'</td><td>'.badge($r['approval_status']).'</td><td>'.h($r['approved_by'] ?? '-').'</td><td>';
         if($u['role_name']==='atasan' && in_array($r['approval_status'],['pending','rejected'])){
             echo '<form method="post" style="display:inline"><input type="hidden" name="action" value="validate_assignment"><input type="hidden" name="peer_assignment_id" value="'.$r['peer_assignment_id'].'"><select name="approval_status" style="width:100px"><option value="approved">Approve</option><option value="rejected">Reject</option></select><button class="btn small primary">Update</button></form>';
         } else {
@@ -1259,55 +1167,15 @@ if($page==='assignments' && role_allows($u,['admin_hr','atasan'])){
 }
 
 if($page==='assessment'){
-    layout_start($u,'Isi Assessment 360°');
-    $period=active_period();
-
-    if(!$period){
-        echo '<div class="panel"><h2>Tidak Ada Periode Aktif</h2><p class="muted">Form assessment belum dapat diisi karena tidak ada periode evaluasi yang sedang aktif. Silakan aktifkan periode melalui menu Periode.</p></div>';
-        layout_end();
-        exit;
+    layout_start($u,'Isi Assessment 360°'); $period=active_period(); $questions=all("SELECT q.*, av.akhlak_name FROM questions q JOIN akhlak_values av ON av.akhlak_id=q.akhlak_id WHERE q.question_status='active' ORDER BY q.question_id"); $targets=assessment_targets($u,$period);
+    echo '<div class="panel"><h2>Target Penilaian Periode Aktif</h2><p class="muted"></p><div class="cards">';
+    foreach($targets as $i=>$t) echo '<a class="mini-card" href="?page=assessment&target='.$t['evaluatee_id'].'&type='.$t['type'].'"><span>'.h(type_label($t['type'])).'</span><b>'.h($t['name']).'</b><p>'.h($t['reason']).'</p></a>'; echo '</div></div>';
+    $target=$_GET['target'] ?? ($targets[0]['evaluatee_id'] ?? null); $type=$_GET['type'] ?? ($targets[0]['type'] ?? 'self');
+    if($target){
+        echo '<div class="panel"><h2>Form '.h(type_label($type)).' untuk '.h(val('SELECT employee_name FROM employees WHERE employee_id=?',[$target])).'</h2><form method="post"><input type="hidden" name="action" value="submit_assessment"><input type="hidden" name="evaluatee_id" value="'.h($target).'"><input type="hidden" name="assessment_type" value="'.h($type).'">';
+        foreach($questions as $qrow){ echo '<div class="question"><span>'.h($qrow['akhlak_name']).'</span><p><b>'.h($qrow['question_text']).'</b></p><div class="likert"><span>Skor</span><div>'; for($i=1;$i<=5;$i++) echo '<label><input type="radio" name="score['.$qrow['question_id'].']" value="'.$i.'" '.($i==4?'checked':'').'><em>'.$i.'</em></label>'; echo '</div></div><textarea name="comment['.$qrow['question_id'].']" placeholder="Komentar opsional"></textarea></div>'; }
+        echo '<button class="btn primary full" type="submit">Submit Assessment</button></form></div>';
     }
-
-    $questions=all("SELECT q.*, av.akhlak_name
-                    FROM questions q
-                    JOIN akhlak_values av ON av.akhlak_id=q.akhlak_id
-                    WHERE q.question_status='active'
-                    ORDER BY q.question_id");
-    $targets=assessment_targets($u,$period);
-
-    echo '<div class="panel"><h2>Target Penilaian Periode Aktif</h2><p class="muted">Target yang muncul hanya berasal dari periode aktif dan assignment/hierarki yang valid.</p><div class="cards">';
-    foreach($targets as $i=>$t){
-        echo '<a class="mini-card" href="?page=assessment&target='.$t['evaluatee_id'].'&type='.$t['type'].'"><span>'.h(type_label($t['type'])).'</span><b>'.h($t['name']).'</b><p>'.h($t['reason']).'</p></a>';
-    }
-    echo '</div></div>';
-
-    $target=$_GET['target'] ?? ($targets[0]['evaluatee_id'] ?? null);
-    $type=$_GET['type'] ?? ($targets[0]['type'] ?? 'self');
-
-    $selectedTarget=null;
-    foreach($targets as $t){
-        if((int)$t['evaluatee_id']===(int)$target && $t['type']===$type){
-            $selectedTarget=$t;
-            break;
-        }
-    }
-
-    if(!$selectedTarget){
-        echo '<div class="panel"><h2>Tidak Ada Target Penilaian</h2><p class="muted">Belum ada target penilaian yang valid untuk user ini pada periode aktif. Jika target peer belum muncul, pastikan peer assignment sudah dibuat pada periode aktif dan statusnya approved.</p></div>';
-        layout_end();
-        exit;
-    }
-
-    $target=(int)$selectedTarget['evaluatee_id'];
-    $type=$selectedTarget['type'];
-
-    echo '<div class="panel"><h2>Form '.h(type_label($type)).' untuk '.h($selectedTarget['name']).'</h2><form method="post"><input type="hidden" name="action" value="submit_assessment"><input type="hidden" name="evaluatee_id" value="'.h($target).'"><input type="hidden" name="assessment_type" value="'.h($type).'">';
-    foreach($questions as $qrow){
-        echo '<div class="question"><span>'.h($qrow['akhlak_name']).'</span><p><b>'.h($qrow['question_text']).'</b></p><div class="likert"><span>Skor</span><div>';
-        for($i=1;$i<=5;$i++) echo '<label><input type="radio" name="score['.$qrow['question_id'].']" value="'.$i.'" '.($i==4?'checked':'').'><em>'.$i.'</em></label>';
-        echo '</div></div><textarea name="comment['.$qrow['question_id'].']" placeholder="Komentar opsional"></textarea></div>';
-    }
-    echo '<button class="btn primary full" type="submit">Submit Assessment</button></form></div>';
     layout_end(); exit;
 }
 
