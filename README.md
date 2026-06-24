@@ -148,13 +148,13 @@ Lalu lakukan langkah berikut:
 2. Pilih file:
 
 ```text
-database/schema.sql
+database/sipakar360_laporan.sql
 ```
 
 3. Klik **Go / Kirim**.
 4. Database `sipakar360_laporan` akan otomatis dibuat.
 
-File `schema.sql` sudah berisi perintah:
+File `sipakar360_laporan.sql` sudah berisi perintah:
 
 ```sql
 CREATE DATABASE IF NOT EXISTS sipakar360_laporan;
@@ -245,7 +245,7 @@ Pastikan service berikut aktif:
 Import file berikut melalui phpMyAdmin:
 
 ```text
-database/schema.sql
+database/.sql
 ```
 
 ### 6. Akses Web
@@ -375,5 +375,5 @@ git push
 - Password pada data dummy masih dibuat sederhana agar mudah diuji saat praktikum.
 - Untuk implementasi nyata, password sebaiknya menggunakan hashing seperti `password_hash()` dan `password_verify()`.
 - Pastikan Apache dan MySQL aktif sebelum membuka web.
-- Pastikan file `database/schema.sql` sudah di-import sebelum login.
+- Pastikan file `database/.sql` sudah di-import sebelum login.
 - Jika muncul error koneksi database, periksa kembali nama database, username, dan password MySQL pada file `index.php`.
