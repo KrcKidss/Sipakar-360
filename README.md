@@ -46,10 +46,8 @@ Karyawan berperan sebagai pengguna yang mengisi penilaian dan melihat hasil prib
 - Mengisi self assessment
 - Mengisi penilaian peer apabila ditugaskan
 - Mengisi penilaian terhadap atasan atau bawahan sesuai assignment
-- Menyimpan draft penilaian
 - Submit penilaian
 - Melihat hasil penilaian pribadi
-- Melihat gap analysis dan riwayat periode
 - Melihat notifikasi dan reminder
 
 ---
@@ -65,8 +63,7 @@ Atasan berperan dalam validasi assignment dan evaluasi bawahan. Fitur yang terse
 - Memberikan catatan revisi
 - Mengisi penilaian bawahan
 - Melihat hasil penilaian bawahan
-- Melihat gap analysis bawahan
-- Mengelola rekomendasi IDP bawahan
+
 
 ---
 
@@ -78,9 +75,6 @@ Manajemen berperan dalam memantau hasil evaluasi secara organisasi. Fitur yang t
 - Melihat rata-rata nilai AKHLAK
 - Melihat distribusi skor
 - Melihat tren penilaian
-- Gap analysis organisasi
-- Talent mapping
-- Melihat karyawan high performer dan need development
 - Melihat report evaluasi
 - Download laporan dalam format PDF, Excel, dan CSV
 
