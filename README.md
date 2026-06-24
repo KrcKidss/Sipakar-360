@@ -196,14 +196,10 @@ Setelah itu, login menggunakan akun dummy yang tersedia.
 
 | Role | Username | Password |
 |---|---|---|
-| Admin HR | `admin_hr` | `admin123` |
-| Admin HR | `anggit` | `anggit123` |
-| Atasan | `atasan` | `atasan123` |
-| Karyawan / Staff | `staff` | `staff123` |
-| Karyawan / Staff | `daffa` | `staff123` |
-| Karyawan / Staff | `bima` | `staff123` |
-| Karyawan / Staff | `intan` | `staff123` |
-| Manajemen | `manajemen` | `manajemen123` |
+| Admin HR | `gifary` | `123123` |
+| Atasan | `rama` | `123123` |
+| Karyawan / Staff | `daffa` | `123123` |
+| Manajemen | `anggit` | `123123` |
 
 ---
 
