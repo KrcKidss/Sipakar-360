@@ -592,6 +592,7 @@ CREATE TABLE `final_results` (
   `subordinate_score` decimal(5,2) DEFAULT 0.00,
   `supervisor_score` decimal(5,2) DEFAULT 0.00,
   `final_score` decimal(5,2) DEFAULT 0.00,
+<<<<<<< HEAD
   `gap_analysis` varchar(500) DEFAULT NULL,
   `idp_area` varchar(120) DEFAULT NULL,
   `idp_plan` varchar(500) DEFAULT NULL,
@@ -599,6 +600,9 @@ CREATE TABLE `final_results` (
   `idp_status` varchar(30) DEFAULT 'belum_dibuat',
   `idp_updated_by` int(11) DEFAULT NULL,
   `idp_updated_at` datetime DEFAULT NULL
+=======
+  `gap_analysis` varchar(500) DEFAULT NULL
+>>>>>>> 666b495d3ac99b4d73941b9eed0cfefa50fc339f
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -1006,6 +1010,7 @@ ALTER TABLE `roles`
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
+<<<<<<< HEAD
 
 
 -- ============================================================
@@ -3987,6 +3992,8 @@ INSERT INTO `audit_logs` (`log_id`, `user_id`, `activity`, `activity_time`, `ip_
 -- END APSI REVISION DUMMY DATA EXTENSION
 
 
+=======
+>>>>>>> 666b495d3ac99b4d73941b9eed0cfefa50fc339f
 --
 -- Constraints for dumped tables
 --
@@ -4054,11 +4061,14 @@ ALTER TABLE `questions`
 ALTER TABLE `users`
   ADD CONSTRAINT `fk_user_employee` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`employee_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_user_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`);
+<<<<<<< HEAD
 
 -- Sample IDP data for revised Report & IDP feature
 UPDATE `final_results` SET `idp_area`='Adaptif', `idp_plan`='Mengikuti coaching adaptasi teknologi dan evaluasi progres bulanan.', `idp_target`='Meningkatkan skor Adaptif minimal ke 3.50 pada periode berikutnya.', `idp_status`='draft' WHERE `result_id`=7;
 UPDATE `final_results` SET `idp_area`='Kompeten', `idp_plan`='Mengikuti pelatihan kompetensi teknis dan mentoring dengan atasan langsung.', `idp_target`='Meningkatkan skor Kompeten dan konsistensi performa kerja.', `idp_status`='final' WHERE `result_id`=1;
 
+=======
+>>>>>>> 666b495d3ac99b4d73941b9eed0cfefa50fc339f
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
