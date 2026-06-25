@@ -46,15 +46,10 @@ Karyawan berperan sebagai pengguna yang mengisi penilaian dan melihat hasil prib
 - Mengisi self assessment
 - Mengisi penilaian peer apabila ditugaskan
 - Mengisi penilaian terhadap atasan atau bawahan sesuai assignment
-<<<<<<< HEAD
 - Menyimpan draft penilaian
 - Submit penilaian
 - Melihat hasil penilaian pribadi
 - Melihat gap analysis dan riwayat periode
-=======
-- Submit penilaian
-- Melihat hasil penilaian pribadi
->>>>>>> 666b495d3ac99b4d73941b9eed0cfefa50fc339f
 - Melihat notifikasi dan reminder
 
 ---
@@ -70,12 +65,8 @@ Atasan berperan dalam validasi assignment dan evaluasi bawahan. Fitur yang terse
 - Memberikan catatan revisi
 - Mengisi penilaian bawahan
 - Melihat hasil penilaian bawahan
-<<<<<<< HEAD
 - Melihat gap analysis bawahan
 - Mengelola rekomendasi IDP bawahan
-=======
-
->>>>>>> 666b495d3ac99b4d73941b9eed0cfefa50fc339f
 
 ---
 
@@ -87,12 +78,9 @@ Manajemen berperan dalam memantau hasil evaluasi secara organisasi. Fitur yang t
 - Melihat rata-rata nilai AKHLAK
 - Melihat distribusi skor
 - Melihat tren penilaian
-<<<<<<< HEAD
 - Gap analysis organisasi
 - Talent mapping
 - Melihat karyawan high performer dan need development
-=======
->>>>>>> 666b495d3ac99b4d73941b9eed0cfefa50fc339f
 - Melihat report evaluasi
 - Download laporan dalam format PDF, Excel, dan CSV
 
@@ -160,21 +148,13 @@ Lalu lakukan langkah berikut:
 2. Pilih file:
 
 ```text
-<<<<<<< HEAD
 database/schema.sql
-=======
-database/sipakar360_laporan.sql
->>>>>>> 666b495d3ac99b4d73941b9eed0cfefa50fc339f
 ```
 
 3. Klik **Go / Kirim**.
 4. Database `sipakar360_laporan` akan otomatis dibuat.
 
-<<<<<<< HEAD
 File `schema.sql` sudah berisi perintah:
-=======
-File `sipakar360_laporan.sql` sudah berisi perintah:
->>>>>>> 666b495d3ac99b4d73941b9eed0cfefa50fc339f
 
 ```sql
 CREATE DATABASE IF NOT EXISTS sipakar360_laporan;
@@ -216,7 +196,6 @@ Setelah itu, login menggunakan akun dummy yang tersedia.
 
 | Role | Username | Password |
 |---|---|---|
-<<<<<<< HEAD
 | Admin HR | `admin_hr` | `admin123` |
 | Admin HR | `anggit` | `anggit123` |
 | Atasan | `atasan` | `atasan123` |
@@ -225,12 +204,6 @@ Setelah itu, login menggunakan akun dummy yang tersedia.
 | Karyawan / Staff | `bima` | `staff123` |
 | Karyawan / Staff | `intan` | `staff123` |
 | Manajemen | `manajemen` | `manajemen123` |
-=======
-| Admin HR | `gifary` | `123123` |
-| Atasan | `rama` | `123123` |
-| Karyawan / Staff | `daffa` | `123123` |
-| Manajemen | `anggit` | `123123` |
->>>>>>> 666b495d3ac99b4d73941b9eed0cfefa50fc339f
 
 ---
 
@@ -276,11 +249,7 @@ Pastikan service berikut aktif:
 Import file berikut melalui phpMyAdmin:
 
 ```text
-<<<<<<< HEAD
 database/schema.sql
-=======
-database/.sql
->>>>>>> 666b495d3ac99b4d73941b9eed0cfefa50fc339f
 ```
 
 ### 6. Akses Web
@@ -410,9 +379,5 @@ git push
 - Password pada data dummy masih dibuat sederhana agar mudah diuji saat praktikum.
 - Untuk implementasi nyata, password sebaiknya menggunakan hashing seperti `password_hash()` dan `password_verify()`.
 - Pastikan Apache dan MySQL aktif sebelum membuka web.
-<<<<<<< HEAD
 - Pastikan file `database/schema.sql` sudah di-import sebelum login.
-=======
-- Pastikan file `database/.sql` sudah di-import sebelum login.
->>>>>>> 666b495d3ac99b4d73941b9eed0cfefa50fc339f
 - Jika muncul error koneksi database, periksa kembali nama database, username, dan password MySQL pada file `index.php`.
