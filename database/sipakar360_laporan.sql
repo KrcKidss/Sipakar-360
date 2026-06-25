@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2026 at 09:54 AM
+-- Generation Time: Jun 25, 2026 at 08:20 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -83,7 +83,220 @@ INSERT INTO `assessments` (`assessment_id`, `evaluator_id`, `evaluatee_id`, `per
 (15, 3, 3, 1, 'self', '2026-06-06', 'submitted'),
 (16, 1, 1, 1, 'self', '2026-06-18', 'submitted'),
 (17, 2, 2, 1, 'self', '2026-06-18', 'submitted'),
-(18, 2, 1, 1, 'subordinate', '2026-06-18', 'submitted');
+(18, 2, 1, 1, 'subordinate', '2026-06-18', 'submitted'),
+(19, 7, 7, 1, 'self', '2026-06-12', 'submitted'),
+(20, 1, 7, 1, 'supervisor', '2026-06-12', 'submitted'),
+(21, 9, 7, 1, 'peer', '2026-06-12', 'submitted'),
+(22, 2, 7, 1, 'subordinate', '2026-06-12', 'submitted'),
+(23, 9, 9, 1, 'self', '2026-06-12', 'submitted'),
+(24, 1, 9, 1, 'supervisor', '2026-06-12', 'submitted'),
+(25, 10, 9, 1, 'peer', '2026-06-12', 'submitted'),
+(26, 10, 10, 1, 'self', '2026-06-12', 'submitted'),
+(27, 3, 10, 1, 'supervisor', '2026-06-12', 'submitted'),
+(28, 13, 10, 1, 'peer', '2026-06-12', 'submitted'),
+(29, 3, 10, 1, 'subordinate', '2026-06-12', 'submitted'),
+(30, 11, 11, 1, 'self', '2026-06-12', 'submitted'),
+(31, 2, 11, 1, 'supervisor', '2026-06-12', 'submitted'),
+(32, 17, 11, 1, 'peer', '2026-06-12', 'submitted'),
+(33, 12, 12, 1, 'self', '2026-06-12', 'submitted'),
+(34, 3, 12, 1, 'supervisor', '2026-06-12', 'submitted'),
+(35, 3, 12, 1, 'peer', '2026-06-12', 'submitted'),
+(36, 13, 13, 1, 'self', '2026-06-12', 'submitted'),
+(37, 3, 13, 1, 'supervisor', '2026-06-12', 'submitted'),
+(38, 9, 13, 1, 'peer', '2026-06-12', 'submitted'),
+(39, 14, 14, 1, 'self', '2026-06-12', 'submitted'),
+(40, 7, 14, 1, 'supervisor', '2026-06-12', 'submitted'),
+(41, 5, 14, 1, 'peer', '2026-06-12', 'submitted'),
+(42, 15, 14, 1, 'subordinate', '2026-06-12', 'submitted'),
+(43, 15, 15, 1, 'self', '2026-06-12', 'submitted'),
+(44, 14, 15, 1, 'supervisor', '2026-06-12', 'submitted'),
+(45, 14, 15, 1, 'peer', '2026-06-12', 'submitted'),
+(46, 16, 16, 1, 'self', '2026-06-12', 'submitted'),
+(47, 3, 16, 1, 'supervisor', '2026-06-12', 'submitted'),
+(48, 3, 16, 1, 'peer', '2026-06-12', 'submitted'),
+(49, 17, 17, 1, 'self', '2026-06-12', 'submitted'),
+(50, 2, 17, 1, 'supervisor', '2026-06-12', 'submitted'),
+(51, 11, 17, 1, 'peer', '2026-06-12', 'submitted'),
+(52, 18, 18, 1, 'self', '2026-06-12', 'submitted'),
+(53, 3, 18, 1, 'supervisor', '2026-06-12', 'submitted'),
+(54, 10, 18, 1, 'peer', '2026-06-12', 'submitted'),
+(55, 1, 1, 2, 'self', '2026-12-12', 'submitted'),
+(56, 11, 1, 2, 'peer', '2026-12-12', 'submitted'),
+(57, 7, 1, 2, 'subordinate', '2026-12-12', 'submitted'),
+(58, 2, 2, 2, 'self', '2026-12-12', 'submitted'),
+(59, 7, 2, 2, 'supervisor', '2026-12-12', 'submitted'),
+(60, 17, 2, 2, 'peer', '2026-12-12', 'submitted'),
+(61, 5, 2, 2, 'subordinate', '2026-12-12', 'submitted'),
+(62, 3, 3, 2, 'self', '2026-12-12', 'submitted'),
+(63, 10, 3, 2, 'supervisor', '2026-12-12', 'submitted'),
+(64, 16, 3, 2, 'peer', '2026-12-12', 'submitted'),
+(65, 4, 3, 2, 'subordinate', '2026-12-12', 'submitted'),
+(66, 4, 4, 2, 'self', '2026-12-12', 'submitted'),
+(67, 3, 4, 2, 'supervisor', '2026-12-12', 'submitted'),
+(68, 3, 4, 2, 'peer', '2026-12-12', 'submitted'),
+(69, 5, 5, 2, 'self', '2026-12-12', 'submitted'),
+(70, 2, 5, 2, 'supervisor', '2026-12-12', 'submitted'),
+(71, 15, 5, 2, 'peer', '2026-12-12', 'submitted'),
+(72, 6, 6, 2, 'self', '2026-12-12', 'submitted'),
+(73, 3, 6, 2, 'supervisor', '2026-12-12', 'submitted'),
+(74, 13, 6, 2, 'peer', '2026-12-12', 'submitted'),
+(75, 7, 7, 2, 'self', '2026-12-12', 'submitted'),
+(76, 1, 7, 2, 'supervisor', '2026-12-12', 'submitted'),
+(77, 9, 7, 2, 'peer', '2026-12-12', 'submitted'),
+(78, 2, 7, 2, 'subordinate', '2026-12-12', 'submitted'),
+(79, 8, 8, 2, 'self', '2026-12-12', 'submitted'),
+(80, 3, 8, 2, 'supervisor', '2026-12-12', 'submitted'),
+(81, 3, 8, 2, 'peer', '2026-12-12', 'submitted'),
+(82, 9, 9, 2, 'self', '2026-12-12', 'submitted'),
+(83, 1, 9, 2, 'supervisor', '2026-12-12', 'submitted'),
+(84, 10, 9, 2, 'peer', '2026-12-12', 'submitted'),
+(85, 10, 10, 2, 'self', '2026-12-12', 'submitted'),
+(86, 3, 10, 2, 'supervisor', '2026-12-12', 'submitted'),
+(87, 13, 10, 2, 'peer', '2026-12-12', 'submitted'),
+(88, 3, 10, 2, 'subordinate', '2026-12-12', 'submitted'),
+(89, 11, 11, 2, 'self', '2026-12-12', 'submitted'),
+(90, 2, 11, 2, 'supervisor', '2026-12-12', 'submitted'),
+(91, 17, 11, 2, 'peer', '2026-12-12', 'submitted'),
+(92, 12, 12, 2, 'self', '2026-12-12', 'submitted'),
+(93, 3, 12, 2, 'supervisor', '2026-12-12', 'submitted'),
+(94, 3, 12, 2, 'peer', '2026-12-12', 'submitted'),
+(95, 13, 13, 2, 'self', '2026-12-12', 'submitted'),
+(96, 3, 13, 2, 'supervisor', '2026-12-12', 'submitted'),
+(97, 9, 13, 2, 'peer', '2026-12-12', 'submitted'),
+(98, 14, 14, 2, 'self', '2026-12-12', 'submitted'),
+(99, 7, 14, 2, 'supervisor', '2026-12-12', 'submitted'),
+(100, 5, 14, 2, 'peer', '2026-12-12', 'submitted'),
+(101, 15, 14, 2, 'subordinate', '2026-12-12', 'submitted'),
+(102, 15, 15, 2, 'self', '2026-12-12', 'submitted'),
+(103, 14, 15, 2, 'supervisor', '2026-12-12', 'submitted'),
+(104, 14, 15, 2, 'peer', '2026-12-12', 'submitted'),
+(105, 16, 16, 2, 'self', '2026-12-12', 'submitted'),
+(106, 3, 16, 2, 'supervisor', '2026-12-12', 'submitted'),
+(107, 3, 16, 2, 'peer', '2026-12-12', 'submitted'),
+(108, 17, 17, 2, 'self', '2026-12-12', 'submitted'),
+(109, 2, 17, 2, 'supervisor', '2026-12-12', 'submitted'),
+(110, 11, 17, 2, 'peer', '2026-12-12', 'submitted'),
+(111, 18, 18, 2, 'self', '2026-12-12', 'submitted'),
+(112, 3, 18, 2, 'supervisor', '2026-12-12', 'submitted'),
+(113, 10, 18, 2, 'peer', '2026-12-12', 'submitted'),
+(114, 1, 1, 3, 'self', '2026-09-10', 'submitted'),
+(115, 11, 1, 3, 'peer', '2026-09-10', 'submitted'),
+(116, 7, 1, 3, 'subordinate', '2026-09-10', 'submitted'),
+(117, 2, 2, 3, 'self', '2026-09-10', 'submitted'),
+(118, 7, 2, 3, 'supervisor', '2026-09-10', 'submitted'),
+(119, 17, 2, 3, 'peer', '2026-09-10', 'submitted'),
+(120, 5, 2, 3, 'subordinate', '2026-09-10', 'submitted'),
+(121, 3, 3, 3, 'self', '2026-09-10', 'submitted'),
+(122, 10, 3, 3, 'supervisor', '2026-09-10', 'submitted'),
+(123, 16, 3, 3, 'peer', '2026-09-10', 'submitted'),
+(124, 4, 3, 3, 'subordinate', '2026-09-10', 'submitted'),
+(125, 4, 4, 3, 'self', '2026-09-10', 'submitted'),
+(126, 3, 4, 3, 'supervisor', '2026-09-10', 'submitted'),
+(127, 3, 4, 3, 'peer', '2026-09-10', 'submitted'),
+(128, 5, 5, 3, 'self', '2026-09-10', 'submitted'),
+(129, 2, 5, 3, 'supervisor', '2026-09-10', 'submitted'),
+(130, 15, 5, 3, 'peer', '2026-09-10', 'submitted'),
+(131, 6, 6, 3, 'self', '2026-09-10', 'submitted'),
+(132, 3, 6, 3, 'supervisor', '2026-09-10', 'submitted'),
+(133, 13, 6, 3, 'peer', '2026-09-10', 'submitted'),
+(134, 7, 7, 3, 'self', '2026-09-10', 'submitted'),
+(135, 1, 7, 3, 'supervisor', '2026-09-10', 'submitted'),
+(136, 9, 7, 3, 'peer', '2026-09-10', 'submitted'),
+(137, 2, 7, 3, 'subordinate', '2026-09-10', 'submitted'),
+(138, 8, 8, 3, 'self', '2026-09-10', 'submitted'),
+(139, 3, 8, 3, 'supervisor', '2026-09-10', 'submitted'),
+(140, 3, 8, 3, 'peer', '2026-09-10', 'submitted'),
+(141, 9, 9, 3, 'self', '2026-09-10', 'submitted'),
+(142, 1, 9, 3, 'supervisor', '2026-09-10', 'submitted'),
+(143, 10, 9, 3, 'peer', '2026-09-10', 'submitted'),
+(144, 10, 10, 3, 'self', '2026-09-10', 'submitted'),
+(145, 3, 10, 3, 'supervisor', '2026-09-10', 'submitted'),
+(146, 13, 10, 3, 'peer', '2026-09-10', 'submitted'),
+(147, 3, 10, 3, 'subordinate', '2026-09-10', 'submitted'),
+(148, 11, 11, 3, 'self', '2026-09-10', 'submitted'),
+(149, 2, 11, 3, 'supervisor', '2026-09-10', 'submitted'),
+(150, 17, 11, 3, 'peer', '2026-09-10', 'submitted'),
+(151, 12, 12, 3, 'self', '2026-09-10', 'submitted'),
+(152, 3, 12, 3, 'supervisor', '2026-09-10', 'submitted'),
+(153, 3, 12, 3, 'peer', '2026-09-10', 'submitted'),
+(154, 13, 13, 3, 'self', '2026-09-10', 'submitted'),
+(155, 3, 13, 3, 'supervisor', '2026-09-10', 'submitted'),
+(156, 9, 13, 3, 'peer', '2026-09-10', 'submitted'),
+(157, 14, 14, 3, 'self', '2026-09-10', 'submitted'),
+(158, 7, 14, 3, 'supervisor', '2026-09-10', 'submitted'),
+(159, 5, 14, 3, 'peer', '2026-09-10', 'submitted'),
+(160, 15, 14, 3, 'subordinate', '2026-09-10', 'submitted'),
+(161, 15, 15, 3, 'self', '2026-09-10', 'submitted'),
+(162, 14, 15, 3, 'supervisor', '2026-09-10', 'submitted'),
+(163, 14, 15, 3, 'peer', '2026-09-10', 'submitted'),
+(164, 16, 16, 3, 'self', '2026-09-10', 'submitted'),
+(165, 3, 16, 3, 'supervisor', '2026-09-10', 'submitted'),
+(166, 3, 16, 3, 'peer', '2026-09-10', 'submitted'),
+(167, 17, 17, 3, 'self', '2026-09-10', 'submitted'),
+(168, 2, 17, 3, 'supervisor', '2026-09-10', 'submitted'),
+(169, 11, 17, 3, 'peer', '2026-09-10', 'submitted'),
+(170, 18, 18, 3, 'self', '2026-09-10', 'submitted'),
+(171, 3, 18, 3, 'supervisor', '2026-09-10', 'submitted'),
+(172, 10, 18, 3, 'peer', '2026-09-10', 'submitted'),
+(173, 1, 1, 4, 'self', '2027-06-12', 'submitted'),
+(174, 11, 1, 4, 'peer', '2027-06-12', 'submitted'),
+(175, 7, 1, 4, 'subordinate', '2027-06-12', 'submitted'),
+(176, 2, 2, 4, 'self', '2027-06-12', 'submitted'),
+(177, 7, 2, 4, 'supervisor', '2027-06-12', 'submitted'),
+(178, 17, 2, 4, 'peer', '2027-06-12', 'submitted'),
+(179, 5, 2, 4, 'subordinate', '2027-06-12', 'submitted'),
+(180, 3, 3, 4, 'self', '2027-06-12', 'submitted'),
+(181, 10, 3, 4, 'supervisor', '2027-06-12', 'submitted'),
+(182, 16, 3, 4, 'peer', '2027-06-12', 'submitted'),
+(183, 4, 3, 4, 'subordinate', '2027-06-12', 'submitted'),
+(184, 4, 4, 4, 'self', '2027-06-12', 'submitted'),
+(185, 3, 4, 4, 'supervisor', '2027-06-12', 'submitted'),
+(186, 3, 4, 4, 'peer', '2027-06-12', 'submitted'),
+(187, 5, 5, 4, 'self', '2027-06-12', 'submitted'),
+(188, 2, 5, 4, 'supervisor', '2027-06-12', 'submitted'),
+(189, 15, 5, 4, 'peer', '2027-06-12', 'submitted'),
+(190, 6, 6, 4, 'self', '2027-06-12', 'submitted'),
+(191, 3, 6, 4, 'supervisor', '2027-06-12', 'submitted'),
+(192, 13, 6, 4, 'peer', '2027-06-12', 'submitted'),
+(193, 7, 7, 4, 'self', '2027-06-12', 'submitted'),
+(194, 1, 7, 4, 'supervisor', '2027-06-12', 'submitted'),
+(195, 9, 7, 4, 'peer', '2027-06-12', 'submitted'),
+(196, 2, 7, 4, 'subordinate', '2027-06-12', 'submitted'),
+(197, 8, 8, 4, 'self', '2027-06-12', 'submitted'),
+(198, 3, 8, 4, 'supervisor', '2027-06-12', 'submitted'),
+(199, 3, 8, 4, 'peer', '2027-06-12', 'submitted'),
+(200, 9, 9, 4, 'self', '2027-06-12', 'submitted'),
+(201, 1, 9, 4, 'supervisor', '2027-06-12', 'submitted'),
+(202, 10, 9, 4, 'peer', '2027-06-12', 'submitted'),
+(203, 10, 10, 4, 'self', '2027-06-12', 'submitted'),
+(204, 3, 10, 4, 'supervisor', '2027-06-12', 'submitted'),
+(205, 13, 10, 4, 'peer', '2027-06-12', 'submitted'),
+(206, 3, 10, 4, 'subordinate', '2027-06-12', 'submitted'),
+(207, 11, 11, 4, 'self', '2027-06-12', 'submitted'),
+(208, 2, 11, 4, 'supervisor', '2027-06-12', 'submitted'),
+(209, 17, 11, 4, 'peer', '2027-06-12', 'submitted'),
+(210, 12, 12, 4, 'self', '2027-06-12', 'submitted'),
+(211, 3, 12, 4, 'supervisor', '2027-06-12', 'submitted'),
+(212, 3, 12, 4, 'peer', '2027-06-12', 'submitted'),
+(213, 13, 13, 4, 'self', '2027-06-12', 'submitted'),
+(214, 3, 13, 4, 'supervisor', '2027-06-12', 'submitted'),
+(215, 9, 13, 4, 'peer', '2027-06-12', 'submitted'),
+(216, 14, 14, 4, 'self', '2027-06-12', 'submitted'),
+(217, 7, 14, 4, 'supervisor', '2027-06-12', 'submitted'),
+(218, 5, 14, 4, 'peer', '2027-06-12', 'submitted'),
+(219, 15, 14, 4, 'subordinate', '2027-06-12', 'submitted'),
+(220, 15, 15, 4, 'self', '2027-06-12', 'submitted'),
+(221, 14, 15, 4, 'supervisor', '2027-06-12', 'submitted'),
+(222, 14, 15, 4, 'peer', '2027-06-12', 'submitted'),
+(223, 16, 16, 4, 'self', '2027-06-12', 'submitted'),
+(224, 3, 16, 4, 'supervisor', '2027-06-12', 'submitted'),
+(225, 3, 16, 4, 'peer', '2027-06-12', 'submitted'),
+(226, 17, 17, 4, 'self', '2027-06-12', 'submitted'),
+(227, 2, 17, 4, 'supervisor', '2027-06-12', 'submitted'),
+(228, 11, 17, 4, 'peer', '2027-06-12', 'submitted'),
+(229, 18, 18, 4, 'self', '2027-06-12', 'submitted'),
+(230, 3, 18, 4, 'supervisor', '2027-06-12', 'submitted'),
+(231, 10, 18, 4, 'peer', '2027-06-12', 'submitted');
 
 -- --------------------------------------------------------
 
@@ -97,7 +310,7 @@ CREATE TABLE `assessment_details` (
   `question_id` int(11) NOT NULL,
   `score` int(11) NOT NULL,
   `comment` varchar(500) DEFAULT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `assessment_details`
@@ -322,1016 +535,7 @@ INSERT INTO `assessment_details` (`assessment_detail_id`, `assessment_id`, `ques
 (267, 16, 10, 4, ''),
 (268, 16, 11, 4, ''),
 (269, 16, 12, 4, ''),
-(270, 16, 13, 4, '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `audit_logs`
---
-
-CREATE TABLE `audit_logs` (
-  `log_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `activity` varchar(255) NOT NULL,
-  `activity_time` datetime NOT NULL,
-  `ip_address` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `audit_logs`
---
-
-INSERT INTO `audit_logs` (`log_id`, `user_id`, `activity`, `activity_time`, `ip_address`) VALUES
-(1, 1, 'Seed database imported', '2026-06-17 17:25:12', '127.0.0.1'),
-(2, 2, 'Membuat periode evaluasi AKHLAK', '2026-06-17 17:25:12', '127.0.0.1'),
-(3, 3, 'Memvalidasi peer assignment tim Operations', '2026-06-17 17:25:12', '127.0.0.1'),
-(4, 8, 'Mengisi self-assessment', '2026-06-17 17:25:12', '127.0.0.1'),
-(5, 1, 'Simpan periode evaluasi', '2026-06-17 17:25:32', '::1'),
-(6, 1, 'Membuat notifikasi', '2026-06-17 17:28:53', '::1'),
-(7, 1, 'Simpan periode evaluasi', '2026-06-17 17:29:01', '::1'),
-(8, 1, 'Kelola pertanyaan AKHLAK', '2026-06-17 17:29:20', '::1'),
-(9, 1, 'Tambah karyawan Joko Knalpot', '2026-06-17 17:32:00', '::1'),
-(10, 1, 'Kelola pertanyaan AKHLAK', '2026-06-17 17:33:12', '::1'),
-(11, 1, 'Tambah periode evaluasi Evaluasi AKHLAK Semester 3 2026', '2026-06-17 17:34:28', '::1'),
-(12, 1, 'Update peer assignment', '2026-06-17 17:34:59', '::1'),
-(13, 1, 'Submit assessment Self Assessment', '2026-06-17 17:35:16', '::1'),
-(14, 1, 'Update karyawan Anggit', '2026-06-17 17:37:07', '::1'),
-(15, 1, 'Update karyawan Salsabila Kirana', '2026-06-17 17:37:12', '::1'),
-(16, 1, 'Update karyawan Rama Pratama', '2026-06-17 17:37:16', '::1'),
-(17, 1, 'Update karyawan Dimas Nugraha', '2026-06-17 17:37:20', '::1'),
-(18, 1, 'Update karyawan Nadia Maharani', '2026-06-17 17:37:25', '::1'),
-(19, 1, 'Update karyawan Bima Arya', '2026-06-17 17:37:30', '::1'),
-(20, 1, 'Update karyawan Intan Wulandari', '2026-06-17 17:37:35', '::1'),
-(21, 1, 'Update karyawan Gifary', '2026-06-17 17:37:42', '::1'),
-(22, 1, 'Update karyawan Daffa Sayyid Zahran', '2026-06-17 17:37:47', '::1'),
-(23, 1, 'Update karyawan Anggit', '2026-06-17 17:37:51', '::1'),
-(24, 1, 'Logout dari sistem', '2026-06-17 17:37:55', '::1'),
-(25, 8, 'Login berhasil sebagai Karyawan', '2026-06-17 17:38:36', '::1'),
-(26, 8, 'Logout dari sistem', '2026-06-17 17:38:56', '::1'),
-(27, 1, 'Login berhasil sebagai Admin HR', '2026-06-17 17:39:30', '::1'),
-(28, 1, 'Tambah pertanyaan AKHLAK', '2026-06-17 17:39:53', '::1'),
-(29, 1, 'Tambah peer assignment', '2026-06-17 17:40:18', '::1'),
-(30, 1, 'Logout dari sistem', '2026-06-17 18:01:23', '::1'),
-(31, 1, 'Login berhasil sebagai Admin HR', '2026-06-17 18:02:05', '::1'),
-(32, 1, 'Logout dari sistem', '2026-06-17 18:07:39', '::1'),
-(33, 1, 'Login berhasil sebagai Admin HR', '2026-06-17 18:13:01', '::1'),
-(34, 1, 'Logout dari sistem', '2026-06-17 18:20:04', '::1'),
-(35, 1, 'Login berhasil sebagai Admin HR', '2026-06-17 18:22:23', '::1'),
-(36, 1, 'Logout dari sistem', '2026-06-17 18:31:39', '::1'),
-(37, 8, 'Login berhasil sebagai Karyawan', '2026-06-17 18:33:20', '::1'),
-(38, 8, 'Logout dari sistem', '2026-06-17 18:35:34', '::1'),
-(39, 3, 'Login berhasil sebagai Atasan', '2026-06-17 18:35:38', '::1'),
-(40, 3, 'Logout dari sistem', '2026-06-17 18:35:46', '::1'),
-(41, 2, 'Login berhasil sebagai Admin HR', '2026-06-17 18:35:52', '::1'),
-(42, 2, 'Logout dari sistem', '2026-06-17 18:36:01', '::1'),
-(43, 3, 'Login berhasil sebagai Atasan', '2026-06-17 18:36:05', '::1'),
-(44, 3, 'Logout dari sistem', '2026-06-17 18:38:10', '::1'),
-(45, 4, 'Login berhasil sebagai Karyawan', '2026-06-17 18:38:15', '::1'),
-(46, 4, 'Logout dari sistem', '2026-06-17 18:41:56', '::1'),
-(47, 1, 'Login berhasil sebagai Admin HR', '2026-06-17 18:41:58', '::1'),
-(48, 1, 'Logout dari sistem', '2026-06-17 18:43:12', '::1'),
-(49, 3, 'Login berhasil sebagai Atasan', '2026-06-17 18:43:17', '::1'),
-(50, 3, 'Logout dari sistem', '2026-06-17 18:45:52', '::1'),
-(51, 4, 'Login berhasil sebagai Karyawan', '2026-06-17 18:45:57', '::1'),
-(52, 4, 'Logout dari sistem', '2026-06-17 20:06:46', '::1'),
-(53, 1, 'Login berhasil sebagai Admin HR', '2026-06-17 20:06:49', '::1'),
-(54, 1, 'Logout dari sistem', '2026-06-17 20:36:55', '::1'),
-(55, 8, 'Login berhasil sebagai Karyawan', '2026-06-17 20:37:11', '::1'),
-(56, 8, 'Logout dari sistem', '2026-06-17 20:40:13', '::1'),
-(57, 7, 'Login berhasil sebagai Manajemen', '2026-06-17 20:40:21', '::1'),
-(58, 7, 'Logout dari sistem', '2026-06-17 21:12:57', '::1'),
-(59, 3, 'Login berhasil sebagai Atasan', '2026-06-17 21:13:50', '::1'),
-(60, 3, 'Logout dari sistem', '2026-06-17 21:30:42', '::1'),
-(61, 7, 'Login berhasil sebagai Manajemen', '2026-06-17 21:31:26', '::1'),
-(62, 7, 'Logout dari sistem', '2026-06-17 21:32:49', '::1'),
-(63, 3, 'Login berhasil sebagai Atasan', '2026-06-17 21:33:07', '::1'),
-(64, 3, 'Logout dari sistem', '2026-06-17 21:34:12', '::1'),
-(65, 8, 'Login berhasil sebagai Karyawan', '2026-06-17 21:34:34', '::1'),
-(66, 8, 'Logout dari sistem', '2026-06-18 11:56:40', '::1'),
-(67, 2, 'Login berhasil sebagai Admin HR', '2026-06-18 12:26:23', '::1'),
-(68, 2, 'Submit assessment Self Assessment', '2026-06-18 12:28:58', '::1'),
-(69, 2, 'Submit assessment Penilaian Bawahan', '2026-06-18 12:29:25', '::1'),
-(70, 2, 'Submit assessment Self Assessment', '2026-06-18 12:29:50', '::1'),
-(71, 2, 'Logout dari sistem', '2026-06-18 13:35:43', '::1'),
-(72, 1, 'Login berhasil sebagai Admin HR', '2026-06-18 13:37:21', '::1'),
-(73, 1, 'Update karyawan Muhammad Gifary', '2026-06-18 13:37:50', '::1'),
-(74, 1, 'Update karyawan Rama Pratama', '2026-06-18 13:39:47', '::1'),
-(75, 1, 'Update karyawan Dimas Nugraha', '2026-06-18 13:40:00', '::1'),
-(76, 1, 'Update karyawan Nadia Maharani', '2026-06-18 13:40:14', '::1'),
-(77, 1, 'Update karyawan Asep Dendeng', '2026-06-18 13:41:01', '::1'),
-(78, 1, 'Update karyawan Rama Pratama', '2026-06-18 13:41:22', '::1'),
-(79, 1, 'Update karyawan Anggit', '2026-06-18 13:41:33', '::1'),
-(80, 1, 'Update karyawan Joko Knalpot', '2026-06-18 13:41:55', '::1'),
-(81, 1, 'Update karyawan Rama Pratama', '2026-06-18 13:43:34', '::1'),
-(82, 1, 'Update karyawan Dimas Nugraha', '2026-06-18 13:43:57', '::1'),
-(83, 1, 'Update karyawan Asep Dendeng', '2026-06-18 13:44:19', '::1'),
-(84, 1, 'Update karyawan Asep Dendeng', '2026-06-18 13:44:30', '::1'),
-(85, 1, 'Update karyawan Joko Knalpot', '2026-06-18 13:45:08', '::1'),
-(86, 1, 'Update karyawan Bima Arya', '2026-06-18 13:45:42', '::1'),
-(87, 1, 'Update karyawan Muhammad Gifary', '2026-06-18 13:46:33', '::1'),
-(88, 1, 'Update karyawan Rama Pratama', '2026-06-18 13:46:39', '::1'),
-(89, 1, 'Update karyawan Dimas Nugraha', '2026-06-18 13:46:46', '::1'),
-(90, 1, 'Update karyawan Nadia Maharani', '2026-06-18 13:46:53', '::1'),
-(91, 1, 'Logout dari sistem', '2026-06-18 13:47:58', '::1'),
-(92, 1, 'Login berhasil sebagai Admin HR', '2026-06-18 13:57:10', '::1'),
-(93, 1, 'Submit assessment Self Assessment', '2026-06-18 14:08:42', '::1'),
-(94, 1, 'Submit assessment Self Assessment', '2026-06-18 14:09:05', '::1'),
-(95, 1, 'Submit assessment Self Assessment', '2026-06-18 14:09:10', '::1'),
-(96, 1, 'Update periode evaluasi Evaluasi AKHLAK Semester 1 2026', '2026-06-18 14:16:50', '::1'),
-(97, 1, 'Update periode evaluasi Evaluasi AKHLAK Semester 2 2026', '2026-06-18 14:17:12', '::1'),
-(98, 1, 'Tambah peer assignment', '2026-06-18 14:18:10', '::1'),
-(99, 1, 'Update peer assignment', '2026-06-18 14:18:17', '::1'),
-(100, 1, 'Logout dari sistem', '2026-06-18 14:18:34', '::1'),
-(101, 8, 'Login berhasil sebagai Karyawan', '2026-06-18 14:18:39', '::1'),
-(102, 8, 'Logout dari sistem', '2026-06-18 14:19:22', '::1'),
-(103, 1, 'Login berhasil sebagai Admin HR', '2026-06-18 14:19:27', '::1'),
-(104, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:34', '::1'),
-(105, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:35', '::1'),
-(106, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:37', '::1'),
-(107, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:38', '::1'),
-(108, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:39', '::1'),
-(109, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:40', '::1'),
-(110, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:40', '::1'),
-(111, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:41', '::1'),
-(112, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:42', '::1'),
-(113, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:42', '::1'),
-(114, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:44', '::1'),
-(115, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:45', '::1'),
-(116, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:55', '::1'),
-(117, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:57', '::1'),
-(118, 1, 'Tambah peer assignment', '2026-06-18 14:22:18', '::1'),
-(119, 1, 'Logout dari sistem', '2026-06-18 14:22:31', '::1'),
-(120, 8, 'Login berhasil sebagai Karyawan', '2026-06-18 14:22:44', '::1'),
-(121, 8, 'Logout dari sistem', '2026-06-18 14:22:54', '::1'),
-(122, 1, 'Login berhasil sebagai Admin HR', '2026-06-18 14:22:55', '::1'),
-(123, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:23:04', '::1'),
-(124, 1, 'Tambah peer assignment', '2026-06-18 14:23:12', '::1'),
-(125, 1, 'Logout dari sistem', '2026-06-18 14:23:37', '::1'),
-(126, 8, 'Login berhasil sebagai Karyawan', '2026-06-18 14:23:41', '::1'),
-(127, 8, 'Logout dari sistem', '2026-06-18 14:25:13', '::1'),
-(128, 1, 'Login berhasil sebagai Admin HR', '2026-06-18 14:25:14', '::1'),
-(129, 1, 'Update periode evaluasi Evaluasi AKHLAK Semester 2 2026', '2026-06-18 14:27:41', '::1'),
-(130, 1, 'Update periode evaluasi Evaluasi AKHLAK Semester 3 2026', '2026-06-18 14:27:44', '::1'),
-(131, 1, 'Logout dari sistem', '2026-06-18 14:27:45', '::1'),
-(132, 8, 'Login berhasil sebagai Karyawan', '2026-06-18 14:27:49', '::1'),
-(133, 8, 'Logout dari sistem', '2026-06-18 14:27:53', '::1'),
-(134, 9, 'Login berhasil sebagai Manajemen', '2026-06-18 14:27:57', '::1'),
-(135, 9, 'Logout dari sistem', '2026-06-18 14:28:06', '::1'),
-(136, 1, 'Login berhasil sebagai Admin HR', '2026-06-18 14:28:07', '::1'),
-(137, 1, 'Tambah peer assignment', '2026-06-18 14:28:36', '::1'),
-(138, 1, 'Logout dari sistem', '2026-06-18 14:28:39', '::1'),
-(139, 8, 'Login berhasil sebagai Karyawan', '2026-06-18 14:28:43', '::1'),
-(140, 8, 'Logout dari sistem', '2026-06-18 14:29:57', '::1'),
-(141, 1, 'Login berhasil sebagai Admin HR', '2026-06-18 14:29:59', '::1'),
-(142, 1, 'Logout dari sistem', '2026-06-18 14:39:36', '::1'),
-(143, 8, 'Login berhasil sebagai Karyawan', '2026-06-18 14:39:40', '::1'),
-(144, 8, 'Logout dari sistem', '2026-06-18 14:40:29', '::1'),
-(145, 1, 'Login berhasil sebagai Admin HR', '2026-06-18 14:40:31', '::1'),
-(146, 1, 'Tambah peer assignment', '2026-06-18 14:46:14', '::1'),
-(147, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:46:19', '::1'),
-(148, 1, 'Tambah peer assignment', '2026-06-18 14:46:54', '::1'),
-(149, 1, 'Tambah peer assignment', '2026-06-18 14:51:01', '::1'),
-(150, 1, 'Update pertanyaan AKHLAK', '2026-06-18 14:51:32', '::1'),
-(151, 1, 'Update periode evaluasi Evaluasi AKHLAK Semester 3 2026', '2026-06-18 14:52:30', '::1'),
-(152, 1, 'Update periode evaluasi Evaluasi AKHLAK Semester 1 2026', '2026-06-18 14:52:35', '::1');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `departments`
---
-
-CREATE TABLE `departments` (
-  `department_id` int(11) NOT NULL,
-  `department_name` varchar(100) NOT NULL,
-  `department_desc` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `departments`
---
-
-INSERT INTO `departments` (`department_id`, `department_name`, `department_desc`) VALUES
-(1, 'Human Capital', 'Mengelola administrasi SDM, periode evaluasi, dan pengembangan karyawan'),
-(2, 'Operations', 'Mengelola proses operasional dan performansi lapangan'),
-(3, 'Finance', 'Mengelola keuangan dan kontrol biaya'),
-(4, 'Supply Chain', 'Mengelola pengadaan dan rantai pasok'),
-(5, 'Management', 'Manajemen strategis perusahaan');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `employees`
---
-
-CREATE TABLE `employees` (
-  `employee_id` int(11) NOT NULL,
-  `department_id` int(11) NOT NULL,
-  `position_id` int(11) NOT NULL,
-  `supervisor_id` int(11) DEFAULT NULL,
-  `employee_nik` varchar(30) NOT NULL,
-  `employee_name` varchar(120) NOT NULL,
-  `employee_email` varchar(120) NOT NULL,
-  `employee_phone` varchar(30) DEFAULT NULL,
-  `hire_date` date DEFAULT NULL,
-  `employee_status` varchar(30) DEFAULT 'active'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `employees`
---
-
-INSERT INTO `employees` (`employee_id`, `department_id`, `position_id`, `supervisor_id`, `employee_nik`, `employee_name`, `employee_email`, `employee_phone`, `hire_date`, `employee_status`) VALUES
-(1, 1, 1, NULL, 'PEN-0001', 'Muhammad Gifary', 'gifary@sipakar.test', '081200000001', '2023-01-10', 'active'),
-(2, 1, 8, 7, 'PEN-0002', 'Rama Pratama', 'rama@sipakar.test', '081200000002', '2023-02-12', 'active'),
-(3, 2, 3, 10, 'PEN-0003', 'Dimas Nugraha', 'dimas@sipakar.test', '081200000003', '2022-08-01', 'active'),
-(4, 2, 9, 3, 'PEN-0004', 'Nadia Maharani', 'nadia@sipakar.test', '081200000004', '2024-03-15', 'active'),
-(5, 4, 6, 2, 'PEN-0005', 'Bima Arya', 'bima@sipakar.test', '081200000005', '2024-05-20', 'active'),
-(6, 3, 7, 3, 'PEN-0006', 'Intan Wulandari', 'intan@sipakar.test', '081200000006', '2023-11-04', 'active'),
-(7, 5, 4, 1, 'PEN-0007', 'Asep Dendeng', 'asep@sipakar.test', '081200000007', '2021-07-01', 'active'),
-(8, 2, 2, 3, 'PEN-0008', 'Daffa Sayyid Zahran', 'daffa@sipakar.test', '081200000008', '2024-07-10', 'active'),
-(9, 3, 5, 1, 'PEN-0009', 'Anggit', 'anggit@sipakar.test', '09090909090', '2026-06-17', 'active'),
-(10, 3, 7, 3, 'PEN-0010', 'Joko Knalpot', 'joko@sipakar.test', '09090909090', '2026-06-17', 'active');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `evaluation_periods`
---
-
-CREATE TABLE `evaluation_periods` (
-  `period_id` int(11) NOT NULL,
-  `period_name` varchar(120) NOT NULL,
-  `start_date` date NOT NULL,
-  `end_date` date NOT NULL,
-  `period_status` varchar(30) DEFAULT 'draft'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `evaluation_periods`
---
-
-INSERT INTO `evaluation_periods` (`period_id`, `period_name`, `start_date`, `end_date`, `period_status`) VALUES
-(1, 'Evaluasi AKHLAK Semester 1 2026', '2026-01-01', '2026-06-30', 'active'),
-(2, 'Evaluasi AKHLAK Semester 2 2026', '2026-07-01', '2026-12-31', 'closed'),
-(3, 'Evaluasi AKHLAK Semester 3 2026', '2026-06-17', '2026-09-17', 'closed');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `final_results`
---
-
-CREATE TABLE `final_results` (
-  `result_id` int(11) NOT NULL,
-  `employee_id` int(11) NOT NULL,
-  `period_id` int(11) NOT NULL,
-  `self_score` decimal(5,2) DEFAULT 0.00,
-  `peer_score` decimal(5,2) DEFAULT 0.00,
-  `subordinate_score` decimal(5,2) DEFAULT 0.00,
-  `supervisor_score` decimal(5,2) DEFAULT 0.00,
-  `final_score` decimal(5,2) DEFAULT 0.00,
-<<<<<<< HEAD
-  `gap_analysis` varchar(500) DEFAULT NULL,
-  `idp_area` varchar(120) DEFAULT NULL,
-  `idp_plan` varchar(500) DEFAULT NULL,
-  `idp_target` varchar(255) DEFAULT NULL,
-  `idp_status` varchar(30) DEFAULT 'belum_dibuat',
-  `idp_updated_by` int(11) DEFAULT NULL,
-  `idp_updated_at` datetime DEFAULT NULL
-=======
-  `gap_analysis` varchar(500) DEFAULT NULL
->>>>>>> 666b495d3ac99b4d73941b9eed0cfefa50fc339f
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `final_results`
---
-
-INSERT INTO `final_results` (`result_id`, `employee_id`, `period_id`, `self_score`, `peer_score`, `subordinate_score`, `supervisor_score`, `final_score`, `gap_analysis`) VALUES
-(1, 3, 1, '4.17', '0.00', '4.33', '0.00', '4.28', 'Area pengembangan utama: Kompeten. Rekomendasi IDP: penguatan coaching, feedback rutin, dan delegasi berbasis kompetensi.'),
-(2, 4, 1, '4.42', '4.50', '0.00', '4.83', '4.70', 'Kinerja sangat baik. Fokus pengembangan: konsistensi inovasi dan dokumentasi kolaborasi.'),
-(3, 5, 1, '4.25', '4.08', '0.00', '4.25', '4.20', 'Kinerja baik. Fokus pengembangan: peningkatan inisiatif adaptif dan kompetensi teknis.'),
-(4, 6, 1, '4.00', '0.00', '0.00', '3.92', '3.96', 'Kinerja baik. Fokus pengembangan: kecepatan adaptasi dan kolaborasi lintas fungsi.'),
-(5, 8, 1, '4.42', '4.33', '0.00', '4.83', '4.66', 'Kinerja sangat baik. Fokus pengembangan: persiapan peran talent pool dan penguatan leadership.'),
-(6, 1, 1, '4.00', '0.00', '3.46', '0.00', '3.60', 'Area pengembangan utama: Harmonis dengan skor rata-rata 3.25. Perlu IDP terarah: pelatihan perilaku AKHLAK, evaluasi bulanan, dan pendampingan atasan.'),
-(7, 2, 1, '3.00', '0.00', '0.00', '0.00', '3.00', 'Area pengembangan utama: Amanah dengan skor rata-rata 1.5. Prioritas pengembangan: coaching intensif, rencana perbaikan perilaku, dan monitoring HR.');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `notifications`
---
-
-CREATE TABLE `notifications` (
-  `notification_id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `title` varchar(120) NOT NULL,
-  `message` varchar(500) NOT NULL,
-  `notification_type` varchar(50) DEFAULT 'info',
-  `is_read` tinyint(1) DEFAULT 0,
-  `created_at` datetime NOT NULL,
-  `created_by` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `notifications`
---
-
-INSERT INTO `notifications` (`notification_id`, `user_id`, `title`, `message`, `notification_type`, `is_read`, `created_at`, `created_by`) VALUES
-(1, NULL, 'Periode Evaluasi Aktif', 'Periode Evaluasi AKHLAK Semester 1 2026 sedang berlangsung. Harap selesaikan penilaian sesuai batas waktu.', 'period', 0, '2026-06-17 17:25:12', 1),
-(2, 8, 'Reminder Penilaian', 'Daffa, masih ada penilaian peer yang perlu diselesaikan sebelum periode ditutup.', 'reminder', 0, '2026-06-17 17:25:12', 1),
-(3, 3, 'Validasi Peer Assignment', 'Terdapat daftar peer assignment yang perlu divalidasi oleh atasan.', 'approval', 0, '2026-06-17 17:25:12', 1),
-(7, NULL, 'Peer Assignment Diperbarui', 'Admin HR memperbarui daftar penilai silang.', 'assignment', 0, '2026-06-17 17:34:59', 1),
-(8, NULL, 'Assessment Submitted', 'Salsabila Kirana telah mengirim Self Assessment untuk Salsabila Kirana.', 'assessment', 0, '2026-06-17 17:35:16', 1),
-(9, NULL, 'Peer Assignment Diperbarui', 'Admin HR memperbarui daftar penilai silang.', 'assignment', 0, '2026-06-17 17:40:18', 1),
-(10, NULL, 'Assessment Submitted', 'Rama Pratama telah mengirim Self Assessment untuk Rama Pratama.', 'assessment', 0, '2026-06-18 12:28:58', 2),
-(11, NULL, 'Assessment Submitted', 'Rama Pratama telah mengirim Penilaian Bawahan untuk Salsabila Kirana.', 'assessment', 0, '2026-06-18 12:29:25', 2),
-(12, NULL, 'Assessment Submitted', 'Rama Pratama telah mengirim Self Assessment untuk Rama Pratama.', 'assessment', 0, '2026-06-18 12:29:50', 2),
-(13, NULL, 'Assessment Submitted', 'Muhammad Gifary telah mengirim Self Assessment untuk Muhammad Gifary.', 'assessment', 0, '2026-06-18 14:08:42', 1),
-(14, NULL, 'Assessment Submitted', 'Muhammad Gifary telah mengirim Self Assessment untuk Muhammad Gifary.', 'assessment', 0, '2026-06-18 14:09:05', 1),
-(15, NULL, 'Assessment Submitted', 'Muhammad Gifary telah mengirim Self Assessment untuk Muhammad Gifary.', 'assessment', 0, '2026-06-18 14:09:10', 1),
-(16, NULL, 'Periode Evaluasi Aktif', 'Periode Evaluasi AKHLAK Semester 2 2026 telah dibuka.', 'period', 0, '2026-06-18 14:17:12', 1),
-(17, NULL, 'Peer Assignment Diperbarui', 'Admin HR memperbarui daftar penilai silang.', 'assignment', 0, '2026-06-18 14:18:10', 1),
-(18, NULL, 'Peer Assignment Diperbarui', 'Admin HR memperbarui daftar penilai silang.', 'assignment', 0, '2026-06-18 14:18:17', 1),
-(19, NULL, 'Peer Assignment Diperbarui', 'Admin HR memperbarui daftar penilai silang.', 'assignment', 0, '2026-06-18 14:22:18', 1),
-(20, NULL, 'Peer Assignment Diperbarui', 'Admin HR memperbarui daftar penilai silang.', 'assignment', 0, '2026-06-18 14:23:12', 1),
-(21, NULL, 'Periode Evaluasi Aktif', 'Periode Evaluasi AKHLAK Semester 3 2026 telah dibuka.', 'period', 0, '2026-06-18 14:27:44', 1),
-(22, NULL, 'Peer Assignment Diperbarui', 'Admin HR memperbarui daftar penilai silang.', 'assignment', 0, '2026-06-18 14:28:36', 1),
-(23, NULL, 'Peer Assignment Diperbarui', 'Admin HR memperbarui daftar penilai silang.', 'assignment', 0, '2026-06-18 14:46:14', 1),
-(24, NULL, 'Peer Assignment Diperbarui', 'Admin HR memperbarui daftar penilai silang.', 'assignment', 0, '2026-06-18 14:46:54', 1),
-(25, NULL, 'Peer Assignment Diperbarui', 'Admin HR memperbarui daftar penilai silang.', 'assignment', 0, '2026-06-18 14:51:01', 1),
-(26, NULL, 'Periode Evaluasi Aktif', 'Periode Evaluasi AKHLAK Semester 1 2026 telah dibuka.', 'period', 0, '2026-06-18 14:52:35', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `peer_assignments`
---
-
-CREATE TABLE `peer_assignments` (
-  `peer_assignment_id` int(11) NOT NULL,
-  `employee_id` int(11) NOT NULL,
-  `peer_employee_id` int(11) NOT NULL,
-  `period_id` int(11) NOT NULL,
-  `approval_status` varchar(30) DEFAULT 'pending',
-  `approved_by` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `peer_assignments`
---
-
-INSERT INTO `peer_assignments` (`peer_assignment_id`, `employee_id`, `peer_employee_id`, `period_id`, `approval_status`, `approved_by`) VALUES
-(1, 4, 5, 1, 'cancelled', 'Dimas Nugraha'),
-(2, 4, 6, 1, 'cancelled', 'Dimas Nugraha'),
-(3, 5, 4, 1, 'approved', 'Dimas Nugraha'),
-(4, 6, 4, 1, 'approved', 'Dimas Nugraha'),
-(5, 8, 4, 1, 'approved', 'Dimas Nugraha'),
-(6, 8, 5, 1, 'pending', NULL),
-(7, 3, 4, 1, 'approved', 'Muhammad Gifary'),
-(8, 3, 8, 1, 'cancelled', 'Muhammad Gifary'),
-(12, 8, 9, 3, 'approved', NULL),
-(13, 9, 8, 3, 'approved', 'Rama'),
-(15, 3, 1, 3, 'approved', NULL),
-(16, 2, 1, 3, 'approved', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `positions`
---
-
-CREATE TABLE `positions` (
-  `position_id` int(11) NOT NULL,
-  `position_name` varchar(100) NOT NULL,
-  `position_level` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `positions`
---
-
-INSERT INTO `positions` (`position_id`, `position_name`, `position_level`) VALUES
-(1, 'Admin HRIS', 'Admin HR'),
-(2, 'Staff', 'Staff'),
-(3, 'Atasan / Manager', 'Atasan'),
-(4, 'Manajemen', 'Manajemen'),
-(5, 'HR Development Officer', 'Admin HR'),
-(6, 'Procurement Analyst', 'Staff'),
-(7, 'Finance Analyst', 'Staff'),
-(8, 'Operations Manager', 'Atasan'),
-(9, 'Process Engineer', 'Staff');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `questions`
---
-
-CREATE TABLE `questions` (
-  `question_id` int(11) NOT NULL,
-  `akhlak_id` int(11) NOT NULL,
-  `question_text` varchar(500) NOT NULL,
-  `question_category` varchar(80) DEFAULT 'Perilaku',
-  `question_status` varchar(30) DEFAULT 'active'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `questions`
---
-
-INSERT INTO `questions` (`question_id`, `akhlak_id`, `question_text`, `question_category`, `question_status`) VALUES
-(1, 1, 'Karyawan menunjukkan integritas dalam menjalankan pekerjaan dan menjaga kepercayaan perusahaan.', 'Perilaku', 'active'),
-(2, 1, 'Karyawan bertanggung jawab terhadap hasil kerja dan komitmen yang sudah disepakati.', 'Perilaku', 'active'),
-(3, 2, 'Karyawan mampu menyelesaikan pekerjaan sesuai standar kompetensi jabatannya.', 'Kompetensi', 'active'),
-(4, 2, 'Karyawan aktif belajar untuk meningkatkan kemampuan kerja.', 'Kompetensi', 'active'),
-(5, 3, 'Karyawan mampu menjaga hubungan kerja yang saling menghargai.', 'Perilaku', 'active'),
-(6, 3, 'Karyawan peduli terhadap kondisi rekan kerja dan lingkungan kerja.', 'Perilaku', 'active'),
-(7, 4, 'Karyawan menunjukkan dedikasi terhadap target dan kepentingan perusahaan.', 'Perilaku', 'active'),
-(8, 4, 'Karyawan menjaga nama baik perusahaan dalam aktivitas kerja.', 'Perilaku', 'active'),
-(9, 5, 'Karyawan mampu menyesuaikan diri terhadap perubahan proses kerja.', 'Perilaku', 'active'),
-(10, 5, 'Karyawan memberikan ide perbaikan atau inovasi pada pekerjaan.', 'Kompetensi', 'active'),
-(11, 6, 'Karyawan aktif bekerja sama dengan unit lain untuk menyelesaikan pekerjaan.', 'Perilaku', 'active'),
-(12, 6, 'Karyawan terbuka menerima masukan dan mendukung pencapaian target tim.', 'Perilaku', 'active'),
-(13, 6, 'testing', 'Perilaku', 'inactive');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `roles`
---
-
-CREATE TABLE `roles` (
-  `role_id` int(11) NOT NULL,
-  `role_name` varchar(50) NOT NULL,
-  `role_description` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `roles`
---
-
-INSERT INTO `roles` (`role_id`, `role_name`, `role_description`) VALUES
-(1, 'admin_hr', 'Mengelola master data, periode, pertanyaan, assignment, notifikasi, dan report'),
-(2, 'staff', 'Mengisi assessment dan melihat dashboard serta report pribadi'),
-(3, 'atasan', 'Memvalidasi penilai, melihat dashboard tim, dan membuat IDP bawahan'),
-(4, 'manajemen', 'Melihat dashboard eksekutif, top score, gap, talent mapping, dan laporan perusahaan');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `user_id` int(11) NOT NULL,
-  `role_id` int(11) NOT NULL,
-  `employee_id` int(11) NOT NULL,
-  `username` varchar(80) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `last_login` datetime DEFAULT NULL,
-  `account_status` varchar(30) DEFAULT 'active'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`user_id`, `role_id`, `employee_id`, `username`, `password`, `last_login`, `account_status`) VALUES
-(1, 1, 1, 'gifary', '123123', '2026-06-18 14:40:31', 'active'),
-(2, 3, 2, 'rama', '123123', '2026-06-18 12:26:23', 'active'),
-(3, 3, 3, 'dimas', '123123', '2026-06-17 21:33:07', 'active'),
-(4, 2, 4, 'nadia', '123123', '2026-06-17 18:45:57', 'active'),
-(5, 2, 5, 'bima', '123123', NULL, 'active'),
-(6, 2, 6, 'intan', '123123', NULL, 'active'),
-(7, 4, 7, 'manajemen', '123123', '2026-06-17 21:31:26', 'active'),
-(8, 2, 8, 'daffa', '123123', '2026-06-18 14:39:40', 'active'),
-(9, 4, 9, 'anggit', '123123', '2026-06-18 14:27:57', 'active'),
-(12, 2, 10, 'joko', '123123', NULL, 'active');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `akhlak_values`
---
-ALTER TABLE `akhlak_values`
-  ADD PRIMARY KEY (`akhlak_id`);
-
---
--- Indexes for table `assessments`
---
-ALTER TABLE `assessments`
-  ADD PRIMARY KEY (`assessment_id`),
-  ADD UNIQUE KEY `uq_assessment_once` (`evaluator_id`,`evaluatee_id`,`period_id`,`assessment_type`),
-  ADD KEY `fk_assess_evaluatee` (`evaluatee_id`),
-  ADD KEY `fk_assess_period` (`period_id`);
-
---
--- Indexes for table `assessment_details`
---
-ALTER TABLE `assessment_details`
-  ADD PRIMARY KEY (`assessment_detail_id`),
-  ADD UNIQUE KEY `uq_answer` (`assessment_id`,`question_id`),
-  ADD KEY `fk_detail_question` (`question_id`);
-
---
--- Indexes for table `audit_logs`
---
-ALTER TABLE `audit_logs`
-  ADD PRIMARY KEY (`log_id`),
-  ADD KEY `fk_audit_user` (`user_id`);
-
---
--- Indexes for table `departments`
---
-ALTER TABLE `departments`
-  ADD PRIMARY KEY (`department_id`);
-
---
--- Indexes for table `employees`
---
-ALTER TABLE `employees`
-  ADD PRIMARY KEY (`employee_id`),
-  ADD UNIQUE KEY `employee_nik` (`employee_nik`),
-  ADD UNIQUE KEY `employee_email` (`employee_email`),
-  ADD KEY `fk_emp_dept` (`department_id`),
-  ADD KEY `fk_emp_pos` (`position_id`),
-  ADD KEY `fk_emp_supervisor` (`supervisor_id`);
-
---
--- Indexes for table `evaluation_periods`
---
-ALTER TABLE `evaluation_periods`
-  ADD PRIMARY KEY (`period_id`);
-
---
--- Indexes for table `final_results`
---
-ALTER TABLE `final_results`
-  ADD PRIMARY KEY (`result_id`),
-  ADD UNIQUE KEY `uq_result` (`employee_id`,`period_id`),
-  ADD KEY `fk_result_period` (`period_id`);
-
---
--- Indexes for table `notifications`
---
-ALTER TABLE `notifications`
-  ADD PRIMARY KEY (`notification_id`),
-  ADD KEY `fk_notif_user` (`user_id`),
-  ADD KEY `fk_notif_creator` (`created_by`);
-
---
--- Indexes for table `peer_assignments`
---
-ALTER TABLE `peer_assignments`
-  ADD PRIMARY KEY (`peer_assignment_id`),
-  ADD UNIQUE KEY `uq_peer_assignment` (`employee_id`,`peer_employee_id`,`period_id`),
-  ADD KEY `fk_peer_peer` (`peer_employee_id`),
-  ADD KEY `fk_peer_period` (`period_id`);
-
---
--- Indexes for table `positions`
---
-ALTER TABLE `positions`
-  ADD PRIMARY KEY (`position_id`);
-
---
--- Indexes for table `questions`
---
-ALTER TABLE `questions`
-  ADD PRIMARY KEY (`question_id`),
-  ADD KEY `fk_question_akhlak` (`akhlak_id`);
-
---
--- Indexes for table `roles`
---
-ALTER TABLE `roles`
-  ADD PRIMARY KEY (`role_id`),
-  ADD UNIQUE KEY `role_name` (`role_name`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `employee_id` (`employee_id`),
-  ADD UNIQUE KEY `username` (`username`),
-  ADD KEY `fk_user_role` (`role_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `akhlak_values`
---
-ALTER TABLE `akhlak_values`
-  MODIFY `akhlak_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `assessments`
---
-ALTER TABLE `assessments`
-  MODIFY `assessment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
--- AUTO_INCREMENT for table `assessment_details`
---
-ALTER TABLE `assessment_details`
-  MODIFY `assessment_detail_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `audit_logs`
---
-ALTER TABLE `audit_logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
-
---
--- AUTO_INCREMENT for table `departments`
---
-ALTER TABLE `departments`
-  MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `employees`
---
-ALTER TABLE `employees`
-  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `evaluation_periods`
---
-ALTER TABLE `evaluation_periods`
-  MODIFY `period_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `final_results`
---
-ALTER TABLE `final_results`
-  MODIFY `result_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `notifications`
---
-ALTER TABLE `notifications`
-  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
-
---
--- AUTO_INCREMENT for table `peer_assignments`
---
-ALTER TABLE `peer_assignments`
-  MODIFY `peer_assignment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT for table `positions`
---
-ALTER TABLE `positions`
-  MODIFY `position_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `questions`
---
-ALTER TABLE `questions`
-  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT for table `roles`
---
-ALTER TABLE `roles`
-  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
-<<<<<<< HEAD
-
-
--- ============================================================
--- APSI REVISION DUMMY DATA EXTENSION
--- Generated to complete SIPAKAR 360 dummy database for periods 1-4.
--- Existing employees/users/results from the original dump are preserved.
--- ============================================================
-
-INSERT INTO `employees` (`employee_id`, `department_id`, `position_id`, `supervisor_id`, `employee_nik`, `employee_name`, `employee_email`, `employee_phone`, `hire_date`, `employee_status`) VALUES
-(11, 1, 2, 2, 'PEN-0011', 'Salsabila Kirana', 'salsabila@sipakar.test', '081200000011', '2025-01-10', 'active'),
-(12, 2, 9, 3, 'PEN-0012', 'Raka Saputra', 'raka@sipakar.test', '081200000012', '2025-01-10', 'active'),
-(13, 3, 7, 3, 'PEN-0013', 'Maya Putri', 'maya@sipakar.test', '081200000013', '2025-01-10', 'active'),
-(14, 4, 3, 7, 'PEN-0014', 'Arief Setiawan', 'arief@sipakar.test', '081200000014', '2025-01-10', 'active'),
-(15, 4, 6, 14, 'PEN-0015', 'Lestari Dewi', 'lestari@sipakar.test', '081200000015', '2025-01-10', 'active'),
-(16, 2, 9, 3, 'PEN-0016', 'Rizky Pratama', 'rizky@sipakar.test', '081200000016', '2025-01-10', 'active'),
-(17, 1, 2, 2, 'PEN-0017', 'Siti Aminah', 'siti@sipakar.test', '081200000017', '2025-01-10', 'active'),
-(18, 3, 7, 3, 'PEN-0018', 'Bagas Firmansyah', 'bagas@sipakar.test', '081200000018', '2025-01-10', 'active');
-
-INSERT INTO `users` (`user_id`, `role_id`, `employee_id`, `username`, `password`, `last_login`, `account_status`) VALUES
-(13, 2, 11, 'salsabila', '123123', NULL, 'active'),
-(14, 2, 12, 'raka', '123123', NULL, 'active'),
-(15, 2, 13, 'maya', '123123', NULL, 'active'),
-(16, 3, 14, 'arief', '123123', NULL, 'active'),
-(17, 2, 15, 'lestari', '123123', NULL, 'active'),
-(18, 2, 16, 'rizky', '123123', NULL, 'active'),
-(19, 2, 17, 'siti', '123123', NULL, 'active'),
-(20, 2, 18, 'bagas', '123123', NULL, 'active');
-
-INSERT INTO `evaluation_periods` (`period_id`, `period_name`, `start_date`, `end_date`, `period_status`) VALUES
-(4, 'Evaluasi AKHLAK Semester 4 2027', '2027-01-01', '2027-06-30', 'closed');
-
-INSERT INTO `peer_assignments` (`peer_assignment_id`, `employee_id`, `peer_employee_id`, `period_id`, `approval_status`, `approved_by`) VALUES
-(17, 1, 11, 1, 'approved', 'Muhammad Gifary'),
-(18, 2, 17, 1, 'approved', 'Asep Dendeng'),
-(19, 3, 16, 1, 'approved', 'Joko Knalpot'),
-(20, 4, 3, 1, 'approved', 'Dimas Nugraha'),
-(21, 5, 15, 1, 'approved', 'Rama Pratama'),
-(22, 6, 13, 1, 'approved', 'Dimas Nugraha'),
-(23, 7, 9, 1, 'approved', 'Muhammad Gifary'),
-(24, 8, 3, 1, 'approved', 'Dimas Nugraha'),
-(25, 9, 10, 1, 'approved', 'Muhammad Gifary'),
-(26, 10, 13, 1, 'approved', 'Dimas Nugraha'),
-(27, 11, 17, 1, 'approved', 'Rama Pratama'),
-(28, 12, 3, 1, 'approved', 'Dimas Nugraha'),
-(29, 13, 9, 1, 'approved', 'Dimas Nugraha'),
-(30, 14, 5, 1, 'approved', 'Asep Dendeng'),
-(31, 15, 14, 1, 'approved', 'Arief Setiawan'),
-(32, 16, 3, 1, 'approved', 'Dimas Nugraha'),
-(33, 17, 11, 1, 'approved', 'Rama Pratama'),
-(34, 18, 10, 1, 'approved', 'Dimas Nugraha'),
-(35, 1, 11, 2, 'approved', 'Muhammad Gifary'),
-(36, 2, 17, 2, 'rejected', 'Asep Dendeng'),
-(37, 3, 16, 2, 'approved', 'Joko Knalpot'),
-(38, 4, 3, 2, 'approved', 'Dimas Nugraha'),
-(39, 5, 15, 2, 'approved', 'Rama Pratama'),
-(40, 6, 13, 2, 'approved', 'Dimas Nugraha'),
-(41, 7, 9, 2, 'approved', 'Muhammad Gifary'),
-(42, 8, 3, 2, 'approved', 'Dimas Nugraha'),
-(43, 9, 10, 2, 'approved', 'Muhammad Gifary'),
-(44, 10, 13, 2, 'approved', 'Dimas Nugraha'),
-(45, 11, 17, 2, 'approved', 'Rama Pratama'),
-(46, 12, 3, 2, 'approved', 'Dimas Nugraha'),
-(47, 13, 9, 2, 'approved', 'Dimas Nugraha'),
-(48, 14, 5, 2, 'approved', 'Asep Dendeng'),
-(49, 15, 14, 2, 'rejected', 'Arief Setiawan'),
-(50, 16, 3, 2, 'approved', 'Dimas Nugraha'),
-(51, 17, 11, 2, 'approved', 'Rama Pratama'),
-(52, 18, 10, 2, 'approved', 'Dimas Nugraha'),
-(53, 1, 11, 3, 'approved', 'Muhammad Gifary'),
-(54, 2, 17, 3, 'approved', 'Asep Dendeng'),
-(55, 3, 16, 3, 'approved', 'Joko Knalpot'),
-(56, 4, 3, 3, 'approved', 'Dimas Nugraha'),
-(57, 5, 15, 3, 'approved', 'Rama Pratama'),
-(58, 6, 13, 3, 'approved', 'Dimas Nugraha'),
-(59, 7, 9, 3, 'approved', 'Muhammad Gifary'),
-(60, 8, 3, 3, 'approved', 'Dimas Nugraha'),
-(61, 9, 10, 3, 'approved', 'Muhammad Gifary'),
-(62, 10, 13, 3, 'approved', 'Dimas Nugraha'),
-(63, 11, 17, 3, 'approved', 'Rama Pratama'),
-(64, 12, 3, 3, 'approved', 'Dimas Nugraha'),
-(65, 13, 9, 3, 'approved', 'Dimas Nugraha'),
-(66, 14, 5, 3, 'approved', 'Asep Dendeng'),
-(67, 15, 14, 3, 'approved', 'Arief Setiawan'),
-(68, 16, 3, 3, 'approved', 'Dimas Nugraha'),
-(69, 17, 11, 3, 'approved', 'Rama Pratama'),
-(70, 18, 10, 3, 'approved', 'Dimas Nugraha'),
-(71, 1, 11, 4, 'approved', 'Muhammad Gifary'),
-(72, 2, 17, 4, 'approved', 'Asep Dendeng'),
-(73, 3, 16, 4, 'approved', 'Joko Knalpot'),
-(74, 4, 3, 4, 'approved', 'Dimas Nugraha'),
-(75, 5, 15, 4, 'approved', 'Rama Pratama'),
-(76, 6, 13, 4, 'approved', 'Dimas Nugraha'),
-(77, 7, 9, 4, 'approved', 'Muhammad Gifary'),
-(78, 8, 3, 4, 'approved', 'Dimas Nugraha'),
-(79, 9, 10, 4, 'approved', 'Muhammad Gifary'),
-(80, 10, 13, 4, 'pending', NULL),
-(81, 11, 17, 4, 'approved', 'Rama Pratama'),
-(82, 12, 3, 4, 'approved', 'Dimas Nugraha'),
-(83, 13, 9, 4, 'pending', NULL),
-(84, 14, 5, 4, 'approved', 'Asep Dendeng'),
-(85, 15, 14, 4, 'pending', NULL),
-(86, 16, 3, 4, 'approved', 'Dimas Nugraha'),
-(87, 17, 11, 4, 'approved', 'Rama Pratama'),
-(88, 18, 10, 4, 'approved', 'Dimas Nugraha');
-
-INSERT INTO `assessments` (`assessment_id`, `evaluator_id`, `evaluatee_id`, `period_id`, `assessment_type`, `assessment_date`, `assessment_status`) VALUES
-(19, 7, 7, 1, 'self', '2026-06-12', 'submitted'),
-(20, 1, 7, 1, 'supervisor', '2026-06-12', 'submitted'),
-(21, 9, 7, 1, 'peer', '2026-06-12', 'submitted'),
-(22, 2, 7, 1, 'subordinate', '2026-06-12', 'submitted'),
-(23, 9, 9, 1, 'self', '2026-06-12', 'submitted'),
-(24, 1, 9, 1, 'supervisor', '2026-06-12', 'submitted'),
-(25, 10, 9, 1, 'peer', '2026-06-12', 'submitted'),
-(26, 10, 10, 1, 'self', '2026-06-12', 'submitted'),
-(27, 3, 10, 1, 'supervisor', '2026-06-12', 'submitted'),
-(28, 13, 10, 1, 'peer', '2026-06-12', 'submitted'),
-(29, 3, 10, 1, 'subordinate', '2026-06-12', 'submitted'),
-(30, 11, 11, 1, 'self', '2026-06-12', 'submitted'),
-(31, 2, 11, 1, 'supervisor', '2026-06-12', 'submitted'),
-(32, 17, 11, 1, 'peer', '2026-06-12', 'submitted'),
-(33, 12, 12, 1, 'self', '2026-06-12', 'submitted'),
-(34, 3, 12, 1, 'supervisor', '2026-06-12', 'submitted'),
-(35, 3, 12, 1, 'peer', '2026-06-12', 'submitted'),
-(36, 13, 13, 1, 'self', '2026-06-12', 'submitted'),
-(37, 3, 13, 1, 'supervisor', '2026-06-12', 'submitted'),
-(38, 9, 13, 1, 'peer', '2026-06-12', 'submitted'),
-(39, 14, 14, 1, 'self', '2026-06-12', 'submitted'),
-(40, 7, 14, 1, 'supervisor', '2026-06-12', 'submitted'),
-(41, 5, 14, 1, 'peer', '2026-06-12', 'submitted'),
-(42, 15, 14, 1, 'subordinate', '2026-06-12', 'submitted'),
-(43, 15, 15, 1, 'self', '2026-06-12', 'submitted'),
-(44, 14, 15, 1, 'supervisor', '2026-06-12', 'submitted'),
-(45, 14, 15, 1, 'peer', '2026-06-12', 'submitted'),
-(46, 16, 16, 1, 'self', '2026-06-12', 'submitted'),
-(47, 3, 16, 1, 'supervisor', '2026-06-12', 'submitted'),
-(48, 3, 16, 1, 'peer', '2026-06-12', 'submitted'),
-(49, 17, 17, 1, 'self', '2026-06-12', 'submitted'),
-(50, 2, 17, 1, 'supervisor', '2026-06-12', 'submitted'),
-(51, 11, 17, 1, 'peer', '2026-06-12', 'submitted'),
-(52, 18, 18, 1, 'self', '2026-06-12', 'submitted'),
-(53, 3, 18, 1, 'supervisor', '2026-06-12', 'submitted'),
-(54, 10, 18, 1, 'peer', '2026-06-12', 'submitted'),
-(55, 1, 1, 2, 'self', '2026-12-12', 'submitted'),
-(56, 11, 1, 2, 'peer', '2026-12-12', 'submitted'),
-(57, 7, 1, 2, 'subordinate', '2026-12-12', 'submitted'),
-(58, 2, 2, 2, 'self', '2026-12-12', 'submitted'),
-(59, 7, 2, 2, 'supervisor', '2026-12-12', 'submitted'),
-(60, 17, 2, 2, 'peer', '2026-12-12', 'submitted'),
-(61, 5, 2, 2, 'subordinate', '2026-12-12', 'submitted'),
-(62, 3, 3, 2, 'self', '2026-12-12', 'submitted'),
-(63, 10, 3, 2, 'supervisor', '2026-12-12', 'submitted'),
-(64, 16, 3, 2, 'peer', '2026-12-12', 'submitted'),
-(65, 4, 3, 2, 'subordinate', '2026-12-12', 'submitted'),
-(66, 4, 4, 2, 'self', '2026-12-12', 'submitted'),
-(67, 3, 4, 2, 'supervisor', '2026-12-12', 'submitted'),
-(68, 3, 4, 2, 'peer', '2026-12-12', 'submitted'),
-(69, 5, 5, 2, 'self', '2026-12-12', 'submitted'),
-(70, 2, 5, 2, 'supervisor', '2026-12-12', 'submitted'),
-(71, 15, 5, 2, 'peer', '2026-12-12', 'submitted'),
-(72, 6, 6, 2, 'self', '2026-12-12', 'submitted'),
-(73, 3, 6, 2, 'supervisor', '2026-12-12', 'submitted'),
-(74, 13, 6, 2, 'peer', '2026-12-12', 'submitted'),
-(75, 7, 7, 2, 'self', '2026-12-12', 'submitted'),
-(76, 1, 7, 2, 'supervisor', '2026-12-12', 'submitted'),
-(77, 9, 7, 2, 'peer', '2026-12-12', 'submitted'),
-(78, 2, 7, 2, 'subordinate', '2026-12-12', 'submitted'),
-(79, 8, 8, 2, 'self', '2026-12-12', 'submitted'),
-(80, 3, 8, 2, 'supervisor', '2026-12-12', 'submitted'),
-(81, 3, 8, 2, 'peer', '2026-12-12', 'submitted'),
-(82, 9, 9, 2, 'self', '2026-12-12', 'submitted'),
-(83, 1, 9, 2, 'supervisor', '2026-12-12', 'submitted'),
-(84, 10, 9, 2, 'peer', '2026-12-12', 'submitted'),
-(85, 10, 10, 2, 'self', '2026-12-12', 'submitted'),
-(86, 3, 10, 2, 'supervisor', '2026-12-12', 'submitted'),
-(87, 13, 10, 2, 'peer', '2026-12-12', 'submitted'),
-(88, 3, 10, 2, 'subordinate', '2026-12-12', 'submitted'),
-(89, 11, 11, 2, 'self', '2026-12-12', 'submitted'),
-(90, 2, 11, 2, 'supervisor', '2026-12-12', 'submitted'),
-(91, 17, 11, 2, 'peer', '2026-12-12', 'submitted'),
-(92, 12, 12, 2, 'self', '2026-12-12', 'submitted'),
-(93, 3, 12, 2, 'supervisor', '2026-12-12', 'submitted'),
-(94, 3, 12, 2, 'peer', '2026-12-12', 'submitted'),
-(95, 13, 13, 2, 'self', '2026-12-12', 'submitted'),
-(96, 3, 13, 2, 'supervisor', '2026-12-12', 'submitted'),
-(97, 9, 13, 2, 'peer', '2026-12-12', 'submitted'),
-(98, 14, 14, 2, 'self', '2026-12-12', 'submitted'),
-(99, 7, 14, 2, 'supervisor', '2026-12-12', 'submitted'),
-(100, 5, 14, 2, 'peer', '2026-12-12', 'submitted'),
-(101, 15, 14, 2, 'subordinate', '2026-12-12', 'submitted'),
-(102, 15, 15, 2, 'self', '2026-12-12', 'submitted'),
-(103, 14, 15, 2, 'supervisor', '2026-12-12', 'submitted'),
-(104, 14, 15, 2, 'peer', '2026-12-12', 'submitted'),
-(105, 16, 16, 2, 'self', '2026-12-12', 'submitted'),
-(106, 3, 16, 2, 'supervisor', '2026-12-12', 'submitted'),
-(107, 3, 16, 2, 'peer', '2026-12-12', 'submitted'),
-(108, 17, 17, 2, 'self', '2026-12-12', 'submitted'),
-(109, 2, 17, 2, 'supervisor', '2026-12-12', 'submitted'),
-(110, 11, 17, 2, 'peer', '2026-12-12', 'submitted'),
-(111, 18, 18, 2, 'self', '2026-12-12', 'submitted'),
-(112, 3, 18, 2, 'supervisor', '2026-12-12', 'submitted'),
-(113, 10, 18, 2, 'peer', '2026-12-12', 'submitted'),
-(114, 1, 1, 3, 'self', '2026-09-10', 'submitted'),
-(115, 11, 1, 3, 'peer', '2026-09-10', 'submitted'),
-(116, 7, 1, 3, 'subordinate', '2026-09-10', 'submitted'),
-(117, 2, 2, 3, 'self', '2026-09-10', 'submitted'),
-(118, 7, 2, 3, 'supervisor', '2026-09-10', 'submitted'),
-(119, 17, 2, 3, 'peer', '2026-09-10', 'submitted'),
-(120, 5, 2, 3, 'subordinate', '2026-09-10', 'submitted'),
-(121, 3, 3, 3, 'self', '2026-09-10', 'submitted'),
-(122, 10, 3, 3, 'supervisor', '2026-09-10', 'submitted'),
-(123, 16, 3, 3, 'peer', '2026-09-10', 'submitted'),
-(124, 4, 3, 3, 'subordinate', '2026-09-10', 'submitted'),
-(125, 4, 4, 3, 'self', '2026-09-10', 'submitted'),
-(126, 3, 4, 3, 'supervisor', '2026-09-10', 'submitted'),
-(127, 3, 4, 3, 'peer', '2026-09-10', 'submitted'),
-(128, 5, 5, 3, 'self', '2026-09-10', 'submitted'),
-(129, 2, 5, 3, 'supervisor', '2026-09-10', 'submitted'),
-(130, 15, 5, 3, 'peer', '2026-09-10', 'submitted'),
-(131, 6, 6, 3, 'self', '2026-09-10', 'submitted'),
-(132, 3, 6, 3, 'supervisor', '2026-09-10', 'submitted'),
-(133, 13, 6, 3, 'peer', '2026-09-10', 'submitted'),
-(134, 7, 7, 3, 'self', '2026-09-10', 'submitted'),
-(135, 1, 7, 3, 'supervisor', '2026-09-10', 'submitted'),
-(136, 9, 7, 3, 'peer', '2026-09-10', 'submitted'),
-(137, 2, 7, 3, 'subordinate', '2026-09-10', 'submitted'),
-(138, 8, 8, 3, 'self', '2026-09-10', 'submitted'),
-(139, 3, 8, 3, 'supervisor', '2026-09-10', 'submitted'),
-(140, 3, 8, 3, 'peer', '2026-09-10', 'submitted'),
-(141, 9, 9, 3, 'self', '2026-09-10', 'submitted'),
-(142, 1, 9, 3, 'supervisor', '2026-09-10', 'submitted'),
-(143, 10, 9, 3, 'peer', '2026-09-10', 'submitted'),
-(144, 10, 10, 3, 'self', '2026-09-10', 'submitted'),
-(145, 3, 10, 3, 'supervisor', '2026-09-10', 'submitted'),
-(146, 13, 10, 3, 'peer', '2026-09-10', 'submitted'),
-(147, 3, 10, 3, 'subordinate', '2026-09-10', 'submitted'),
-(148, 11, 11, 3, 'self', '2026-09-10', 'submitted'),
-(149, 2, 11, 3, 'supervisor', '2026-09-10', 'submitted'),
-(150, 17, 11, 3, 'peer', '2026-09-10', 'submitted'),
-(151, 12, 12, 3, 'self', '2026-09-10', 'submitted'),
-(152, 3, 12, 3, 'supervisor', '2026-09-10', 'submitted'),
-(153, 3, 12, 3, 'peer', '2026-09-10', 'submitted'),
-(154, 13, 13, 3, 'self', '2026-09-10', 'submitted'),
-(155, 3, 13, 3, 'supervisor', '2026-09-10', 'submitted'),
-(156, 9, 13, 3, 'peer', '2026-09-10', 'submitted'),
-(157, 14, 14, 3, 'self', '2026-09-10', 'submitted'),
-(158, 7, 14, 3, 'supervisor', '2026-09-10', 'submitted'),
-(159, 5, 14, 3, 'peer', '2026-09-10', 'submitted'),
-(160, 15, 14, 3, 'subordinate', '2026-09-10', 'submitted'),
-(161, 15, 15, 3, 'self', '2026-09-10', 'submitted'),
-(162, 14, 15, 3, 'supervisor', '2026-09-10', 'submitted'),
-(163, 14, 15, 3, 'peer', '2026-09-10', 'submitted'),
-(164, 16, 16, 3, 'self', '2026-09-10', 'submitted'),
-(165, 3, 16, 3, 'supervisor', '2026-09-10', 'submitted'),
-(166, 3, 16, 3, 'peer', '2026-09-10', 'submitted'),
-(167, 17, 17, 3, 'self', '2026-09-10', 'submitted'),
-(168, 2, 17, 3, 'supervisor', '2026-09-10', 'submitted'),
-(169, 11, 17, 3, 'peer', '2026-09-10', 'submitted'),
-(170, 18, 18, 3, 'self', '2026-09-10', 'submitted'),
-(171, 3, 18, 3, 'supervisor', '2026-09-10', 'submitted'),
-(172, 10, 18, 3, 'peer', '2026-09-10', 'submitted'),
-(173, 1, 1, 4, 'self', '2027-06-12', 'submitted'),
-(174, 11, 1, 4, 'peer', '2027-06-12', 'submitted'),
-(175, 7, 1, 4, 'subordinate', '2027-06-12', 'submitted'),
-(176, 2, 2, 4, 'self', '2027-06-12', 'submitted'),
-(177, 7, 2, 4, 'supervisor', '2027-06-12', 'submitted'),
-(178, 17, 2, 4, 'peer', '2027-06-12', 'submitted'),
-(179, 5, 2, 4, 'subordinate', '2027-06-12', 'submitted'),
-(180, 3, 3, 4, 'self', '2027-06-12', 'submitted'),
-(181, 10, 3, 4, 'supervisor', '2027-06-12', 'submitted'),
-(182, 16, 3, 4, 'peer', '2027-06-12', 'submitted'),
-(183, 4, 3, 4, 'subordinate', '2027-06-12', 'submitted'),
-(184, 4, 4, 4, 'self', '2027-06-12', 'submitted'),
-(185, 3, 4, 4, 'supervisor', '2027-06-12', 'submitted'),
-(186, 3, 4, 4, 'peer', '2027-06-12', 'submitted'),
-(187, 5, 5, 4, 'self', '2027-06-12', 'submitted'),
-(188, 2, 5, 4, 'supervisor', '2027-06-12', 'submitted'),
-(189, 15, 5, 4, 'peer', '2027-06-12', 'submitted'),
-(190, 6, 6, 4, 'self', '2027-06-12', 'submitted'),
-(191, 3, 6, 4, 'supervisor', '2027-06-12', 'submitted'),
-(192, 13, 6, 4, 'peer', '2027-06-12', 'submitted'),
-(193, 7, 7, 4, 'self', '2027-06-12', 'submitted'),
-(194, 1, 7, 4, 'supervisor', '2027-06-12', 'submitted'),
-(195, 9, 7, 4, 'peer', '2027-06-12', 'submitted'),
-(196, 2, 7, 4, 'subordinate', '2027-06-12', 'submitted'),
-(197, 8, 8, 4, 'self', '2027-06-12', 'submitted'),
-(198, 3, 8, 4, 'supervisor', '2027-06-12', 'submitted'),
-(199, 3, 8, 4, 'peer', '2027-06-12', 'submitted'),
-(200, 9, 9, 4, 'self', '2027-06-12', 'submitted'),
-(201, 1, 9, 4, 'supervisor', '2027-06-12', 'submitted'),
-(202, 10, 9, 4, 'peer', '2027-06-12', 'submitted'),
-(203, 10, 10, 4, 'self', '2027-06-12', 'submitted'),
-(204, 3, 10, 4, 'supervisor', '2027-06-12', 'submitted'),
-(205, 13, 10, 4, 'peer', '2027-06-12', 'submitted'),
-(206, 3, 10, 4, 'subordinate', '2027-06-12', 'submitted'),
-(207, 11, 11, 4, 'self', '2027-06-12', 'submitted'),
-(208, 2, 11, 4, 'supervisor', '2027-06-12', 'submitted'),
-(209, 17, 11, 4, 'peer', '2027-06-12', 'submitted'),
-(210, 12, 12, 4, 'self', '2027-06-12', 'submitted'),
-(211, 3, 12, 4, 'supervisor', '2027-06-12', 'submitted'),
-(212, 3, 12, 4, 'peer', '2027-06-12', 'submitted'),
-(213, 13, 13, 4, 'self', '2027-06-12', 'submitted'),
-(214, 3, 13, 4, 'supervisor', '2027-06-12', 'submitted'),
-(215, 9, 13, 4, 'peer', '2027-06-12', 'submitted'),
-(216, 14, 14, 4, 'self', '2027-06-12', 'submitted'),
-(217, 7, 14, 4, 'supervisor', '2027-06-12', 'submitted'),
-(218, 5, 14, 4, 'peer', '2027-06-12', 'submitted'),
-(219, 15, 14, 4, 'subordinate', '2027-06-12', 'submitted'),
-(220, 15, 15, 4, 'self', '2027-06-12', 'submitted'),
-(221, 14, 15, 4, 'supervisor', '2027-06-12', 'submitted'),
-(222, 14, 15, 4, 'peer', '2027-06-12', 'submitted'),
-(223, 16, 16, 4, 'self', '2027-06-12', 'submitted'),
-(224, 3, 16, 4, 'supervisor', '2027-06-12', 'submitted'),
-(225, 3, 16, 4, 'peer', '2027-06-12', 'submitted'),
-(226, 17, 17, 4, 'self', '2027-06-12', 'submitted'),
-(227, 2, 17, 4, 'supervisor', '2027-06-12', 'submitted'),
-(228, 11, 17, 4, 'peer', '2027-06-12', 'submitted'),
-(229, 18, 18, 4, 'self', '2027-06-12', 'submitted'),
-(230, 3, 18, 4, 'supervisor', '2027-06-12', 'submitted'),
-(231, 10, 18, 4, 'peer', '2027-06-12', 'submitted');
-
-INSERT INTO `assessment_details` (`assessment_detail_id`, `assessment_id`, `question_id`, `score`, `comment`) VALUES
+(270, 16, 13, 4, ''),
 (271, 19, 1, 5, ''),
 (272, 19, 2, 5, ''),
 (273, 19, 3, 5, ''),
@@ -3427,7 +2631,8 @@ INSERT INTO `assessment_details` (`assessment_detail_id`, `assessment_id`, `ques
 (2363, 193, 5, 5, ''),
 (2364, 193, 6, 5, ''),
 (2365, 193, 7, 5, ''),
-(2366, 193, 8, 5, ''),
+(2366, 193, 8, 5, '');
+INSERT INTO `assessment_details` (`assessment_detail_id`, `assessment_id`, `question_id`, `score`, `comment`) VALUES
 (2367, 193, 9, 5, ''),
 (2368, 193, 10, 5, ''),
 (2369, 193, 11, 5, ''),
@@ -3889,7 +3094,349 @@ INSERT INTO `assessment_details` (`assessment_detail_id`, `assessment_id`, `ques
 (2825, 231, 11, 3, ''),
 (2826, 231, 12, 2, '');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `audit_logs`
+--
+
+CREATE TABLE `audit_logs` (
+  `log_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `activity` varchar(255) NOT NULL,
+  `activity_time` datetime NOT NULL,
+  `ip_address` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `audit_logs`
+--
+
+INSERT INTO `audit_logs` (`log_id`, `user_id`, `activity`, `activity_time`, `ip_address`) VALUES
+(1, 1, 'Seed database imported', '2026-06-17 17:25:12', '127.0.0.1'),
+(2, 2, 'Membuat periode evaluasi AKHLAK', '2026-06-17 17:25:12', '127.0.0.1'),
+(3, 3, 'Memvalidasi peer assignment tim Operations', '2026-06-17 17:25:12', '127.0.0.1'),
+(4, 8, 'Mengisi self-assessment', '2026-06-17 17:25:12', '127.0.0.1'),
+(5, 1, 'Simpan periode evaluasi', '2026-06-17 17:25:32', '::1'),
+(6, 1, 'Membuat notifikasi', '2026-06-17 17:28:53', '::1'),
+(7, 1, 'Simpan periode evaluasi', '2026-06-17 17:29:01', '::1'),
+(8, 1, 'Kelola pertanyaan AKHLAK', '2026-06-17 17:29:20', '::1'),
+(9, 1, 'Tambah karyawan Joko Knalpot', '2026-06-17 17:32:00', '::1'),
+(10, 1, 'Kelola pertanyaan AKHLAK', '2026-06-17 17:33:12', '::1'),
+(11, 1, 'Tambah periode evaluasi Evaluasi AKHLAK Semester 3 2026', '2026-06-17 17:34:28', '::1'),
+(12, 1, 'Update peer assignment', '2026-06-17 17:34:59', '::1'),
+(13, 1, 'Submit assessment Self Assessment', '2026-06-17 17:35:16', '::1'),
+(14, 1, 'Update karyawan Anggit', '2026-06-17 17:37:07', '::1'),
+(15, 1, 'Update karyawan Salsabila Kirana', '2026-06-17 17:37:12', '::1'),
+(16, 1, 'Update karyawan Rama Pratama', '2026-06-17 17:37:16', '::1'),
+(17, 1, 'Update karyawan Dimas Nugraha', '2026-06-17 17:37:20', '::1'),
+(18, 1, 'Update karyawan Nadia Maharani', '2026-06-17 17:37:25', '::1'),
+(19, 1, 'Update karyawan Bima Arya', '2026-06-17 17:37:30', '::1'),
+(20, 1, 'Update karyawan Intan Wulandari', '2026-06-17 17:37:35', '::1'),
+(21, 1, 'Update karyawan Gifary', '2026-06-17 17:37:42', '::1'),
+(22, 1, 'Update karyawan Daffa Sayyid Zahran', '2026-06-17 17:37:47', '::1'),
+(23, 1, 'Update karyawan Anggit', '2026-06-17 17:37:51', '::1'),
+(24, 1, 'Logout dari sistem', '2026-06-17 17:37:55', '::1'),
+(25, 8, 'Login berhasil sebagai Karyawan', '2026-06-17 17:38:36', '::1'),
+(26, 8, 'Logout dari sistem', '2026-06-17 17:38:56', '::1'),
+(27, 1, 'Login berhasil sebagai Admin HR', '2026-06-17 17:39:30', '::1'),
+(28, 1, 'Tambah pertanyaan AKHLAK', '2026-06-17 17:39:53', '::1'),
+(29, 1, 'Tambah peer assignment', '2026-06-17 17:40:18', '::1'),
+(30, 1, 'Logout dari sistem', '2026-06-17 18:01:23', '::1'),
+(31, 1, 'Login berhasil sebagai Admin HR', '2026-06-17 18:02:05', '::1'),
+(32, 1, 'Logout dari sistem', '2026-06-17 18:07:39', '::1'),
+(33, 1, 'Login berhasil sebagai Admin HR', '2026-06-17 18:13:01', '::1'),
+(34, 1, 'Logout dari sistem', '2026-06-17 18:20:04', '::1'),
+(35, 1, 'Login berhasil sebagai Admin HR', '2026-06-17 18:22:23', '::1'),
+(36, 1, 'Logout dari sistem', '2026-06-17 18:31:39', '::1'),
+(37, 8, 'Login berhasil sebagai Karyawan', '2026-06-17 18:33:20', '::1'),
+(38, 8, 'Logout dari sistem', '2026-06-17 18:35:34', '::1'),
+(39, 3, 'Login berhasil sebagai Atasan', '2026-06-17 18:35:38', '::1'),
+(40, 3, 'Logout dari sistem', '2026-06-17 18:35:46', '::1'),
+(41, 2, 'Login berhasil sebagai Admin HR', '2026-06-17 18:35:52', '::1'),
+(42, 2, 'Logout dari sistem', '2026-06-17 18:36:01', '::1'),
+(43, 3, 'Login berhasil sebagai Atasan', '2026-06-17 18:36:05', '::1'),
+(44, 3, 'Logout dari sistem', '2026-06-17 18:38:10', '::1'),
+(45, 4, 'Login berhasil sebagai Karyawan', '2026-06-17 18:38:15', '::1'),
+(46, 4, 'Logout dari sistem', '2026-06-17 18:41:56', '::1'),
+(47, 1, 'Login berhasil sebagai Admin HR', '2026-06-17 18:41:58', '::1'),
+(48, 1, 'Logout dari sistem', '2026-06-17 18:43:12', '::1'),
+(49, 3, 'Login berhasil sebagai Atasan', '2026-06-17 18:43:17', '::1'),
+(50, 3, 'Logout dari sistem', '2026-06-17 18:45:52', '::1'),
+(51, 4, 'Login berhasil sebagai Karyawan', '2026-06-17 18:45:57', '::1'),
+(52, 4, 'Logout dari sistem', '2026-06-17 20:06:46', '::1'),
+(53, 1, 'Login berhasil sebagai Admin HR', '2026-06-17 20:06:49', '::1'),
+(54, 1, 'Logout dari sistem', '2026-06-17 20:36:55', '::1'),
+(55, 8, 'Login berhasil sebagai Karyawan', '2026-06-17 20:37:11', '::1'),
+(56, 8, 'Logout dari sistem', '2026-06-17 20:40:13', '::1'),
+(57, 7, 'Login berhasil sebagai Manajemen', '2026-06-17 20:40:21', '::1'),
+(58, 7, 'Logout dari sistem', '2026-06-17 21:12:57', '::1'),
+(59, 3, 'Login berhasil sebagai Atasan', '2026-06-17 21:13:50', '::1'),
+(60, 3, 'Logout dari sistem', '2026-06-17 21:30:42', '::1'),
+(61, 7, 'Login berhasil sebagai Manajemen', '2026-06-17 21:31:26', '::1'),
+(62, 7, 'Logout dari sistem', '2026-06-17 21:32:49', '::1'),
+(63, 3, 'Login berhasil sebagai Atasan', '2026-06-17 21:33:07', '::1'),
+(64, 3, 'Logout dari sistem', '2026-06-17 21:34:12', '::1'),
+(65, 8, 'Login berhasil sebagai Karyawan', '2026-06-17 21:34:34', '::1'),
+(66, 8, 'Logout dari sistem', '2026-06-18 11:56:40', '::1'),
+(67, 2, 'Login berhasil sebagai Admin HR', '2026-06-18 12:26:23', '::1'),
+(68, 2, 'Submit assessment Self Assessment', '2026-06-18 12:28:58', '::1'),
+(69, 2, 'Submit assessment Penilaian Bawahan', '2026-06-18 12:29:25', '::1'),
+(70, 2, 'Submit assessment Self Assessment', '2026-06-18 12:29:50', '::1'),
+(71, 2, 'Logout dari sistem', '2026-06-18 13:35:43', '::1'),
+(72, 1, 'Login berhasil sebagai Admin HR', '2026-06-18 13:37:21', '::1'),
+(73, 1, 'Update karyawan Muhammad Gifary', '2026-06-18 13:37:50', '::1'),
+(74, 1, 'Update karyawan Rama Pratama', '2026-06-18 13:39:47', '::1'),
+(75, 1, 'Update karyawan Dimas Nugraha', '2026-06-18 13:40:00', '::1'),
+(76, 1, 'Update karyawan Nadia Maharani', '2026-06-18 13:40:14', '::1'),
+(77, 1, 'Update karyawan Asep Dendeng', '2026-06-18 13:41:01', '::1'),
+(78, 1, 'Update karyawan Rama Pratama', '2026-06-18 13:41:22', '::1'),
+(79, 1, 'Update karyawan Anggit', '2026-06-18 13:41:33', '::1'),
+(80, 1, 'Update karyawan Joko Knalpot', '2026-06-18 13:41:55', '::1'),
+(81, 1, 'Update karyawan Rama Pratama', '2026-06-18 13:43:34', '::1'),
+(82, 1, 'Update karyawan Dimas Nugraha', '2026-06-18 13:43:57', '::1'),
+(83, 1, 'Update karyawan Asep Dendeng', '2026-06-18 13:44:19', '::1'),
+(84, 1, 'Update karyawan Asep Dendeng', '2026-06-18 13:44:30', '::1'),
+(85, 1, 'Update karyawan Joko Knalpot', '2026-06-18 13:45:08', '::1'),
+(86, 1, 'Update karyawan Bima Arya', '2026-06-18 13:45:42', '::1'),
+(87, 1, 'Update karyawan Muhammad Gifary', '2026-06-18 13:46:33', '::1'),
+(88, 1, 'Update karyawan Rama Pratama', '2026-06-18 13:46:39', '::1'),
+(89, 1, 'Update karyawan Dimas Nugraha', '2026-06-18 13:46:46', '::1'),
+(90, 1, 'Update karyawan Nadia Maharani', '2026-06-18 13:46:53', '::1'),
+(91, 1, 'Logout dari sistem', '2026-06-18 13:47:58', '::1'),
+(92, 1, 'Login berhasil sebagai Admin HR', '2026-06-18 13:57:10', '::1'),
+(93, 1, 'Submit assessment Self Assessment', '2026-06-18 14:08:42', '::1'),
+(94, 1, 'Submit assessment Self Assessment', '2026-06-18 14:09:05', '::1'),
+(95, 1, 'Submit assessment Self Assessment', '2026-06-18 14:09:10', '::1'),
+(96, 1, 'Update periode evaluasi Evaluasi AKHLAK Semester 1 2026', '2026-06-18 14:16:50', '::1'),
+(97, 1, 'Update periode evaluasi Evaluasi AKHLAK Semester 2 2026', '2026-06-18 14:17:12', '::1'),
+(98, 1, 'Tambah peer assignment', '2026-06-18 14:18:10', '::1'),
+(99, 1, 'Update peer assignment', '2026-06-18 14:18:17', '::1'),
+(100, 1, 'Logout dari sistem', '2026-06-18 14:18:34', '::1'),
+(101, 8, 'Login berhasil sebagai Karyawan', '2026-06-18 14:18:39', '::1'),
+(102, 8, 'Logout dari sistem', '2026-06-18 14:19:22', '::1'),
+(103, 1, 'Login berhasil sebagai Admin HR', '2026-06-18 14:19:27', '::1'),
+(104, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:34', '::1'),
+(105, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:35', '::1'),
+(106, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:37', '::1'),
+(107, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:38', '::1'),
+(108, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:39', '::1'),
+(109, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:40', '::1'),
+(110, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:40', '::1'),
+(111, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:41', '::1'),
+(112, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:42', '::1'),
+(113, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:42', '::1'),
+(114, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:44', '::1'),
+(115, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:45', '::1'),
+(116, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:55', '::1'),
+(117, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:21:57', '::1'),
+(118, 1, 'Tambah peer assignment', '2026-06-18 14:22:18', '::1'),
+(119, 1, 'Logout dari sistem', '2026-06-18 14:22:31', '::1'),
+(120, 8, 'Login berhasil sebagai Karyawan', '2026-06-18 14:22:44', '::1'),
+(121, 8, 'Logout dari sistem', '2026-06-18 14:22:54', '::1'),
+(122, 1, 'Login berhasil sebagai Admin HR', '2026-06-18 14:22:55', '::1'),
+(123, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:23:04', '::1'),
+(124, 1, 'Tambah peer assignment', '2026-06-18 14:23:12', '::1'),
+(125, 1, 'Logout dari sistem', '2026-06-18 14:23:37', '::1'),
+(126, 8, 'Login berhasil sebagai Karyawan', '2026-06-18 14:23:41', '::1'),
+(127, 8, 'Logout dari sistem', '2026-06-18 14:25:13', '::1'),
+(128, 1, 'Login berhasil sebagai Admin HR', '2026-06-18 14:25:14', '::1'),
+(129, 1, 'Update periode evaluasi Evaluasi AKHLAK Semester 2 2026', '2026-06-18 14:27:41', '::1'),
+(130, 1, 'Update periode evaluasi Evaluasi AKHLAK Semester 3 2026', '2026-06-18 14:27:44', '::1'),
+(131, 1, 'Logout dari sistem', '2026-06-18 14:27:45', '::1'),
+(132, 8, 'Login berhasil sebagai Karyawan', '2026-06-18 14:27:49', '::1'),
+(133, 8, 'Logout dari sistem', '2026-06-18 14:27:53', '::1'),
+(134, 9, 'Login berhasil sebagai Manajemen', '2026-06-18 14:27:57', '::1'),
+(135, 9, 'Logout dari sistem', '2026-06-18 14:28:06', '::1'),
+(136, 1, 'Login berhasil sebagai Admin HR', '2026-06-18 14:28:07', '::1'),
+(137, 1, 'Tambah peer assignment', '2026-06-18 14:28:36', '::1'),
+(138, 1, 'Logout dari sistem', '2026-06-18 14:28:39', '::1'),
+(139, 8, 'Login berhasil sebagai Karyawan', '2026-06-18 14:28:43', '::1'),
+(140, 8, 'Logout dari sistem', '2026-06-18 14:29:57', '::1'),
+(141, 1, 'Login berhasil sebagai Admin HR', '2026-06-18 14:29:59', '::1'),
+(142, 1, 'Logout dari sistem', '2026-06-18 14:39:36', '::1'),
+(143, 8, 'Login berhasil sebagai Karyawan', '2026-06-18 14:39:40', '::1'),
+(144, 8, 'Logout dari sistem', '2026-06-18 14:40:29', '::1'),
+(145, 1, 'Login berhasil sebagai Admin HR', '2026-06-18 14:40:31', '::1'),
+(146, 1, 'Tambah peer assignment', '2026-06-18 14:46:14', '::1'),
+(147, 1, 'Hapus/batalkan peer assignment', '2026-06-18 14:46:19', '::1'),
+(148, 1, 'Tambah peer assignment', '2026-06-18 14:46:54', '::1'),
+(149, 1, 'Tambah peer assignment', '2026-06-18 14:51:01', '::1'),
+(150, 1, 'Update pertanyaan AKHLAK', '2026-06-18 14:51:32', '::1'),
+(151, 1, 'Update periode evaluasi Evaluasi AKHLAK Semester 3 2026', '2026-06-18 14:52:30', '::1'),
+(152, 1, 'Update periode evaluasi Evaluasi AKHLAK Semester 1 2026', '2026-06-18 14:52:35', '::1'),
+(153, 1, 'Sinkronisasi Data HRIS dummy berhasil', '2026-06-20 08:30:00', '127.0.0.1'),
+(154, 1, 'Import dummy data periode 1-4', '2026-06-20 08:35:00', '127.0.0.1'),
+(155, 2, 'Validasi peer assignment Human Capital', '2026-06-20 09:10:00', '127.0.0.1'),
+(156, 3, 'Validasi peer assignment Operations', '2026-06-20 09:11:00', '127.0.0.1'),
+(157, 16, 'Validasi peer assignment Supply Chain', '2026-06-20 09:12:00', '127.0.0.1'),
+(158, 8, 'Submit assessment Peer Assessment', '2026-06-20 09:30:00', '127.0.0.1'),
+(159, 14, 'Submit assessment Self Assessment', '2026-06-20 09:32:00', '127.0.0.1'),
+(160, 2, 'Isi/Edit IDP bawahan Rama Pratama', '2026-06-20 10:00:00', '127.0.0.1'),
+(161, 3, 'Isi/Edit IDP bawahan Dimas Nugraha', '2026-06-20 10:05:00', '127.0.0.1'),
+(162, 7, 'Akses Talent Mapping Manajemen', '2026-06-20 10:30:00', '127.0.0.1'),
+(163, 9, 'Akses Report & IDP Organisasi', '2026-06-20 10:35:00', '127.0.0.1'),
+(164, 1, 'Login berhasil sebagai Admin HR', '2026-06-25 22:43:48', '::1'),
+(165, 1, 'Logout dari sistem', '2026-06-25 22:44:21', '::1'),
+(166, 8, 'Login berhasil sebagai Karyawan', '2026-06-25 22:44:32', '::1'),
+(167, 8, 'Logout dari sistem', '2026-06-25 22:45:01', '::1'),
+(168, 1, 'Login berhasil sebagai Admin HR', '2026-06-25 22:45:04', '::1'),
+(169, 1, 'Update periode evaluasi Evaluasi AKHLAK Semester 1 2026', '2026-06-25 22:45:11', '::1'),
+(170, 1, 'Update periode evaluasi Evaluasi AKHLAK Semester 4 2027', '2026-06-25 22:45:17', '::1'),
+(171, 1, 'Logout dari sistem', '2026-06-25 22:45:30', '::1'),
+(172, 8, 'Login berhasil sebagai Karyawan', '2026-06-25 22:45:34', '::1'),
+(173, 8, 'Logout dari sistem', '2026-06-25 22:47:07', '::1'),
+(174, 1, 'Login berhasil sebagai Admin HR', '2026-06-25 22:47:11', '::1'),
+(175, 1, 'Logout dari sistem', '2026-06-26 00:48:47', '::1'),
+(176, 2, 'Login berhasil sebagai Atasan', '2026-06-26 00:48:50', '::1'),
+(177, 2, 'Logout dari sistem', '2026-06-26 00:49:18', '::1'),
+(178, 1, 'Login berhasil sebagai Admin HR', '2026-06-26 00:49:20', '::1'),
+(179, 1, 'Logout dari sistem', '2026-06-26 00:49:40', '::1'),
+(180, 3, 'Login berhasil sebagai Atasan', '2026-06-26 00:49:42', '::1'),
+(181, 3, 'Logout dari sistem', '2026-06-26 00:50:58', '::1'),
+(182, 1, 'Login berhasil sebagai Admin HR', '2026-06-26 00:51:00', '::1'),
+(183, 1, 'Logout dari sistem', '2026-06-26 00:52:18', '::1'),
+(184, 16, 'Login berhasil sebagai Atasan', '2026-06-26 00:52:22', '::1'),
+(185, 16, 'Logout dari sistem', '2026-06-26 00:53:23', '::1'),
+(186, 1, 'Login berhasil sebagai Admin HR', '2026-06-26 00:53:25', '::1'),
+(187, 1, 'Update karyawan Dadang Kendil', '2026-06-26 00:58:53', '::1'),
+(188, 1, 'Update karyawan Bambang Knalpot Bocor', '2026-06-26 01:01:18', '::1'),
+(189, 1, 'Update karyawan badrun Tukang Ojek', '2026-06-26 01:04:31', '::1'),
+(190, 1, 'Update karyawan Tono Tabung Gas', '2026-06-26 01:05:02', '::1'),
+(191, 1, 'Update karyawan Agus Magic Com', '2026-06-26 01:05:29', '::1'),
+(192, 1, 'Update karyawan yudi Kuah Soto', '2026-06-26 01:06:03', '::1'),
+(193, 1, 'Update karyawan yudi Kuah Soto', '2026-06-26 01:07:28', '::1'),
+(194, 1, 'Update karyawan jaya Gang Buntu', '2026-06-26 01:08:18', '::1'),
+(195, 1, 'Update karyawan tatang Antapani', '2026-06-26 01:08:49', '::1'),
+(196, 1, 'Update karyawan slamet Anti Polisi', '2026-06-26 01:09:15', '::1'),
+(197, 1, 'Sinkronisasi Data HRIS', '2026-06-26 01:11:07', '::1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `departments`
+--
+
+CREATE TABLE `departments` (
+  `department_id` int(11) NOT NULL,
+  `department_name` varchar(100) NOT NULL,
+  `department_desc` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `departments`
+--
+
+INSERT INTO `departments` (`department_id`, `department_name`, `department_desc`) VALUES
+(1, 'Human Capital', 'Mengelola administrasi SDM, periode evaluasi, dan pengembangan karyawan'),
+(2, 'Operations', 'Mengelola proses operasional dan performansi lapangan'),
+(3, 'Finance', 'Mengelola keuangan dan kontrol biaya'),
+(4, 'Supply Chain', 'Mengelola pengadaan dan rantai pasok'),
+(5, 'Management', 'Manajemen strategis perusahaan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employees`
+--
+
+CREATE TABLE `employees` (
+  `employee_id` int(11) NOT NULL,
+  `department_id` int(11) NOT NULL,
+  `position_id` int(11) NOT NULL,
+  `supervisor_id` int(11) DEFAULT NULL,
+  `employee_nik` varchar(30) NOT NULL,
+  `employee_name` varchar(120) NOT NULL,
+  `employee_email` varchar(120) NOT NULL,
+  `employee_phone` varchar(30) DEFAULT NULL,
+  `hire_date` date DEFAULT NULL,
+  `employee_status` varchar(30) DEFAULT 'active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `employees`
+--
+
+INSERT INTO `employees` (`employee_id`, `department_id`, `position_id`, `supervisor_id`, `employee_nik`, `employee_name`, `employee_email`, `employee_phone`, `hire_date`, `employee_status`) VALUES
+(1, 1, 1, NULL, 'PEN-0001', 'Muhammad Gifary', 'gifary@sipakar.test', '081200000001', '2023-01-10', 'active'),
+(2, 1, 8, 7, 'PEN-0002', 'Rama Pratama', 'rama@sipakar.test', '081200000002', '2023-02-12', 'active'),
+(3, 2, 3, 10, 'PEN-0003', 'Dadang Kendil', 'dadang@sipakar.test', '081200000003', '2022-08-01', 'active'),
+(4, 2, 9, 3, 'PEN-0004', 'Nadia Maharani', 'nadia@sipakar.test', '081200000004', '2024-03-15', 'active'),
+(5, 4, 6, 2, 'PEN-0005', 'Bima Arya', 'bima@sipakar.test', '081200000005', '2024-05-20', 'active'),
+(6, 3, 7, 3, 'PEN-0006', 'Intan Wulandari', 'intan@sipakar.test', '081200000006', '2023-11-04', 'active'),
+(7, 5, 4, 1, 'PEN-0007', 'Asep Dendeng', 'asep@sipakar.test', '081200000007', '2021-07-01', 'active'),
+(8, 2, 2, 3, 'PEN-0008', 'Daffa Sayyid Zahran', 'daffa@sipakar.test', '081200000008', '2024-07-10', 'active'),
+(9, 3, 5, 1, 'PEN-0009', 'Anggit', 'anggit@sipakar.test', '09090909090', '2026-06-17', 'active'),
+(10, 3, 7, 3, 'PEN-0010', 'Joko Knalpot', 'joko@sipakar.test', '09090909090', '2026-06-17', 'active'),
+(11, 1, 2, 2, 'PEN-0011', 'slamet Anti Polisi', 'slamet@sipakar.test', '081200000011', '2025-01-10', 'active'),
+(12, 2, 9, 3, 'PEN-0012', 'tatang Antapani', 'tatang@sipakar.test', '081200000012', '2025-01-10', 'active'),
+(13, 3, 7, 3, 'PEN-0013', 'jaya Gang Buntu', 'jaya@sipakar.test', '081200000013', '2025-01-10', 'active'),
+(14, 4, 3, 7, 'PEN-0014', 'yudi Kuah Soto', 'yudi@sipakar.test', '081200000014', '2025-01-10', 'active'),
+(15, 4, 6, 14, 'PEN-0015', 'Agus Magic Com', 'Agus@sipakar.test', '081200000015', '2025-01-10', 'active'),
+(16, 2, 9, 3, 'PEN-0016', 'Tono Tabung Gas', 'Tono@sipakar.test', '081200000016', '2025-01-10', 'active'),
+(17, 1, 2, 2, 'PEN-0017', 'badrun Tukang Ojek', 'badrun@sipakar.test', '081200000017', '2025-01-10', 'active'),
+(18, 3, 7, 3, 'PEN-0018', 'Bambang Knalpot Bocor', 'bambang@sipakar.test', '081200000018', '2025-01-10', 'active');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `evaluation_periods`
+--
+
+CREATE TABLE `evaluation_periods` (
+  `period_id` int(11) NOT NULL,
+  `period_name` varchar(120) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `period_status` varchar(30) DEFAULT 'draft'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `evaluation_periods`
+--
+
+INSERT INTO `evaluation_periods` (`period_id`, `period_name`, `start_date`, `end_date`, `period_status`) VALUES
+(1, 'Evaluasi AKHLAK Semester 1 2026', '2026-01-01', '2026-06-30', 'closed'),
+(2, 'Evaluasi AKHLAK Semester 2 2026', '2026-07-01', '2026-12-31', 'closed'),
+(3, 'Evaluasi AKHLAK Semester 3 2026', '2026-06-17', '2026-09-17', 'closed'),
+(4, 'Evaluasi AKHLAK Semester 4 2027', '2027-01-01', '2027-06-30', 'active');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `final_results`
+--
+
+CREATE TABLE `final_results` (
+  `result_id` int(11) NOT NULL,
+  `employee_id` int(11) NOT NULL,
+  `period_id` int(11) NOT NULL,
+  `self_score` decimal(5,2) DEFAULT 0.00,
+  `peer_score` decimal(5,2) DEFAULT 0.00,
+  `subordinate_score` decimal(5,2) DEFAULT 0.00,
+  `supervisor_score` decimal(5,2) DEFAULT 0.00,
+  `final_score` decimal(5,2) DEFAULT 0.00,
+  `gap_analysis` varchar(500) DEFAULT NULL,
+  `idp_area` varchar(120) DEFAULT NULL,
+  `idp_plan` varchar(500) DEFAULT NULL,
+  `idp_target` varchar(255) DEFAULT NULL,
+  `idp_status` varchar(30) DEFAULT 'belum_dibuat',
+  `idp_updated_by` int(11) DEFAULT NULL,
+  `idp_updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `final_results`
+--
+
 INSERT INTO `final_results` (`result_id`, `employee_id`, `period_id`, `self_score`, `peer_score`, `subordinate_score`, `supervisor_score`, `final_score`, `gap_analysis`, `idp_area`, `idp_plan`, `idp_target`, `idp_status`, `idp_updated_by`, `idp_updated_at`) VALUES
+(1, 3, 1, '4.17', '0.00', '4.33', '0.00', '4.28', 'Area pengembangan utama: Kompeten. Rekomendasi IDP: penguatan coaching, feedback rutin, dan delegasi berbasis kompetensi.', 'Kompeten', 'Mengikuti pelatihan kompetensi teknis dan mentoring dengan atasan langsung.', 'Meningkatkan skor Kompeten dan konsistensi performa kerja.', 'final', 10, '2026-06-20 09:30:00'),
+(2, 4, 1, '4.42', '4.50', '0.00', '4.83', '4.70', 'Kinerja sangat baik. Fokus pengembangan: konsistensi inovasi dan dokumentasi kolaborasi.', 'Adaptif', 'Talent pool: penguatan Adaptif, mentoring lintas unit, dan penugasan project strategis.', 'Menjaga skor Adaptif minimal 4.50 dan siap menjadi role model budaya AKHLAK.', 'final', 3, '2026-06-20 09:30:00'),
+(3, 5, 1, '4.25', '4.08', '0.00', '4.25', '4.20', 'Kinerja baik. Fokus pengembangan: peningkatan inisiatif adaptif dan kompetensi teknis.', 'Kolaboratif', 'Coaching dan evaluasi bulanan untuk meningkatkan konsistensi nilai Kolaboratif.', 'Meningkatkan skor Kolaboratif minimal 0.20 pada periode berikutnya.', 'final', 2, '2026-06-20 09:30:00'),
+(4, 6, 1, '4.00', '0.00', '0.00', '3.92', '3.96', 'Kinerja baik. Fokus pengembangan: kecepatan adaptasi dan kolaborasi lintas fungsi.', 'Adaptif', 'Coaching dan evaluasi bulanan untuk meningkatkan konsistensi nilai Adaptif.', 'Meningkatkan skor Adaptif minimal 0.20 pada periode berikutnya.', 'draft', 3, '2026-06-20 09:30:00'),
+(5, 8, 1, '4.42', '4.33', '0.00', '4.83', '4.66', 'Kinerja sangat baik. Fokus pengembangan: persiapan peran talent pool dan penguatan leadership.', 'Loyal', 'Talent pool: penguatan Loyal, mentoring lintas unit, dan penugasan project strategis.', 'Menjaga skor Loyal minimal 4.50 dan siap menjadi role model budaya AKHLAK.', 'final', 3, '2026-06-20 09:30:00'),
+(6, 1, 1, '4.00', '0.00', '3.46', '0.00', '3.60', 'Area pengembangan utama: Harmonis dengan skor rata-rata 3.25. Perlu IDP terarah: pelatihan perilaku AKHLAK, evaluasi bulanan, dan pendampingan atasan.', 'Harmonis', 'Coaching dan evaluasi bulanan untuk meningkatkan konsistensi nilai Harmonis.', 'Meningkatkan skor Harmonis minimal 0.20 pada periode berikutnya.', 'final', 2, '2026-06-20 09:30:00'),
+(7, 2, 1, '3.00', '0.00', '0.00', '0.00', '3.00', 'Area pengembangan utama: Amanah dengan skor rata-rata 1.5. Prioritas pengembangan: coaching intensif, rencana perbaikan perilaku, dan monitoring HR.', 'Adaptif', 'Mengikuti coaching adaptasi teknologi dan evaluasi progres bulanan.', 'Meningkatkan skor Adaptif minimal ke 3.50 pada periode berikutnya.', 'draft', 7, '2026-06-20 09:30:00'),
 (8, 7, 1, '4.51', '4.54', '4.53', '4.64', '4.56', 'Kinerja sangat baik. Area yang tetap perlu dijaga: Kolaboratif. Rekomendasi: talent pool, mentoring, dan project leadership.', 'Kolaboratif', 'Talent pool: penguatan Kolaboratif, mentoring lintas unit, dan penugasan project strategis.', 'Menjaga skor Kolaboratif minimal 4.50 dan siap menjadi role model budaya AKHLAK.', 'final', 1, '2026-06-20 09:30:00'),
 (9, 9, 1, '4.53', '4.62', '0.00', '4.66', '4.58', 'Kinerja sangat baik. Area yang tetap perlu dijaga: Kompeten. Rekomendasi: talent pool, mentoring, dan project leadership.', 'Kompeten', 'Talent pool: penguatan Kompeten, mentoring lintas unit, dan penugasan project strategis.', 'Menjaga skor Kompeten minimal 4.50 dan siap menjadi role model budaya AKHLAK.', 'final', 1, '2026-06-20 09:30:00'),
 (10, 10, 1, '3.28', '3.16', '3.15', '3.12', '3.18', 'Skor berada di bawah threshold. Gap utama pada nilai Adaptif. Prioritas IDP: coaching intensif, pelatihan perilaku AKHLAK, dan monitoring atasan.', 'Adaptif', 'Program perbaikan prioritas pada nilai Adaptif: coaching intensif, pelatihan, dan monitoring dua mingguan.', 'Meningkatkan skor Adaptif hingga minimal 3.50 pada periode berikutnya.', 'draft', 3, '2026-06-20 09:30:00'),
@@ -3956,15 +3503,51 @@ INSERT INTO `final_results` (`result_id`, `employee_id`, `period_id`, `self_scor
 (71, 17, 4, '4.43', '4.46', '0.00', '4.56', '4.48', 'Kinerja baik. Gap utama pada nilai Amanah. Rekomendasi IDP: coaching rutin, target peningkatan perilaku, dan evaluasi berkala.', 'Amanah', 'Coaching dan evaluasi bulanan untuk meningkatkan konsistensi nilai Amanah.', 'Meningkatkan skor Amanah minimal 0.20 pada periode berikutnya.', 'final', 2, '2026-06-20 09:30:00'),
 (72, 18, 4, '3.76', '3.70', '0.00', '3.60', '3.66', 'Kinerja baik. Gap utama pada nilai Kolaboratif. Rekomendasi IDP: coaching rutin, target peningkatan perilaku, dan evaluasi berkala.', 'Kolaboratif', 'Coaching dan evaluasi bulanan untuk meningkatkan konsistensi nilai Kolaboratif.', 'Meningkatkan skor Kolaboratif minimal 0.20 pada periode berikutnya.', 'draft', 3, '2026-06-20 09:30:00');
 
-UPDATE `final_results` SET `idp_area`='Kompeten', `idp_plan`='Coaching dan evaluasi bulanan untuk meningkatkan konsistensi nilai Kompeten.', `idp_target`='Meningkatkan skor Kompeten minimal 0.20 pada periode berikutnya.', `idp_status`='final', `idp_updated_by`=10, `idp_updated_at`='2026-06-20 09:30:00' WHERE `result_id`=1;
-UPDATE `final_results` SET `idp_area`='Adaptif', `idp_plan`='Talent pool: penguatan Adaptif, mentoring lintas unit, dan penugasan project strategis.', `idp_target`='Menjaga skor Adaptif minimal 4.50 dan siap menjadi role model budaya AKHLAK.', `idp_status`='final', `idp_updated_by`=3, `idp_updated_at`='2026-06-20 09:30:00' WHERE `result_id`=2;
-UPDATE `final_results` SET `idp_area`='Kolaboratif', `idp_plan`='Coaching dan evaluasi bulanan untuk meningkatkan konsistensi nilai Kolaboratif.', `idp_target`='Meningkatkan skor Kolaboratif minimal 0.20 pada periode berikutnya.', `idp_status`='final', `idp_updated_by`=2, `idp_updated_at`='2026-06-20 09:30:00' WHERE `result_id`=3;
-UPDATE `final_results` SET `idp_area`='Adaptif', `idp_plan`='Coaching dan evaluasi bulanan untuk meningkatkan konsistensi nilai Adaptif.', `idp_target`='Meningkatkan skor Adaptif minimal 0.20 pada periode berikutnya.', `idp_status`='draft', `idp_updated_by`=3, `idp_updated_at`='2026-06-20 09:30:00' WHERE `result_id`=4;
-UPDATE `final_results` SET `idp_area`='Loyal', `idp_plan`='Talent pool: penguatan Loyal, mentoring lintas unit, dan penugasan project strategis.', `idp_target`='Menjaga skor Loyal minimal 4.50 dan siap menjadi role model budaya AKHLAK.', `idp_status`='final', `idp_updated_by`=3, `idp_updated_at`='2026-06-20 09:30:00' WHERE `result_id`=5;
-UPDATE `final_results` SET `idp_area`='Harmonis', `idp_plan`='Coaching dan evaluasi bulanan untuk meningkatkan konsistensi nilai Harmonis.', `idp_target`='Meningkatkan skor Harmonis minimal 0.20 pada periode berikutnya.', `idp_status`='final', `idp_updated_by`=2, `idp_updated_at`='2026-06-20 09:30:00' WHERE `result_id`=6;
-UPDATE `final_results` SET `idp_area`='Amanah', `idp_plan`='Program perbaikan prioritas pada nilai Amanah: coaching intensif, pelatihan, dan monitoring dua mingguan.', `idp_target`='Meningkatkan skor Amanah hingga minimal 3.50 pada periode berikutnya.', `idp_status`='draft', `idp_updated_by`=7, `idp_updated_at`='2026-06-20 09:30:00' WHERE `result_id`=7;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `notification_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `title` varchar(120) NOT NULL,
+  `message` varchar(500) NOT NULL,
+  `notification_type` varchar(50) DEFAULT 'info',
+  `is_read` tinyint(1) DEFAULT 0,
+  `created_at` datetime NOT NULL,
+  `created_by` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `notifications`
+--
 
 INSERT INTO `notifications` (`notification_id`, `user_id`, `title`, `message`, `notification_type`, `is_read`, `created_at`, `created_by`) VALUES
+(1, NULL, 'Periode Evaluasi Aktif', 'Periode Evaluasi AKHLAK Semester 1 2026 sedang berlangsung. Harap selesaikan penilaian sesuai batas waktu.', 'period', 0, '2026-06-17 17:25:12', 1),
+(2, 8, 'Reminder Penilaian', 'Daffa, masih ada penilaian peer yang perlu diselesaikan sebelum periode ditutup.', 'reminder', 0, '2026-06-17 17:25:12', 1),
+(3, 3, 'Validasi Peer Assignment', 'Terdapat daftar peer assignment yang perlu divalidasi oleh atasan.', 'approval', 0, '2026-06-17 17:25:12', 1),
+(7, NULL, 'Peer Assignment Diperbarui', 'Admin HR memperbarui daftar penilai silang.', 'assignment', 0, '2026-06-17 17:34:59', 1),
+(8, NULL, 'Assessment Submitted', 'Salsabila Kirana telah mengirim Self Assessment untuk Salsabila Kirana.', 'assessment', 0, '2026-06-17 17:35:16', 1),
+(9, NULL, 'Peer Assignment Diperbarui', 'Admin HR memperbarui daftar penilai silang.', 'assignment', 0, '2026-06-17 17:40:18', 1),
+(10, NULL, 'Assessment Submitted', 'Rama Pratama telah mengirim Self Assessment untuk Rama Pratama.', 'assessment', 0, '2026-06-18 12:28:58', 2),
+(11, NULL, 'Assessment Submitted', 'Rama Pratama telah mengirim Penilaian Bawahan untuk Salsabila Kirana.', 'assessment', 0, '2026-06-18 12:29:25', 2),
+(12, NULL, 'Assessment Submitted', 'Rama Pratama telah mengirim Self Assessment untuk Rama Pratama.', 'assessment', 0, '2026-06-18 12:29:50', 2),
+(13, NULL, 'Assessment Submitted', 'Muhammad Gifary telah mengirim Self Assessment untuk Muhammad Gifary.', 'assessment', 0, '2026-06-18 14:08:42', 1),
+(14, NULL, 'Assessment Submitted', 'Muhammad Gifary telah mengirim Self Assessment untuk Muhammad Gifary.', 'assessment', 0, '2026-06-18 14:09:05', 1),
+(15, NULL, 'Assessment Submitted', 'Muhammad Gifary telah mengirim Self Assessment untuk Muhammad Gifary.', 'assessment', 0, '2026-06-18 14:09:10', 1),
+(16, NULL, 'Periode Evaluasi Aktif', 'Periode Evaluasi AKHLAK Semester 2 2026 telah dibuka.', 'period', 0, '2026-06-18 14:17:12', 1),
+(17, NULL, 'Peer Assignment Diperbarui', 'Admin HR memperbarui daftar penilai silang.', 'assignment', 0, '2026-06-18 14:18:10', 1),
+(18, NULL, 'Peer Assignment Diperbarui', 'Admin HR memperbarui daftar penilai silang.', 'assignment', 0, '2026-06-18 14:18:17', 1),
+(19, NULL, 'Peer Assignment Diperbarui', 'Admin HR memperbarui daftar penilai silang.', 'assignment', 0, '2026-06-18 14:22:18', 1),
+(20, NULL, 'Peer Assignment Diperbarui', 'Admin HR memperbarui daftar penilai silang.', 'assignment', 0, '2026-06-18 14:23:12', 1),
+(21, NULL, 'Periode Evaluasi Aktif', 'Periode Evaluasi AKHLAK Semester 3 2026 telah dibuka.', 'period', 0, '2026-06-18 14:27:44', 1),
+(22, NULL, 'Peer Assignment Diperbarui', 'Admin HR memperbarui daftar penilai silang.', 'assignment', 0, '2026-06-18 14:28:36', 1),
+(23, NULL, 'Peer Assignment Diperbarui', 'Admin HR memperbarui daftar penilai silang.', 'assignment', 0, '2026-06-18 14:46:14', 1),
+(24, NULL, 'Peer Assignment Diperbarui', 'Admin HR memperbarui daftar penilai silang.', 'assignment', 0, '2026-06-18 14:46:54', 1),
+(25, NULL, 'Peer Assignment Diperbarui', 'Admin HR memperbarui daftar penilai silang.', 'assignment', 0, '2026-06-18 14:51:01', 1),
+(26, NULL, 'Periode Evaluasi Aktif', 'Periode Evaluasi AKHLAK Semester 1 2026 telah dibuka.', 'period', 0, '2026-06-18 14:52:35', 1),
 (27, NULL, 'Sinkronisasi HRIS Berhasil', 'Data karyawan berhasil disinkronkan dari sumber HRIS simulasi.', 'hris', 1, '2026-06-20 08:30:00', 1),
 (28, NULL, 'Reminder H-3 Periode Evaluasi', 'Periode evaluasi akan berakhir dalam 3 hari. Pengguna yang belum submit diminta segera menyelesaikan assessment.', 'reminder', 0, '2026-06-27 08:00:00', 1),
 (29, 2, 'Validasi Peer Assignment', 'Masih terdapat peer assignment pending yang perlu divalidasi oleh atasan.', 'approval', 0, '2026-06-20 09:15:00', 1),
@@ -3974,26 +3557,436 @@ INSERT INTO `notifications` (`notification_id`, `user_id`, `title`, `message`, `
 (33, 7, 'Laporan Organisasi Siap', 'Report & IDP organisasi periode evaluasi sudah dapat diakses.', 'report', 0, '2026-06-20 10:00:00', 1),
 (34, 9, 'Pegawai Threshold Terdeteksi', 'Terdapat pegawai dengan skor di bawah threshold yang perlu perhatian manajemen.', 'threshold', 0, '2026-06-20 10:15:00', 1),
 (35, 2, 'IDP Bawahan Perlu Diisi', 'Ada bawahan dengan status IDP belum final. Mohon lengkapi rekomendasi pengembangan.', 'idp', 0, '2026-06-20 10:20:00', 1),
-(36, 16, 'Validasi Peer Assignment', 'Terdapat assignment Supply Chain yang memerlukan validasi.', 'approval', 0, '2026-06-20 10:25:00', 1);
+(36, 16, 'Validasi Peer Assignment', 'Terdapat assignment Supply Chain yang memerlukan validasi.', 'approval', 0, '2026-06-20 10:25:00', 1),
+(37, NULL, 'Periode Evaluasi Aktif', 'Periode Evaluasi AKHLAK Semester 4 2027 telah dibuka.', 'period', 0, '2026-06-25 22:45:17', 1),
+(38, NULL, 'Sinkronisasi Data HRIS Berhasil', 'Data master karyawan berhasil disinkronkan. Total karyawan aktif: 18.', 'employee', 0, '2026-06-26 01:11:07', 1);
 
-INSERT INTO `audit_logs` (`log_id`, `user_id`, `activity`, `activity_time`, `ip_address`) VALUES
-(153, 1, 'Sinkronisasi Data HRIS dummy berhasil', '2026-06-20 08:30:00', '127.0.0.1'),
-(154, 1, 'Import dummy data periode 1-4', '2026-06-20 08:35:00', '127.0.0.1'),
-(155, 2, 'Validasi peer assignment Human Capital', '2026-06-20 09:10:00', '127.0.0.1'),
-(156, 3, 'Validasi peer assignment Operations', '2026-06-20 09:11:00', '127.0.0.1'),
-(157, 16, 'Validasi peer assignment Supply Chain', '2026-06-20 09:12:00', '127.0.0.1'),
-(158, 8, 'Submit assessment Peer Assessment', '2026-06-20 09:30:00', '127.0.0.1'),
-(159, 14, 'Submit assessment Self Assessment', '2026-06-20 09:32:00', '127.0.0.1'),
-(160, 2, 'Isi/Edit IDP bawahan Rama Pratama', '2026-06-20 10:00:00', '127.0.0.1'),
-(161, 3, 'Isi/Edit IDP bawahan Dimas Nugraha', '2026-06-20 10:05:00', '127.0.0.1'),
-(162, 7, 'Akses Talent Mapping Manajemen', '2026-06-20 10:30:00', '127.0.0.1'),
-(163, 9, 'Akses Report & IDP Organisasi', '2026-06-20 10:35:00', '127.0.0.1');
+-- --------------------------------------------------------
 
--- END APSI REVISION DUMMY DATA EXTENSION
+--
+-- Table structure for table `peer_assignments`
+--
 
+CREATE TABLE `peer_assignments` (
+  `peer_assignment_id` int(11) NOT NULL,
+  `employee_id` int(11) NOT NULL,
+  `peer_employee_id` int(11) NOT NULL,
+  `period_id` int(11) NOT NULL,
+  `approval_status` varchar(30) DEFAULT 'pending',
+  `approved_by` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-=======
->>>>>>> 666b495d3ac99b4d73941b9eed0cfefa50fc339f
+--
+-- Dumping data for table `peer_assignments`
+--
+
+INSERT INTO `peer_assignments` (`peer_assignment_id`, `employee_id`, `peer_employee_id`, `period_id`, `approval_status`, `approved_by`) VALUES
+(1, 4, 5, 1, 'cancelled', 'Dimas Nugraha'),
+(2, 4, 6, 1, 'cancelled', 'Dimas Nugraha'),
+(3, 5, 4, 1, 'approved', 'Dimas Nugraha'),
+(4, 6, 4, 1, 'approved', 'Dimas Nugraha'),
+(5, 8, 4, 1, 'approved', 'Dimas Nugraha'),
+(6, 8, 5, 1, 'pending', NULL),
+(7, 3, 4, 1, 'approved', 'Muhammad Gifary'),
+(8, 3, 8, 1, 'cancelled', 'Muhammad Gifary'),
+(12, 8, 9, 3, 'approved', NULL),
+(13, 9, 8, 3, 'approved', 'Rama'),
+(15, 3, 1, 3, 'approved', NULL),
+(16, 2, 1, 3, 'approved', NULL),
+(17, 1, 11, 1, 'approved', 'Muhammad Gifary'),
+(18, 2, 17, 1, 'approved', 'Asep Dendeng'),
+(19, 3, 16, 1, 'approved', 'Joko Knalpot'),
+(20, 4, 3, 1, 'approved', 'Dimas Nugraha'),
+(21, 5, 15, 1, 'approved', 'Rama Pratama'),
+(22, 6, 13, 1, 'approved', 'Dimas Nugraha'),
+(23, 7, 9, 1, 'approved', 'Muhammad Gifary'),
+(24, 8, 3, 1, 'approved', 'Dimas Nugraha'),
+(25, 9, 10, 1, 'approved', 'Muhammad Gifary'),
+(26, 10, 13, 1, 'approved', 'Dimas Nugraha'),
+(27, 11, 17, 1, 'approved', 'Rama Pratama'),
+(28, 12, 3, 1, 'approved', 'Dimas Nugraha'),
+(29, 13, 9, 1, 'approved', 'Dimas Nugraha'),
+(30, 14, 5, 1, 'approved', 'Asep Dendeng'),
+(31, 15, 14, 1, 'approved', 'Arief Setiawan'),
+(32, 16, 3, 1, 'approved', 'Dimas Nugraha'),
+(33, 17, 11, 1, 'approved', 'Rama Pratama'),
+(34, 18, 10, 1, 'approved', 'Dimas Nugraha'),
+(35, 1, 11, 2, 'approved', 'Muhammad Gifary'),
+(36, 2, 17, 2, 'rejected', 'Asep Dendeng'),
+(37, 3, 16, 2, 'approved', 'Joko Knalpot'),
+(38, 4, 3, 2, 'approved', 'Dimas Nugraha'),
+(39, 5, 15, 2, 'approved', 'Rama Pratama'),
+(40, 6, 13, 2, 'approved', 'Dimas Nugraha'),
+(41, 7, 9, 2, 'approved', 'Muhammad Gifary'),
+(42, 8, 3, 2, 'approved', 'Dimas Nugraha'),
+(43, 9, 10, 2, 'approved', 'Muhammad Gifary'),
+(44, 10, 13, 2, 'approved', 'Dimas Nugraha'),
+(45, 11, 17, 2, 'approved', 'Rama Pratama'),
+(46, 12, 3, 2, 'approved', 'Dimas Nugraha'),
+(47, 13, 9, 2, 'approved', 'Dimas Nugraha'),
+(48, 14, 5, 2, 'approved', 'Asep Dendeng'),
+(49, 15, 14, 2, 'rejected', 'Arief Setiawan'),
+(50, 16, 3, 2, 'approved', 'Dimas Nugraha'),
+(51, 17, 11, 2, 'approved', 'Rama Pratama'),
+(52, 18, 10, 2, 'approved', 'Dimas Nugraha'),
+(53, 1, 11, 3, 'approved', 'Muhammad Gifary'),
+(54, 2, 17, 3, 'approved', 'Asep Dendeng'),
+(55, 3, 16, 3, 'approved', 'Joko Knalpot'),
+(56, 4, 3, 3, 'approved', 'Dimas Nugraha'),
+(57, 5, 15, 3, 'approved', 'Rama Pratama'),
+(58, 6, 13, 3, 'approved', 'Dimas Nugraha'),
+(59, 7, 9, 3, 'approved', 'Muhammad Gifary'),
+(60, 8, 3, 3, 'approved', 'Dimas Nugraha'),
+(61, 9, 10, 3, 'approved', 'Muhammad Gifary'),
+(62, 10, 13, 3, 'approved', 'Dimas Nugraha'),
+(63, 11, 17, 3, 'approved', 'Rama Pratama'),
+(64, 12, 3, 3, 'approved', 'Dimas Nugraha'),
+(65, 13, 9, 3, 'approved', 'Dimas Nugraha'),
+(66, 14, 5, 3, 'approved', 'Asep Dendeng'),
+(67, 15, 14, 3, 'approved', 'Arief Setiawan'),
+(68, 16, 3, 3, 'approved', 'Dimas Nugraha'),
+(69, 17, 11, 3, 'approved', 'Rama Pratama'),
+(70, 18, 10, 3, 'approved', 'Dimas Nugraha'),
+(71, 1, 11, 4, 'approved', 'Muhammad Gifary'),
+(72, 2, 17, 4, 'approved', 'Asep Dendeng'),
+(73, 3, 16, 4, 'approved', 'Joko Knalpot'),
+(74, 4, 3, 4, 'approved', 'Dimas Nugraha'),
+(75, 5, 15, 4, 'approved', 'Rama Pratama'),
+(76, 6, 13, 4, 'approved', 'Dimas Nugraha'),
+(77, 7, 9, 4, 'approved', 'Muhammad Gifary'),
+(78, 8, 3, 4, 'approved', 'Dimas Nugraha'),
+(79, 9, 10, 4, 'approved', 'Muhammad Gifary'),
+(80, 10, 13, 4, 'pending', NULL),
+(81, 11, 17, 4, 'approved', 'Rama Pratama'),
+(82, 12, 3, 4, 'approved', 'Dimas Nugraha'),
+(83, 13, 9, 4, 'pending', NULL),
+(84, 14, 5, 4, 'approved', 'Asep Dendeng'),
+(85, 15, 14, 4, 'pending', NULL),
+(86, 16, 3, 4, 'approved', 'Dimas Nugraha'),
+(87, 17, 11, 4, 'approved', 'Rama Pratama'),
+(88, 18, 10, 4, 'approved', 'Dimas Nugraha');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `positions`
+--
+
+CREATE TABLE `positions` (
+  `position_id` int(11) NOT NULL,
+  `position_name` varchar(100) NOT NULL,
+  `position_level` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `positions`
+--
+
+INSERT INTO `positions` (`position_id`, `position_name`, `position_level`) VALUES
+(1, 'Admin HRIS', 'Admin HR'),
+(2, 'Staff', 'Staff'),
+(3, 'Atasan / Manager', 'Atasan'),
+(4, 'Manajemen', 'Manajemen'),
+(5, 'HR Development Officer', 'Admin HR'),
+(6, 'Procurement Analyst', 'Staff'),
+(7, 'Finance Analyst', 'Staff'),
+(8, 'Operations Manager', 'Atasan'),
+(9, 'Process Engineer', 'Staff');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `questions`
+--
+
+CREATE TABLE `questions` (
+  `question_id` int(11) NOT NULL,
+  `akhlak_id` int(11) NOT NULL,
+  `question_text` varchar(500) NOT NULL,
+  `question_category` varchar(80) DEFAULT 'Perilaku',
+  `question_status` varchar(30) DEFAULT 'active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `questions`
+--
+
+INSERT INTO `questions` (`question_id`, `akhlak_id`, `question_text`, `question_category`, `question_status`) VALUES
+(1, 1, 'Karyawan menunjukkan integritas dalam menjalankan pekerjaan dan menjaga kepercayaan perusahaan.', 'Perilaku', 'active'),
+(2, 1, 'Karyawan bertanggung jawab terhadap hasil kerja dan komitmen yang sudah disepakati.', 'Perilaku', 'active'),
+(3, 2, 'Karyawan mampu menyelesaikan pekerjaan sesuai standar kompetensi jabatannya.', 'Kompetensi', 'active'),
+(4, 2, 'Karyawan aktif belajar untuk meningkatkan kemampuan kerja.', 'Kompetensi', 'active'),
+(5, 3, 'Karyawan mampu menjaga hubungan kerja yang saling menghargai.', 'Perilaku', 'active'),
+(6, 3, 'Karyawan peduli terhadap kondisi rekan kerja dan lingkungan kerja.', 'Perilaku', 'active'),
+(7, 4, 'Karyawan menunjukkan dedikasi terhadap target dan kepentingan perusahaan.', 'Perilaku', 'active'),
+(8, 4, 'Karyawan menjaga nama baik perusahaan dalam aktivitas kerja.', 'Perilaku', 'active'),
+(9, 5, 'Karyawan mampu menyesuaikan diri terhadap perubahan proses kerja.', 'Perilaku', 'active'),
+(10, 5, 'Karyawan memberikan ide perbaikan atau inovasi pada pekerjaan.', 'Kompetensi', 'active'),
+(11, 6, 'Karyawan aktif bekerja sama dengan unit lain untuk menyelesaikan pekerjaan.', 'Perilaku', 'active'),
+(12, 6, 'Karyawan terbuka menerima masukan dan mendukung pencapaian target tim.', 'Perilaku', 'active'),
+(13, 6, 'testing', 'Perilaku', 'inactive');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roles`
+--
+
+CREATE TABLE `roles` (
+  `role_id` int(11) NOT NULL,
+  `role_name` varchar(50) NOT NULL,
+  `role_description` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`role_id`, `role_name`, `role_description`) VALUES
+(1, 'admin_hr', 'Mengelola master data, periode, pertanyaan, assignment, notifikasi, dan report'),
+(2, 'staff', 'Mengisi assessment dan melihat dashboard serta report pribadi'),
+(3, 'atasan', 'Memvalidasi penilai, melihat dashboard tim, dan membuat IDP bawahan'),
+(4, 'manajemen', 'Melihat dashboard eksekutif, top score, gap, talent mapping, dan laporan perusahaan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
+  `role_id` int(11) NOT NULL,
+  `employee_id` int(11) NOT NULL,
+  `username` varchar(80) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `last_login` datetime DEFAULT NULL,
+  `account_status` varchar(30) DEFAULT 'active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `role_id`, `employee_id`, `username`, `password`, `last_login`, `account_status`) VALUES
+(1, 1, 1, 'gifary', '123123', '2026-06-26 00:53:25', 'active'),
+(2, 3, 2, 'rama', '123123', '2026-06-26 00:48:50', 'active'),
+(3, 3, 3, 'dadang', '123123', '2026-06-26 00:49:42', 'active'),
+(4, 2, 4, 'nadia', '123123', '2026-06-17 18:45:57', 'active'),
+(5, 2, 5, 'bima', '123123', NULL, 'active'),
+(6, 2, 6, 'intan', '123123', NULL, 'active'),
+(7, 4, 7, 'manajemen', '123123', '2026-06-17 21:31:26', 'active'),
+(8, 2, 8, 'daffa', '123123', '2026-06-25 22:45:34', 'active'),
+(9, 4, 9, 'anggit', '123123', '2026-06-18 14:27:57', 'active'),
+(12, 2, 10, 'joko', '123123', NULL, 'active'),
+(13, 2, 11, 'slamet', '123123', NULL, 'active'),
+(14, 2, 12, 'tatang', '123123', NULL, 'active'),
+(15, 2, 13, 'jaya', '123123', NULL, 'active'),
+(16, 3, 14, 'yudi', '123123', '2026-06-26 00:52:22', 'active'),
+(17, 2, 15, 'Agus', '123123', NULL, 'active'),
+(18, 2, 16, 'Tono', '123123', NULL, 'active'),
+(19, 2, 17, 'badrun', '123123', NULL, 'active'),
+(20, 2, 18, 'bambang', '123123', NULL, 'active');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `akhlak_values`
+--
+ALTER TABLE `akhlak_values`
+  ADD PRIMARY KEY (`akhlak_id`);
+
+--
+-- Indexes for table `assessments`
+--
+ALTER TABLE `assessments`
+  ADD PRIMARY KEY (`assessment_id`),
+  ADD UNIQUE KEY `uq_assessment_once` (`evaluator_id`,`evaluatee_id`,`period_id`,`assessment_type`),
+  ADD KEY `fk_assess_evaluatee` (`evaluatee_id`),
+  ADD KEY `fk_assess_period` (`period_id`);
+
+--
+-- Indexes for table `assessment_details`
+--
+ALTER TABLE `assessment_details`
+  ADD PRIMARY KEY (`assessment_detail_id`),
+  ADD UNIQUE KEY `uq_answer` (`assessment_id`,`question_id`),
+  ADD KEY `fk_detail_question` (`question_id`);
+
+--
+-- Indexes for table `audit_logs`
+--
+ALTER TABLE `audit_logs`
+  ADD PRIMARY KEY (`log_id`),
+  ADD KEY `fk_audit_user` (`user_id`);
+
+--
+-- Indexes for table `departments`
+--
+ALTER TABLE `departments`
+  ADD PRIMARY KEY (`department_id`);
+
+--
+-- Indexes for table `employees`
+--
+ALTER TABLE `employees`
+  ADD PRIMARY KEY (`employee_id`),
+  ADD UNIQUE KEY `employee_nik` (`employee_nik`),
+  ADD UNIQUE KEY `employee_email` (`employee_email`),
+  ADD KEY `fk_emp_dept` (`department_id`),
+  ADD KEY `fk_emp_pos` (`position_id`),
+  ADD KEY `fk_emp_supervisor` (`supervisor_id`);
+
+--
+-- Indexes for table `evaluation_periods`
+--
+ALTER TABLE `evaluation_periods`
+  ADD PRIMARY KEY (`period_id`);
+
+--
+-- Indexes for table `final_results`
+--
+ALTER TABLE `final_results`
+  ADD PRIMARY KEY (`result_id`),
+  ADD UNIQUE KEY `uq_result` (`employee_id`,`period_id`),
+  ADD KEY `fk_result_period` (`period_id`);
+
+--
+-- Indexes for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`notification_id`),
+  ADD KEY `fk_notif_user` (`user_id`),
+  ADD KEY `fk_notif_creator` (`created_by`);
+
+--
+-- Indexes for table `peer_assignments`
+--
+ALTER TABLE `peer_assignments`
+  ADD PRIMARY KEY (`peer_assignment_id`),
+  ADD UNIQUE KEY `uq_peer_assignment` (`employee_id`,`peer_employee_id`,`period_id`),
+  ADD KEY `fk_peer_peer` (`peer_employee_id`),
+  ADD KEY `fk_peer_period` (`period_id`);
+
+--
+-- Indexes for table `positions`
+--
+ALTER TABLE `positions`
+  ADD PRIMARY KEY (`position_id`);
+
+--
+-- Indexes for table `questions`
+--
+ALTER TABLE `questions`
+  ADD PRIMARY KEY (`question_id`),
+  ADD KEY `fk_question_akhlak` (`akhlak_id`);
+
+--
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`role_id`),
+  ADD UNIQUE KEY `role_name` (`role_name`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `employee_id` (`employee_id`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD KEY `fk_user_role` (`role_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `akhlak_values`
+--
+ALTER TABLE `akhlak_values`
+  MODIFY `akhlak_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `assessments`
+--
+ALTER TABLE `assessments`
+  MODIFY `assessment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=232;
+
+--
+-- AUTO_INCREMENT for table `assessment_details`
+--
+ALTER TABLE `assessment_details`
+  MODIFY `assessment_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2827;
+
+--
+-- AUTO_INCREMENT for table `audit_logs`
+--
+ALTER TABLE `audit_logs`
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=198;
+
+--
+-- AUTO_INCREMENT for table `departments`
+--
+ALTER TABLE `departments`
+  MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `employees`
+--
+ALTER TABLE `employees`
+  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `evaluation_periods`
+--
+ALTER TABLE `evaluation_periods`
+  MODIFY `period_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `final_results`
+--
+ALTER TABLE `final_results`
+  MODIFY `result_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+
+--
+-- AUTO_INCREMENT for table `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
+--
+-- AUTO_INCREMENT for table `peer_assignments`
+--
+ALTER TABLE `peer_assignments`
+  MODIFY `peer_assignment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+
+--
+-- AUTO_INCREMENT for table `positions`
+--
+ALTER TABLE `positions`
+  MODIFY `position_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `questions`
+--
+ALTER TABLE `questions`
+  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
 --
 -- Constraints for dumped tables
 --
@@ -4061,14 +4054,6 @@ ALTER TABLE `questions`
 ALTER TABLE `users`
   ADD CONSTRAINT `fk_user_employee` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`employee_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_user_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`);
-<<<<<<< HEAD
-
--- Sample IDP data for revised Report & IDP feature
-UPDATE `final_results` SET `idp_area`='Adaptif', `idp_plan`='Mengikuti coaching adaptasi teknologi dan evaluasi progres bulanan.', `idp_target`='Meningkatkan skor Adaptif minimal ke 3.50 pada periode berikutnya.', `idp_status`='draft' WHERE `result_id`=7;
-UPDATE `final_results` SET `idp_area`='Kompeten', `idp_plan`='Mengikuti pelatihan kompetensi teknis dan mentoring dengan atasan langsung.', `idp_target`='Meningkatkan skor Kompeten dan konsistensi performa kerja.', `idp_status`='final' WHERE `result_id`=1;
-
-=======
->>>>>>> 666b495d3ac99b4d73941b9eed0cfefa50fc339f
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
